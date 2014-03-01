@@ -1,0 +1,14 @@
+data/formatted/medecins_exploitables.csv:
+	. scripts/format_exploitables_medecins.sh
+
+data/formatted/medecins_inexploitables.csv: data/raw/header_medecins_inexploitables data/raw/medecins_inexploitables.csv
+	. scripts/format_inexploitables_medecins.sh
+
+data/formatted/dentistes.csv: data/raw/dentistes.csv
+	python scripts/format_dentistes.py data/raw/dentistes.csv $@
+data/formatted/pharmaciens.csv: data/raw/pharmaciens.csv
+	python scripts/format_pharmaciens.py data/raw/pharmaciens.csv $@
+
+clean:
+	rm -f data/formatted/*.csv
+	rm -f data/refined/*.csv
