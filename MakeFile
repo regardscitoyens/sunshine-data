@@ -1,4 +1,11 @@
 
+REFINED_FILES = ${shell ls data/refined/*.csv}
+
+data/all.json: data/all.csv
+	csvjson data/all.csv > $@
+data/all.csv: ${REFINED_FILES}
+	csvstack ${REFINED_FILES} > $@
+
 data/refined/medecins_inexploitables.csv: data/formatted/medecins_inexploitables.csv scripts/apply_refine_operations.py
 	python scripts/apply_refine_operations.py data/formatted/medecins_inexploitables.csv data/refine_operations/medecins_inexploitables.json $@
 data/refined/medecins_exploitables.csv: data/formatted/medecins_exploitables.csv scripts/apply_refine_operations.py
