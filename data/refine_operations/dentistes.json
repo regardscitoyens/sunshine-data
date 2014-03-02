@@ -1,0 +1,914 @@
+[
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column BENEF_PS_QUALIFICATION",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "BENEF_PS_QUALIFICATION",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Dentiste",
+          "DENTISTE",
+          "dentiste"
+        ],
+        "to": "Dentiste"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "CHIRURGIEN DENTISTE",
+          "Chirurgien dentiste"
+        ],
+        "to": "Chirurgien dentiste"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "DOCTEUR",
+          "Docteur"
+        ],
+        "to": "Docteur"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column BENEF_PS_QUALIFICATION",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "BENEF_PS_QUALIFICATION",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Chirurgien-dentiste",
+          "Chirurgien dentiste"
+        ],
+        "to": "Chirurgien dentiste"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column BENEF_PS_QUALIFICATION",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "BENEF_PS_QUALIFICATION",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "PROFESSEUR"
+        ],
+        "to": "Professeur"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "TRANSPORT",
+          "Transport",
+          "transport"
+        ],
+        "to": "Transport"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Hébergement",
+          "hébergement",
+          "HEBERGEMENT"
+        ],
+        "to": "Hébergement"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Repas",
+          "REPAS",
+          "repas"
+        ],
+        "to": "Restauration"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "FLEURS",
+          "Fleurs"
+        ],
+        "to": "Fleurs"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "HOTEL",
+          "hôtel"
+        ],
+        "to": "Hébergement"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "taxi",
+          "Taxi"
+        ],
+        "to": "Transport"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Restauration",
+          "RESTAURATION"
+        ],
+        "to": "Restauration"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Financement Communication CONGRES EGYPTE HURGADA (Avion) - convention orateur du 25/04/2012",
+          "Financement Communication CONGRES HONG-KONG (Déplacement avion) - convention orateur du 25/04/2012",
+          "Financement Communication CONGRES HONG-KONG (Hébergement 4 nuits) - convention orateur du 25/04/2012",
+          "Financement Communication CONGRES HONG-KONG (Visa) - convention orateur du 25/04/2012"
+        ],
+        "to": "Congrès"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Produits RTR Cônes",
+          "Produits RTR Cônes et Granules",
+          "Produits RTR Cônes, Granules et Seringues"
+        ],
+        "to": "Produits"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Chèque Cadeaux",
+          "Chèque Cadeau"
+        ],
+        "to": "Chèque Cadeau"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Déjeuner",
+          "diner"
+        ],
+        "to": "Restauration"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Déjeuner - Réunion de travail retour d'information utilisation produit GlassBONE",
+          "Diner - Réunion de travail retour d'information utilisation produit GlassBONE"
+        ],
+        "to": "Restauration"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "billet d'avion",
+          "Billet d'avions"
+        ],
+        "to": "Transport"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "billets d'avion",
+          "billet d'avion"
+        ],
+        "to": "Transport"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Produits",
+          "Produit RTR"
+        ],
+        "to": "Produits"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Restauration",
+          "Restaurant"
+        ],
+        "to": "Restauration"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "FRAIS DE BOUCHE",
+          "FRAIS DE BOUCHE GEPI"
+        ],
+        "to": "Restauration"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "VOYAGE",
+          "Voyage SFOP"
+        ],
+        "to": "Transport"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Coffret Biodentine",
+          "Produit Biodentine"
+        ],
+        "to": "Produits"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Location salle",
+          "Location matériel"
+        ],
+        "to": "Location salle"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Diner SFPIO Alsace",
+          "Hotel+Diner SFPIO Alsace"
+        ],
+        "to": "Restauration et hébergement"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Restauration",
+          "Frais de Restauration"
+        ],
+        "to": "Restauration"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "transfert aéroport",
+          "transfert"
+        ],
+        "to": "Transport"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Produits",
+          "Produit Poignée USP",
+          "Produit Racegel"
+        ],
+        "to": "Produits"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "réception",
+          "réceptions et hospitalité"
+        ],
+        "to": "Réception"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Hébergement",
+          "Restauration et hébergement"
+        ],
+        "to": "Hébergement"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Restauration",
+          "Restauration et hébergement"
+        ],
+        "to": "Restauration"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "ticket de vol",
+          "hotel et ticket d'entrée"
+        ],
+        "to": "Transport"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Produits",
+          "Produits Apiclor + Tubusolv"
+        ],
+        "to": "Produits"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Produits",
+          "Produit Racegel"
+        ],
+        "to": "Produits"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Frais d'hospitalité",
+          "réceptions et hospitalité"
+        ],
+        "to": "Hébergement"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Invitation déjeuner",
+          "hotel et petit-déjeuner"
+        ],
+        "to": "Restauration"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "FRAIS DE BOUCHE + MONTRE SFPIO-GABA",
+          "MONTRE SFPIO-GABA"
+        ],
+        "to": "Restauration et cadeaux"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "hotel et petit-déjeuner",
+          "hotel et ticket d'entrée"
+        ],
+        "to": "Hébergement"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "MONTRE SFPIO-GABA",
+          "PRIX SFPIO"
+        ],
+        "to": "Cadeau"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "INVITATION SEMINAIRE",
+          "PARTICIPATION ORGANISATION DE SEMINAIRE"
+        ],
+        "to": "Séminaire"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "avion"
+        ],
+        "to": "Transport"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "apéritif et diner"
+        ],
+        "to": "Restauration"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Cadeau de valeur négligeable dans le cadre de l'exercice professionnel"
+        ],
+        "to": "Cadeau"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Champagne"
+        ],
+        "to": "Champagne"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Chèque prise en charge Note de frais Hôtel+transport ADF"
+        ],
+        "to": "Hébergement et transport"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "COLLATION"
+        ],
+        "to": "Restauration"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Déjeuner préparation CONSEURO"
+        ],
+        "to": "Restauration"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Déplacement Marseille/Saint-Maur pour inauguration labo Septodont"
+        ],
+        "to": "Transport"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Echantillons suite accord de collaboration signé en 2011"
+        ],
+        "to": "Produits"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "FRAIS DE BOUCHE (conférence débat erosion Bordeaux)"
+        ],
+        "to": "Restauration"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Frais de déplacement"
+        ],
+        "to": "Transport"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "goûter"
+        ],
+        "to": "Restauration"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "HOSPITALITE"
+        ],
+        "to": "Hébergement"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Hotel SFOP"
+        ],
+        "to": "Hébergement"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Hotel Soirée Conférence débat EROSION"
+        ],
+        "to": "Hébergement"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Inscription congrès SFOP"
+        ],
+        "to": "Congrès"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "NOURRITURE"
+        ],
+        "to": "Restauration"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "PRISE EN CHARGE DÉPLACEMENT"
+        ],
+        "to": "Transport"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "REPAS SC"
+        ],
+        "to": "Restauration"
+      }
+    ]
+  }
+]

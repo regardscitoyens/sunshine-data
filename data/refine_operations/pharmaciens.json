@@ -1,0 +1,415 @@
+[
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column BENEF_PS_QUALIFICATION",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "BENEF_PS_QUALIFICATION",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "PHARMACIEN(NE)",
+          "Pharmacien(ne)",
+          "Pharmacienne",
+          "PHARMACIENNE",
+          "pharmacienne",
+          "pharmacien(ne)"
+        ],
+        "to": "Pharmacien"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "PHARMACIEN TITULAIRE",
+          "Pharmacien titulaire",
+          "pharmacien titulaire",
+          "Pharmacien Titulaire"
+        ],
+        "to": "Pharmacien"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Pharmacien",
+          "PHARMACIEN",
+          "pharmacien",
+          "pHARMACIEN"
+        ],
+        "to": "Pharmacien"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Pharmacien adjoint",
+          "Pharmacien Adjoint",
+          "PHARMACIEN ADJOINT",
+          "pharmacien adjoint"
+        ],
+        "to": "Pharmacien"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "MME",
+          "Mme"
+        ],
+        "to": "Autres"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "PROFESSEUR",
+          "Professeur"
+        ],
+        "to": "Professeur"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Monsieur",
+          "MONSIEUR"
+        ],
+        "to": "Autres"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Pharmacien assistant",
+          "ASSISTANT PHARMACIEN"
+        ],
+        "to": "Pharmacien"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "M",
+          "M."
+        ],
+        "to": "Autres"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Infirmier(e)",
+          "Infirmière"
+        ],
+        "to": "Autres"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Pharmacienne assistante",
+          "PHARMACIENNE ASSISTANTE"
+        ],
+        "to": "Pharmacien"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "PREPARATRICE EN PHARMACIE",
+          "Préparatrice en pharmacie"
+        ],
+        "to": "Préparatrice en pharmacie"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "PHARMACIENNE ADJOINTE",
+          "Pharmacienne adjointe"
+        ],
+        "to": "Pharmacien"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Docteur en Pharmacie",
+          "Docteur en pharmacie"
+        ],
+        "to": "Docteur en Pharmacie"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "MR",
+          "Mr"
+        ],
+        "to": "Autres"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "DOCTEUR",
+          "Docteur"
+        ],
+        "to": "Docteur"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Pharmacien d'officine",
+          "Pharmacien D'Officine"
+        ],
+        "to": "Pharmacien d'officine"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Pharmacien hospitalier",
+          "pharmacien hospitalier"
+        ],
+        "to": "Pharmacien hospitalier"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Madame",
+          "MADAME"
+        ],
+        "to": "Autres"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Titulaire",
+          "titulaire"
+        ],
+        "to": "Pharmacien titulaire"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Mademoiselle",
+          "MADEMOISELLE"
+        ],
+        "to": "Autres"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column BENEF_PS_QUALIFICATION",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "BENEF_PS_QUALIFICATION",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Pharmacien-Praticien hospitalier",
+          "Pharmacien praticien hospitalier"
+        ],
+        "to": "Pharmacien praticien hospitalier"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "CHEF-DE-SERVICE",
+          "Chef de Service"
+        ],
+        "to": "Chef de Service"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column BENEF_PS_QUALIFICATION",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "BENEF_PS_QUALIFICATION",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Pharmacien d'officine",
+          "Pharmacien d'officine Section A"
+        ],
+        "to": "Pharmacien d'officine"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column BENEF_PS_QUALIFICATION",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "BENEF_PS_QUALIFICATION",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Pharmacien",
+          "Phamacien"
+        ],
+        "to": "Pharmacien"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Pharmacien",
+          "Pharmacie"
+        ],
+        "to": "Pharmacien"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column BENEF_PS_QUALIFICATION",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "BENEF_PS_QUALIFICATION",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Pharmacien d'officine",
+          "Pharmacie(n) officine"
+        ],
+        "to": "Pharmacien d'officine"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Préparatrice en pharmacie",
+          "Preparatrice Pharmacie"
+        ],
+        "to": "Préparateur en pharmacie"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Pharmacien",
+          "COPHARMACIEN"
+        ],
+        "to": "Pharmacien"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Pharmacien",
+          "PHARMA"
+        ],
+        "to": "Pharmacien"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Préparatrice en pharmacie",
+          "Préparateur en Pharmacie"
+        ],
+        "to": "Préparateur en pharmacie"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column BENEF_PS_QUALIFICATION",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "BENEF_PS_QUALIFICATION",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Pharmacien titulaire",
+          "Titulaire en Pharmacie"
+        ],
+        "to": "Pharmacien titulaire"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column BENEF_PS_QUALIFICATION",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "BENEF_PS_QUALIFICATION",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Pharmacien hospitalier",
+          "Pharmacien praticien hospitalier"
+        ],
+        "to": "Pharmacien hospitalier"
+      },
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Pharmacien",
+          "Pharmacien gérant"
+        ],
+        "to": "Pharmacien"
+      }
+    ]
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column LABO using expression jython:return value[:-1]",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "LABO",
+    "expression": "jython:return value[:-1]",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "value",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "DECL_NATURE",
+          "omitBlank": false,
+          "columnName": "DECL_NATURE",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": "Contrat de formateur",
+                "l": "Contrat de formateur"
+              }
+            }
+          ]
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Hebergement"
+        ],
+        "to": "Hébergement"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "REPAS"
+        ],
+        "to": "Restauration"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "HOSPITALITE"
+        ],
+        "to": "Frais d'hospitalité"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column DECL_AVANT_NATURE",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "DECL_AVANT_NATURE",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Hospitalité"
+        ],
+        "to": "Frais d'hospitalité"
+      }
+    ]
+  }
+]
