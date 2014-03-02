@@ -8,6 +8,8 @@ data/formatted/dentistes.csv: data/raw/dentistes.csv
 	python scripts/format_dentistes.py data/raw/dentistes.csv $@
 data/formatted/pharmaciens.csv: data/raw/pharmaciens.csv
 	python scripts/format_pharmaciens.py data/raw/pharmaciens.csv $@
+data/formatted/infirmiers.csv: data/raw/infirmiers.csv
+	python scripts/format_infirmiers.py data/raw/infirmiers.csv $@
 
 clean:
 	rm -f data/formatted/*.csv
