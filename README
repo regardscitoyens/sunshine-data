@@ -1,0 +1,2 @@
+Dependencies: cvskit
+$ pip install csvkit
