@@ -65,6 +65,4 @@ df['ORIGIN'] = 'Infirmier'
 for origin, target in header_mapping.items():
     df[target] = df[origin]
 
-print df['DECL_AVANT_MONTANT'].sum()
-
 df[header_mapping.values()].to_csv(output_filename, index=False, encoding='utf-8')
