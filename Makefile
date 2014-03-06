@@ -1,5 +1,5 @@
 
-REFINED_FILES = data/refined/medecins_inexploitables.csv data/refined/medecins_exploitables.csv data/refined/dentistes.csv data/refined/pharmaciens.csv data/refined/sagefemmes.csv
+REFINED_FILES = data/refined/medecins_inexploitables.csv data/refined/dentistes.csv data/refined/pharmaciens.csv data/refined/sagefemmes.csv #data/refined/medecins_exploitables.csv
 
 data/all.json: data/all.csv
 	csvjson data/all.csv > $@
