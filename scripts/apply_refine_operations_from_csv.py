@@ -10,23 +10,13 @@ operation_field = sys.argv[3]
 output_filename = sys.argv[4]
 
 df = pd.read_csv(input_filename, encoding='utf-8')
-operations = pd.read_csv(open(operation_filename), encoding='utf-8', index_col='Column')
-
-keys = df[operation_field].unique()
-
-print keys
+operations = pd.read_csv(open(operation_filename), encoding='utf-8', index_col=0, squeeze=True )
+df[operation_field] = df[operation_field].fillna('UNKNOWN')
+keys = np.unique(np.append(df[operation_field].unique(), operations.index.values))
 
 operations = operations.reindex(keys).fillna(value='UNKNOWN')
-print operations
-for k in keys:
-    if not operations[k]:
-        print k+" pas présent"
-
 operations.to_csv(operation_filename+".new", encoding='utf-8')
-
-df[operation_field].fillna('')
-
-df[operation_field] = operations[df[operation_field]]
+df[operation_field] = df[operation_field].apply(lambda labo: operations[labo])
 
 df.to_csv(output_filename, encoding='utf-8', index=False)
 
