@@ -1,4 +1,9 @@
 *~
 data/raw/*
-data/formated/*
+data/formatted/*
 *gz
+data/all.csv
+data/refined/*
+data/tmp
+data/convert
+data/unifier/*.new
