@@ -1,4 +1,3 @@
-,Autre
 """formation """"techniques modernes de cimentation (déplacement ,hotel ,repas)""",Formations
 -,Autre
 1 Déjeuner,Restauration
@@ -149,6 +148,7 @@ Cadeau de valeur négligeable-Clé USB,Produits électroniques
 Cadeau de valeur n�gligeable utilisable dans le cadre de l'exercice professionnel,Cadeaux divers
 Cadeau naissance,Cadeaux divers
 Cadeaux,Cadeaux divers
+Cadeaux  Chocolats,Confiseries / Fleurs
 Cadeaux < à 30 ,Cadeaux divers
 Cadeaux Chocolats,Confiseries / Fleurs
 Cadeaux de valeur négligeable,Cadeaux divers
@@ -929,6 +929,7 @@ REPAS RNT,Restauration
 REPAS SC,Restauration
 "REPAS, COCKTAILS, BUFFETS",Restauration
 RESTAURANT,Restauration
+RESTAURANT SARL GINER BOUISSET  (3 COUVERTS),Restauration
 RESTAURANT SARL GINER BOUISSET (3 COUVERTS),Restauration
 RESTAURATIN,Restauration
 RESTAURATION,Restauration
@@ -1294,6 +1295,7 @@ pause,Pauses cafés
 pause café,Pauses cafés
 petit-déjeuner,Petit-déjeuners
 pizza,Restauration
+plateau repas préparé par  restaurant,Restauration
 plateau repas préparé par restaurant,Restauration
 prix pedo Toulouse,Autre
 péages,Transport
