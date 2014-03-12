@@ -14,8 +14,8 @@ for dirname, dirnames, filenames in os.walk(operation_dirname):
         if not re.search('csv$', operation_filename):
             continue
         operation_field = re.sub('.*/([^\.]*)\.csv', '\\1', operation_filename)
-        df = pd.read_csv(input_filename, encoding='utf-8')
-        operations = pd.read_csv(open(operation_filename), encoding='utf-8', index_col=0, squeeze=True )
+        df = pd.read_csv(input_filename, encoding='utf-8', low_memory=False)
+        operations = pd.read_csv(open(operation_filename), encoding='utf-8', index_col=0, squeeze=True)
         df[operation_field] = df[operation_field].fillna('UNKNOWN')
         keys = np.unique(np.append(df[operation_field].unique(), operations.index.values))
         
