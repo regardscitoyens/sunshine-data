@@ -1,6 +1,6 @@
 
 REFINED_FILES = data/refined/medecins_inexploitables.csv data/refined/dentistes.csv data/refined/pharmaciens.csv data/refined/sagefemmes.csv #data/refined/medecins_exploitables.csv
-UNIFIER_DATA = data/unifier/DECL_AVANT_NATURE.csv data/unifier/LABO.csv
+UNIFIER_DATA = data/unifier/DECL_AVANT_NATURE.csv data/unifier/LABO.csv data/unifier/BENEF_PS_QUALIFICATION.csv
 
 data/all.json: data/all.csv
 	csvjson data/all.csv > $@
