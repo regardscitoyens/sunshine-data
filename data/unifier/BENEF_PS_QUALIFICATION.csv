@@ -15,7 +15,7 @@ Service bloc,Bloc opératoire
 Thoracique et cardiovasculaire,Chirurgie cardiovasculaire et thoracique
 Service Bloc,Bloc opératoire
 Service phamarcie,Pharmacologie
-Cancers digestifs,Cancérologie
+Cancers digestifs,Oncologie
 infirmieres,Infirmier
 Chef de bloc,Cadre
 Endo pneumologie,Pneumologie
@@ -26,7 +26,7 @@ Cadre Sup service endoscopie,Endoscopie
 Infirmière endosocpie,Endoscopie
 Cardiologue interventionnel,Cardiologie
 Chirurgien Cardio Vasculaire,Chirurgie cardiovasculaire et thoracique
-biomédical,Biomedicale
+biomédical,Biologie médicale
 Infirmière,Infirmier
 Médecin interne,Médecine interne
 Dermatologie,Dermatologie
@@ -104,7 +104,7 @@ Médecine Génerale,Médecine générale
 Medecine interne,Médecine interne
 pneumologie,Pneumologie
 Oto rhino laryngologie,Oto-rhino-laryngologie
-Cardio-Renal,Cardiologie rénale
+Cardio-Renal,Cardiologie
 Geriatrie gerontologie,Gérontologie
 Médecine Interne,Médecine interne
 Med générale,Médecine générale
@@ -113,7 +113,7 @@ Radiologie,Radiologie
 Cardiologie,Cardiologie
 Gastroentérologie,Gastro-entérologie
 Chirurgie oncologique,Oncologie
-Chirurgie digestive,Chirurgie digestive
+Chirurgie digestive,Chirurgie viscérale et digestive
 Chirurgie thoracique,Chirurgie cardiovasculaire et thoracique
 Chirurgie gynecologique,Gynécologie
 Psychiatre,Psychiatrie
@@ -124,7 +124,7 @@ Manipulateur radio,Radiologie
 Chirurgie vasculaire,Chirurgie cardiovasculaire et thoracique
 Médecine Générale,Médecine générale
 Rhumatologie,Rhumatologie
-Chirurgie generale,Chirurgie générale
+Chirurgie generale,Chirurgie
 Chirurgie Viscérale et Digestive,Chirurgie viscérale et digestive
 Nutrition,Nutrition
 Radiothérapie,Radiothérapie
@@ -194,7 +194,7 @@ Chirurgie Orthopédique et traumatologique,Chirurgie orthopédique et traumatolo
 Hépato-Gastroentérologie,Gastro-entérologie
 Chirurgie neurologique,Neurologie
 Oncologie Médicale,Oncologie
-Cancérologie,Cancérologie
+Cancérologie,Oncologie
 Gastro entero/Oncologie,Oncologie
 nephrologue,Néphrologie
 NEPHROLOGUE,Néphrologie
@@ -204,7 +204,7 @@ Gastro Enterologie,Gastro-entérologie
 psychiatre,Psychiatrie
 Méd interne,Médecine interne
 Pharm Hospital,Pharmacologie
-Chirurgie Digestive,Chirurgie digestive
+Chirurgie Digestive,Chirurgie viscérale et digestive
 Onco-carc-cancér,Oncologie
 Chirurgie Orhopédique,Chirurgie orthopédique et traumatologique
 rhumatologie,Rhumatologie
@@ -218,7 +218,7 @@ Gériatrie,Gérontologie
 Oncologie Radiothérapie,Oncologie
 oncologue,Oncologie
 Oncobiologie Moléculaire,Oncologie
-Chir générale,Chirurgie générale
+Chir générale,Chirurgie
 Cancérologie Radiothérapie,Oncologie
 ophtalmologie,Ophtalmologie
 Gastro Entérologie,Gastro-entérologie
@@ -240,10 +240,10 @@ CARDIOLOGUE,Cardiologie
 Anatomo-pathologie,Anatomo-pathologie
 Anesthesie-Reanimation,Anesthésie réanimation
 Assistant Medecin,Interne
-Biomedicale,Biomedicale
+Biomedicale,Biologie médicale
 Cadre de Santé,Cadre
-Chir. Digestive,Chirurgie digestive
-Chir. Générale,Chirurgie générale
+Chir. Digestive,Chirurgie viscérale et digestive
+Chir. Générale,Chirurgie
 Chir. Neurologique,Neurologie
 Chir. Oncologique,Oncologie
 Chir. Thoracique,Chirurgie cardiovasculaire et thoracique
@@ -270,7 +270,7 @@ Traitement De La Douleur,Traitement de la douleur
 ONCOLOGIE HEMATOLOGIE THERAPIE CELLULAIRE,Oncologie
 HEMATOLOGUE,Hématologie
 CHIRURGIE ORTHOPEDIQUE ET TRAUMATOLOGIE,Chirurgie orthopédique et traumatologique
-CHIRURGIE GENERALE,Chirurgie générale
+CHIRURGIE GENERALE,Chirurgie
 CHIRURGIE THORACIQUE ET CARDIO-VASCULAIRE,Chirurgie cardiovasculaire et thoracique
 MEDECINE GENERALE NON QUALIFIEE,Médecine générale
 Médecin,Médecine générale
@@ -293,12 +293,12 @@ ChirurgieN Vasculaire,Chirurgie cardiovasculaire et thoracique
 Chirurgie Vasculalre,Chirurgie cardiovasculaire et thoracique
 Gynécologie obstetrique,Gynécologie
 urologie,Urologie
-chirurgien général,Chirurgie générale
+chirurgien général,Chirurgie
 Chirurgie Viscérale,Chirurgie viscérale et digestive
-Chirurgie Générale,Chirurgie générale
+Chirurgie Générale,Chirurgie
 Chirurgie urologique,Urologie
 Oncologie option radiotherapie,Oncologie
-Chirurgie générale,Chirurgie générale
+Chirurgie générale,Chirurgie
 Chir.visc & Dig,Chirurgie viscérale et digestive
 Anesthésie-réanimation,Anesthésie réanimation
 Anesthésie réanimation,Anesthésie réanimation
@@ -396,14 +396,14 @@ RÃ©animaton,Anesthésie réanimation
 gÃ©nÃ©raliste,Médecine générale
 Medecin Vasculaire,Cardiologie
 Cardiaque et Vasc,Chirurgie cardiovasculaire et thoracique
-CARD ET VASCCHU TOURS,Chirurgie cardiaque
+CARD ET VASCCHU TOURS,Chirurgie cardiovasculaire et thoracique
 VASC ET THORACIQUEPOLY,Chirurgie cardiovasculaire et thoracique
 Radiologie Interventionnel,Radiologie
 Chir vasc,Chirurgie cardiovasculaire et thoracique
 AnesthÃ©sie-rÃ©animation,Anesthésie réanimation
 VASC ET THORaciqueCHU BREST,Chirurgie cardiovasculaire et thoracique
 Chirurgie viscÃ©rale et digestive,Chirurgie viscérale et digestive
-Chirurgie gÃ©nÃ©rale,Chirurgie générale
+Chirurgie gÃ©nÃ©rale,Chirurgie
 AnesthÃ©sie-RÃ©animation,Anesthésie réanimation
 Radio-diagnostic,Radiologie
 Radiodiagnostic et Imagerie MÃ©dicale,Radiologie
@@ -419,7 +419,7 @@ MÃ©decine physique et rÃ©adaptation fonctionnelle,Médecine physique et de r
 Otho-rhino-laryngologie,Oto-rhino-laryngologie
 GynÃ©cologie,Gynécologie
 Chirurgie Thoraciq. & Cardio Vasc.,Chirurgie cardiovasculaire et thoracique
-Chir.GÃ©nÃ©ral,Chirurgie générale
+Chir.GÃ©nÃ©ral,Chirurgie
 Chir.ViscÃ©rale,Chirurgie viscérale et digestive
 Chir.visc & GÃ©n.,Chirurgie viscérale et digestive
 OncogÃ©n. MÃ©d.GÃ©n.,Oncologie
@@ -436,7 +436,7 @@ Chir GynÃ©co,Gynécologie
 PÃ©diatrie,Pédiatrie
 MÃ©decin interniste,Médecine interne
 Gastro-entÃ©rologue,Gastro-entérologie
-Chirurgie GÃ©nÃ©rale,Chirurgie générale
+Chirurgie GÃ©nÃ©rale,Chirurgie
 Chirurgie Thoraciq.& Vasc.,Chirurgie cardiovasculaire et thoracique
 Oncologie option radiothÃ©rapie,Oncologie
 chirurgie urologie / CancÃ©rologue,Urologie
@@ -454,8 +454,8 @@ Rythmologue,Rythmologie
 Coronarographiste,Coronarographie
 Electrophysiologie,Electrophysiologie
 MG,Médecine générale
-EN,En
-UT,Ut
+EN,Error
+UT,Error
 PE,
 AQ,Aq
 AV,Av
@@ -464,7 +464,7 @@ AR,Ar
 DA,Da
 DT,Dt
 GY,Gynécologie
-MI,Mi
+MI,Médecine interne
 DV,Dv
 BIOLOGISTE,Biologie médicale
 CHIR.ORTHO.,Chirurgie orthopédique et traumatologique
@@ -492,7 +492,7 @@ RÉ-ÉDUCATEUR,Rééducation fonctionnelle
 UROLOGUE,Urologie
 -,
 ANGEIOLOGIE,Médecine vasculaire
-ECHOGRAPHIE GÉNÉRALE,Echographie générale
+ECHOGRAPHIE GÉNÉRALE,Echographie
 MEDECINE APPLIQUEE AUX SPORTS,Médecine du sport
 REANIMATION MEDICALE,Anesthésie réanimation
 ECHOCARDIOGRAPHIE,Echocardiographie
@@ -534,10 +534,10 @@ GERIATRIE,Gérontologie
 ANESTHESISTE,Anesthésie réanimation
 GASTRO-ENTEROLOGUE,Gastro-entérologie
 ANESTHESISTE-REANIMATEUR,Anesthésie réanimation
-CHIRURGIEN DIGESTIF,Chirurgie digestive
+CHIRURGIEN DIGESTIF,Chirurgie viscérale et digestive
 ENDOCRINOLOGUE,Endocrinologie
 SURVEILLANTE DE BLOC OPERATOIRE,Bloc opératoire
-CHIRURGIE DISGESTIVE,Chirurgie digestive
+CHIRURGIE DISGESTIVE,Chirurgie viscérale et digestive
 MEDECIN ANESTHESITE,Anesthésie réanimation
 MEDECIN GENERALISTE,Médecine générale
 CHRIRURGIEN NEUROLOGUE,Neurologie
@@ -547,10 +547,10 @@ ANESTHESISTE REANIMATEUR,Anesthésie réanimation
 ANESTHESIE REANIMATION,Anesthésie réanimation
 ASSISTANT CHEF DE CLINIQUE,Cadre
 CHIRURGIE ORTHOPEDIE ET TRAUMATOLOGIQUE,Chirurgie orthopédique et traumatologique
-CHRIRURGIEN DIGESTIF,Chirurgie digestive
+CHRIRURGIEN DIGESTIF,Chirurgie viscérale et digestive
 CHIRURGIE VISCERALE,Chirurgie viscérale et digestive
 RADIOLOGUE VASCULAIRE,Radiologie
-CHIRURGIE DIGESTIVE,Chirurgie digestive
+CHIRURGIE DIGESTIVE,Chirurgie viscérale et digestive
 CHIRURGIEN NEUROLOGUE,Neurologie
 MEDECIN DE REEDUCATION FONCTIONNELLE,Rééducation fonctionnelle
 REANIMATEUR,Anesthésie réanimation
@@ -578,7 +578,7 @@ ANATOMOPATHOLOG,Anatomo-pathologie
 INTERNE,Interne
 PRATICIEN HOSP,
 DIABETOLOGIE,Diabétologie
-Spécialiste du sommeil,Médecine du Sommeil
+Spécialiste du sommeil,Médecine du sommeil
 Neuropédiatre,Neurologie
 Neuro Psychiatre,Neurologie
 Neurologue,Neurologie
@@ -593,7 +593,7 @@ Hépato-gastroentérologie,Gastro-entérologie
 Biologiste,Biologie médicale
 Spécialiste de l'appareil digestif,Gastro-entérologie
 Médecine physique-vertebroth.-osthéopathie,Ostéopathie
-Microbiote intestinale,Gastro-enth
+Microbiote intestinale,Gastro-entérologie
 Gastro-Entérologie,Gastro-entérologie
 Hépato-Gastro-Entérologie et Nutrition Pédiatrique,Gastro-entérologie
 Médecin généraliste,Médecine générale
@@ -620,12 +620,12 @@ NEUROPSYCHOLOGIE,Neurologie
 URGENCE,Médecine d'urgence
 AUTRE,Autre
 Bloc opératoire,Bloc opératoire
-Dr,Dr
+Dr,Docteur
 medecin,Médecine générale
 ph,Praticien hospitalier
 INFIRMIERE,Infirmier
 CHIRURGIEN ORTHOPEDIQUE,Chirurgie orthopédique et traumatologique
-DR,Dr
+DR,Docteur
 pr,Pr
 IBODE,Bloc opératoire
 SPORTSMED,Médecine du sport
@@ -735,7 +735,7 @@ Chirurgie de la Face et du Cou,Chirurgie maxillo-faciale
 Traitement du SIDA,Traitement du sida
 Obstétrique,Obstétrie
 Sexologie,Sexologie
-Veille sommeil,Médecine du Sommeil
+Veille sommeil,Médecine du sommeil
 Exploration fonctionnelle des voies respiratoires,Exploration fonctionnelle
 Médecine thermale,Médecine thermale
 Diététique,Diététique
@@ -762,7 +762,7 @@ Médecine nucléaire,Radiologie médicale
 Oligothérapie,Oligothérapie
 Mycologie,Parasitologie et mycologie
 Andrologie,Andrologie
-Biochimie,Biochimie
+Biochimie,Biologie médicale
 Echotomographie doppler,Échographie
 Exploration fonctionnelle sauf EM et EV,Exploration fonctionnelle
 Hémodialyse,Hémodialyse
@@ -841,7 +841,7 @@ MÉDECINE SPORTIVE,Médecine du sport
 PHARMACOLOGIE,Pharmacologie
 PHLÉBOLOGIE ANGEIOLOGIE,Médecine vasculaire
 DIVERS,
-CHIRURGIE GÉNÉRALE,Chirurgie générale
+CHIRURGIE GÉNÉRALE,Chirurgie
 ANATOMIE et CYTOLOGIE PATHOLOGIQUES HUMAINES,Anatomo-pathologie
 MALADIES INFECTIEUSES,Médecine infectieuse et tropicale
 MÉDECINE DU TRAVAIL,Médecine du travail
@@ -857,7 +857,7 @@ MEDCINE GÉNÉRALE,Médecine générale
 ALLERGOLOGUE,Allergologie
 dermatologue,Dermatologie
 CHIRURGIEN VISCERAL,Chirurgie viscérale et digestive
-CHIRURGIEN GENERAL,Chirurgie générale
+CHIRURGIEN GENERAL,Chirurgie
 CHIRURGIEN GYNECOLOGIQUE,Gynécologie
 CHIRURGIEN GYNECOLOGIQUE ,Gynécologie
 NEUROCHIRURCHIEN,Neurologie
@@ -890,7 +890,7 @@ RADIODIAGNOSTIQUE,Radiologie
 MEDECIN NUCLEAIRE,Radiologie médicale
 GYNECOLOGUE-OBSTETRICIEN,Gynécologie
 CHIRURGIEN GYNECOLOGUE,Gynécologie
-CANCEROLOGUE,Cancérologie
+CANCEROLOGUE,Oncologie
 MEDECIN - MEDECINE INTERNE,Médecine interne
 MEDECIN BIOLOGISTE,Biologie médicale
 ASSISTANT MEDECINE NUCLEAIRE,Interne
@@ -938,8 +938,8 @@ Gynecologue,Gynécologie
 Diabétologue,Diabétologie
 Cardiologie et maladies vasculaires,Cardiologie
 Médecin généraliste Service SAMU,Médecine générale
-GERIATRE/ANGIOLOGUE,Geriatre/angiologue
-Chir digestive,Chirurgie digestive
+GERIATRE/ANGIOLOGUE,Gérontologie
+Chir digestive,Chirurgie viscérale et digestive
 médecin généraliste,Médecine générale
 A-R- Urgentiste,Médecine d'urgence
 Epidémiologue,Épidémiologie
@@ -990,7 +990,7 @@ CHIRUGIEN HEPATO BILIAIRE,Hépatologie
 CHEF DE SERVICE PH URGENTISTE,Médecine d'urgence
 CHEF DE CLINIQUE ASSISTANT RADIOLOGIE INTERVENTIONNEL,Chirurgie abdominale
 CHIRURGIEN HEPATO-BILIAIRE,Hépatologie
-CHEF CHIRURGIE DIGESTIF,Chirurgie digestive
+CHEF CHIRURGIE DIGESTIF,Chirurgie viscérale et digestive
 Praticien Hospitalier,Praticien hospitalier
 Chirurgie Infantile,Chirurgie infantile
 ASSISTANTE,Services généraux
@@ -999,7 +999,7 @@ CHIRURGIE PLASTIQUE,Chirurgie plastique reconstructrice et esthétique
 ASSITANTE,Services généraux
 SURVEILLANTE DE BLOC,Bloc opératoire
 ASSSITANTE,Services généraux
-D.I.U. ECHOGRAPHIE GYNECOLOGIQUE ET OBSTETRICALE,Gynécologie obstétrique
+D.I.U. ECHOGRAPHIE GYNECOLOGIQUE ET OBSTETRICALE,Gynécologie
 PSYCHOLOGUE CLINICIENNE,Psychologie
 RADIOSENOLOGUE,Radiologie
 INGENIEUR DE RECHERCHE,Recherche médicale
@@ -1023,14 +1023,14 @@ DIRECTEUR COMMERCIAL,Cadre
 TECHNICIEN,Biologie médicale
 RESPONSABLE CAPILLAIRE,Capillaire
 AIDE SOIGNANT,Aide soignant
-INFORMATICIEN,Informaticien
+INFORMATICIEN,Services généraux
 STOMATOLOGUE,Stomatologie
 SERVICE GENERAUX,Services généraux
 CONSEILLERE,Médecine conseil
 SERVICE INTERNET,Informatique
 RECEPTIONNISTE,Services généraux
 RESPONSABLE QUALITE,Services généraux
-COMPTABLE,Comptable
+COMPTABLE,Services généraux
 RESPONSABLE COMMUNICATION,Services généraux
 ESPACE COMMUNICATION,Error
 DIRECTEUR FINANCIER,Direction
@@ -1048,15 +1048,15 @@ Plastique,Chirurgie plastique reconstructrice et esthétique
 ARC,Arc
 Urologue,Urologie
 Anesthésie-Réa,Anesthésie réanimation
-ABM,Biomédecine
+ABM,Biologie médicale
 Hématologie oncologie pédiatrique,Oncologie
 Gyneco,Gynécologie
 Réa Pédiatrique,Pédiatrie
 Chirurgie Hépatobiliaire et Transplantation Hépatique,Hépatologie
-hémato-immunologie,Immunohématologie
+hémato-immunologie,Immunologie
 Service de chirurgie cardiaque,Chirurgie cardiovasculaire et thoracique
 HEMATOLOGIE MALADIES DU SANG,Hématologie
-Chirurgien digestif,Chirurgie digestive
+Chirurgien digestif,Chirurgie viscérale et digestive
 Hématologie Pediatrique,Hématologie
 SCE CHIRURGIE DIGESTIVE ET METAB.,Chirurgie viscérale et digestive
 Hématologie Oncologie Pédiatrique,Oncologie
@@ -1066,7 +1066,7 @@ Hématologie Oncologie,Oncologie
 Viscérale Pédiatrique,Pédiatrie
 Chirurgie hépatique,Hépatologie
 ENDOCRINOLOGIE DIABETE MALADIES METABOLIQUES,Endocrinologie
-Chirurgien Digestif,Chirurgie digestive
+Chirurgien Digestif,Chirurgie viscérale et digestive
 Anésthésiste,Anesthésie réanimation
 Chirurgien Hépatobiliaire,Hépatologie
 SCE CHIRURGIE VASCULAIRE,Chirurgie cardiovasculaire et thoracique
@@ -1078,11 +1078,11 @@ Chirurgie Obésité et Maladie Infectieuses,Chirurgie obésité
 Chir Viscerale,Chirurgie viscérale et digestive
 UNITE GENETIQUE/PEDIATRIE,Pédiatrie
 Gastro,Gastro-entérologie
-Chir Digestive,Chirurgie digestive
-Chirurgie digestive pédiatrique,Chirurgie digestive
+Chir Digestive,Chirurgie viscérale et digestive
+Chirurgie digestive pédiatrique,Chirurgie viscérale et digestive
 Onco Pédiatrie,Oncologie
 CHIRURGIE ORL,Oto-rhino-laryngologie
-Cancerologie,Cancérologie
+Cancerologie,Oncologie
 HEMATOLOGIE ONCOLOGIE PEDIATRIQUE,Oncologie
 Chirurgie cardio vasculaire,Chirurgie cardiovasculaire et thoracique
 SOINS PALIATIFS,Soins palliatifs
@@ -1098,9 +1098,9 @@ Chirurgien cardiaque,Chirurgie cardiovasculaire et thoracique
 anesthésie réa,Anesthésie réanimation
 HEMATOLOGIE BIO,Hématologie
 Coordination prélèvement d'organes,Prélèvement d'organes
-Service dHématolo-immunologie,Immunohématologie
+Service dHématolo-immunologie,Immunologie
 CCA,Cca
-Chir Dig,Chirurgie digestive
+Chir Dig,Chirurgie viscérale et digestive
 ACC,Cardiologie
 Chirugie Orthopédique,Chirurgie orthopédique et traumatologique
 Conseil PV et BV,Conseil pv et bv
@@ -1109,13 +1109,13 @@ BLOC,Bloc opératoire
 chirurgie orthopédique,Chirurgie orthopédique et traumatologique
 Med. Interne,Médecine interne
 Medecine générale,Médecine générale
-Immuno Hématologie Pédiatrique,Immunohématologie
+Immuno Hématologie Pédiatrique,Immunologie
 Coordinateur et réanimateur,Anesthésie réanimation
-Chirurgien Général,Chirurgie générale
+Chirurgien Général,Chirurgie
 Coordinateur et réanimateuranesthésiste,Anesthésie réanimation
 Hémato-Pédiatrie,Hématologie
 Hémato clinique,Hématologie
-CHIR DIGESTIVE,Chirurgie digestive
+CHIR DIGESTIVE,Chirurgie viscérale et digestive
 Chef de Service,Cadre
 HOPITAL MEDICAL JOUR,
 GASTRO,Gastro-entérologie
@@ -1129,8 +1129,8 @@ Directeur Hôpital,Direction
 Pédiatrie interne,Pédiatrie
 Oncologue,Oncologie
 ORTHOPEDISTE CNOM,Orthopédie
-GENERALISTE CNOM,Generaliste cnom
-CHIRURGIEN GENERALISTE CNOM,Chirurgie generaliste
+GENERALISTE CNOM,Médecine générale
+CHIRURGIEN GENERALISTE CNOM,Chirurgie
 ANESTHESISTE CNOM,Anesthésie réanimation
 MEDECIN READAPTATION,Médecine physique et de réadaptation
 phlébologue/angiologue,Médecine vasculaire
@@ -1236,7 +1236,7 @@ Sage femme,Sage-femme
 Phlébologie – Angiologie,Médecine vasculaire
 Oncologie Option radiothérapie,Oncologie
 Chef de service,Cadre
-Chirugie générale,Chirurgie générale
+Chirugie générale,Chirurgie
 Oncologie médicale,Oncologie
 Pneumo-pédiatrie,Pneumologie
 Medecine Intrene,Médecine interne
@@ -1363,7 +1363,7 @@ Chirurgien viscéral,Chirurgie viscérale et digestive
 Gériatre,Gérontologie
 Médecin du travail,Médecine du travail
 Chirurgien urologue,Urologie
-Chirurgien général,Chirurgie générale
+Chirurgien général,Chirurgie
 Médecin généraliste remplaçant,Médecine générale
 Gasto-entérologue,Gastro-entérologie
 Chirurgien plastique,Chirurgie plastique reconstructrice et esthétique
@@ -1383,7 +1383,7 @@ MED PHYSIQUE ET READAPTATION FONCTIONNELLES,Médecine physique et de réadaptati
 Médecin addictologue,Toxicologie
 Médecin général,Médecine générale
 Médecin urgentiste,Médecine d'urgence
-Cancerologue,Cancérologie
+Cancerologue,Oncologie
 Anésthésiste -Réa,Anesthésie réanimation
 DIABETOLOGUE,Diabétologie
 CHIRURGIEN PLASTICIEN,Chirurgie plastique reconstructrice et esthétique
@@ -1444,12 +1444,12 @@ Allergologue pneumologue pédiatre,Pédiatrie
 Chir esthétique,Chirurgie plastique reconstructrice et esthétique
 Dermato,Dermatologie
 Phlébo,Phlébologie
-Cancérologue,Cancérologie
+Cancérologue,Oncologie
 Homéo,Homéopathie
 Chir Vasculaire,Chirurgie cardiovasculaire et thoracique
 Endocrino,Endocrinologie
 Chir,Chirurgie
-Chir Générale,Chirurgie générale
+Chir Générale,Chirurgie
 Chir Plastique,Chirurgie plastique reconstructrice et esthétique
 Médecin Vascul,Cardiologie
 Chir Dermato,Chirurgie dermatologique
@@ -1467,7 +1467,7 @@ Phlebologue-Angiologue,Médecine vasculaire
 Santé publique et médecine sociale,Santé publique et médecine sociale
 Dermatologie Vénérologie,Dermatologie
 Chirurgie plastique reconstructrice,Chirurgie plastique reconstructrice et esthétique
-Chirurgie général,Chirurgie générale
+Chirurgie général,Chirurgie
 Chirurgie thoracique et cardiovasculaire,Chirurgie cardiovasculaire et thoracique
 Medecine physique et réadaptation fonctionnelles,Médecine physique et de réadaptation
 Chirurgie de la mains,Chirurgie de la main et du membre supérieur
@@ -1493,9 +1493,9 @@ medecin radiologue,Radiologie
 PUERICULTRICE,Puériculture
 MEDECINE ESTHETIQUE,Chirurgie plastique reconstructrice et esthétique
 ANDROLOGIE,Andrologie
-GY CHIR OBS,Gynécologie obstétrique
+GY CHIR OBS,Gynécologie
 puerecultrice,Puériculture
-CANCEROLOGIE,Cancérologie
+CANCEROLOGIE,Oncologie
 gyn,Gynécologie
 medecin generaliste,Médecine générale
 PATHOLOGIE CARDIOVASCULAIRE,Cardiologie
@@ -1514,7 +1514,7 @@ GENETIQUE,Génétique
 directeur clinique,Direction
 ARE,Are
 ASSISTANTE SOCIALE,Santé publique et médecine sociale
-Généticien,Généticien
+Généticien,Génétique
 médecine génerale,Médecine générale
 PEDO PSYCHIATRIE,Pédo-psychiatrie
 médecin nucléaire,Radiologie médicale
@@ -1570,7 +1570,7 @@ PATHO INFECT ET TROPICALE,Médecine infectieuse et tropicale
 GENETIQUE MEDICALE / GYNECOLOGIE MEDICALE / NUTRITION,Génétique
 ANGEIOLOGIE / GERIATRIE,Médecine vasculaire
 GYNECOLOGIE MEDICALE / GYNECOLOGIE OBSTETRIQUE,Gynécologie
-IMMUNOPATHOLOGIE,Immunohématologie
+IMMUNOPATHOLOGIE,Immunologie
 CHERCHEUR,Recherche médicale
 ACUPUNCTURE / HOMEOPATHIE,Homéopathie
 GENETIQUE MEDICALE,Génétique
@@ -1587,7 +1587,7 @@ REEDUC ET READAPT FONCT / RHUMATOLOGIE,Rééducation fonctionnelle
 DIABETOLOGIE / ENDOCRINOLOGIE / RHUMATOLOGIE,Diabétologie
 GERONTOLOGIE / MEDECINE APPLIQ. AU SPORT,Médecine du sport
 MED. THERM. ET CLIMAT,Médecine infectieuse et tropicale
-MAL APPAREIL DIGESTIF,Gastro
+MAL APPAREIL DIGESTIF,Gastro-entérologie
 ANGEIOLOGIE / GYNECOLOGIE MEDICALE,Médecine vasculaire
 GERIATRIE / NUTRITION,Nutrition
 médecine interne,Médecine interne
@@ -1613,14 +1613,14 @@ RADIOPHARMACIE RADIOBIOL,Radiologie
 AIDE MEDICALE URGENTE / GERIATRIE,Médecine d'urgence
 ENDOCRINOLOGIE / EXPLO FONCT CARDIOVASCUL,Endocrinologie
 NUTRITION / PSYCHIATRIE,Nutrition
-VEILLE ET SOMMEIL,Médecine du Sommeil
+VEILLE ET SOMMEIL,Médecine du sommeil
 HYDROLOGIE ET CLIMAT MED,Hydrologie
 MEDECINE APPLIQ. AU SPORT / OSTEOPATHIE,Médecine du sport
 ALLERGOLOGIE / PNEUMOLOGIE,Allergologie
 Gastro-entérologue & Hépatologue,Gastro-entérologie
 AIDE MEDICALE URGENTE / EXPLO FONCT CARDIOVASCUL,Médecine d'urgence
 ANESTHESIOLOGIE REA CHIR,Anesthésie réanimation
-GERIATRIE / REEDUC ET READAPT FONCT,Geriatrie
+GERIATRIE / REEDUC ET READAPT FONCT,Gérontologie
 GYNECOLOGIE MEDICALE / PROCTOLOGIE,Gynécologie
 PODOLOGIE,Hépatologie
 ENDOCRINOLOGIE / GYNECOLOGIE MEDICALE / GYNECOLOGIE OBSTETRIQUE,Endocrinologie
@@ -1751,7 +1751,7 @@ Chirurgien maxillo-facial,Chirurgie maxillo-faciale
 Chirurgie Plastique Reconstructrice et Esthétique,Chirurgie plastique reconstructrice et esthétique
 HEMOPHILIE,Hémophilie
 HEMOSTASE,Hémostase
-COAGULOPATHIE,Coagulopathie
+COAGULOPATHIE,Hémopatie
 MEDECIN INTERNISTE,Médecine interne
 PHARMACEUTIQUE,Pharmacologie
 URGENCES/HEMOVIGILANCE,Médecine d'urgence
@@ -1775,7 +1775,7 @@ CHIRURGIE GYNECOLOGIQUE ET MAMMAIRE,Gynécologie
 CHIRURGIEN THORACIQUE,Chirurgie cardiovasculaire et thoracique
 ANETSHESISTE,Anesthésie réanimation
 CHIRURGIE CARDIO-VASCULAIRE,Chirurgie cardiovasculaire et thoracique
-CHIR DIG,Chirurgie digestive
+CHIR DIG,Chirurgie viscérale et digestive
 MEDECIN HYGIENISTE,Hygiène
 CHIRURGIEN VASCERALE,Chirurgie viscérale et digestive
 CIRURGIEN VISCERALE,Chirurgie viscérale et digestive
@@ -1794,7 +1794,7 @@ ALLERGO-IMMUNO,Allergologie - immunologie
 HOMÉOPATHIE,Homéopathie
 GÉRIATRIE-GERONT,Gérontologie
 MÉD SPORTIVE,Médecine du sport
-BIOPHYSICIEN,Biophysicien
+BIOPHYSICIEN,Biologie médicale
 RADIODIAGNOSTIC ET IMAGERIE MÉDICALE,Radiologie
 ONCOLOGIE OPTION MÉDICALE,Oncologie
 ANÉSTHESIE REANIMATION,Anesthésie réanimation
@@ -1802,7 +1802,7 @@ CARDIOLOGIE VASCULAIRE,Cardiologie
 MEDECINE NUCLÉAIRE,Radiologie médicale
 RADIO DIAGNOSTIC,Radiologie
 NEUROPHYSIOLOGIE,Neurologie
-CANCÉROLOGUE PNEUMOLOGUE,Cancérologie
+CANCÉROLOGUE PNEUMOLOGUE,Oncologie
 MÉDECINE GÉNERALE,Médecine générale
 CHIRURGIEN OPHTALMOLOGISTE,Ophtalmologie
 MME,
@@ -1823,13 +1823,13 @@ KINESITHERAPIE,Kinésitherapie
 HEPATO-GASTRO-ENTEROLOGIE,Gastro-entérologie
 PHYSIOLOGIE DIGISTIVE,Physiologie
 PHYSIOLOGIE DIGESTIVE,Physiologie
-Veille - sommeil,Médecine du Sommeil
+Veille - sommeil,Médecine du sommeil
 ONCOLOGIE CARCINOLOGIE CANCEROLOGIE,Oncologie
 INFECTIOLOGIE,Médecine infectieuse et tropicale
 VIROLOGIE,Virologie
 zz GYNECOLOGIE,Gynécologie
 REEDUCATION FONCTIONNELLE,Rééducation fonctionnelle
-BIOCHIMIE,Biochimie
+BIOCHIMIE,Biologie médicale
 zz HEMATOLOGIE,Hématologie
 MEDECINE DIGESTIVE,Médecine digestive
 HEPATOLOGIE GASTRO ENTEROLOGIE,Gastro-entérologie
@@ -1858,7 +1858,7 @@ Nucléaire,Nucléaire
 Neuro-Ophtalmologie,Neurologie
 Anatomie et Cytopathologies humaines,Anatomo-pathologie
 expertise médicale,
-Biostatisticien,Biostatisticien
+Biostatisticien,Biologie médicale
 Operation Clinique,Chirurgie
 Psycho Oncologie,Oncologie
 Maladies Infectieuses,Médecine infectieuse et tropicale
@@ -1908,7 +1908,7 @@ CARDIO,Cardiologie
 EPIDÉMIOLOGISTE,Épidémiologie
 IMMUNO RHUMATOLOGIE,Rhumatologie
 DERMATO-VENEROLOGIE-CANCEROLOGIE,Dermatologie
-BIOSTATISTICIEN,Biostatisticien
+BIOSTATISTICIEN,Biologie médicale
 PNEUMO,Pneumologie
 MALADIE INFECTIEUSES,Médecine infectieuse et tropicale
 RADIOTHÉRAPEUTHE,Radiothérapie
@@ -1975,9 +1975,9 @@ Médecins,Médecine générale
 MED. GENERALE,Médecine générale
 MEDECIN DOULEUR,Traitement de la douleur
 CHIR. UROLOGIQUE,Urologie
-CHIR. GENERALE,Chirurgie générale
+CHIR. GENERALE,Chirurgie
 ONCOLOGIE-CARCINOLOG.-CANCEROLOG.,Oncologie
-CHIR. DIGESTIVE,Chirurgie digestive
+CHIR. DIGESTIVE,Chirurgie viscérale et digestive
 MED. INTERNE,Médecine interne
 RADIO THERAPIE,Radiothérapie
 MEDECIN SOIN PALIATIF,Soins palliatifs
@@ -1990,7 +1990,7 @@ Infirmier,Infirmier
 #REF!,Error
 chirurgie orthopédique et traumatologique,Chirurgie orthopédique et traumatologique
 Dermatoloque Pédiatre,Pédiatrie
-Dermatologue Allergologue,Dermatologie / allergologie
+Dermatologue Allergologue,Dermatologie
 CHEF CLINIQUE,Cadre
 Réunion du G4 - MUCO,Error
 JOURNEE SEMESTRIELLE DU RESEAU EMERAA,Error
@@ -2011,7 +2011,7 @@ Medecin généraliste,Médecine générale
 Interne médecine,Interne
 Médecin anesthésiste réanimateur,Anesthésie réanimation
 Médecin anesthésiste réanimateur Chef de service,Anesthésie réanimation
-CHIRURGIEN Digestif,Chirurgie digestive
+CHIRURGIEN Digestif,Chirurgie viscérale et digestive
 Médecin anesthésiste réanimateur Chef de Pole,Anesthésie réanimation
 Médecin anesthésiste réanimateur chef de service,Anesthésie réanimation
 Urgentiste SMUR,Médecine d'urgence
