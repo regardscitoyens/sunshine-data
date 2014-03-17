@@ -31,6 +31,9 @@ data/refined/infirmiers.csv: data/formatted/infirmiers.csv scripts/apply_refine_
 data/formatted/medecins_inexploitables.csv: data/raw/header_medecins_inexploitables data/raw/medecins_inexploitables.csv scripts/format_inexploitables_medecins.sh scripts/process_inexploitables_medecins.py data/raw/header_medecins_inexploitables
 	. scripts/format_inexploitables_medecins.sh
 
+data/raw/medecins_inexploitables.csv: data/raw/medecins_inexploitables.tsv
+	cat data/raw/medecins_inexploitables.tsv | sed 's/,/ /g' | sed 's/\t/,/g' > data/raw/medecins_inexploitables.csv
+
 data/formatted/dentistes.csv: data/raw/dentistes.csv scripts/format_dentistes.py
 	python scripts/format_dentistes.py data/raw/dentistes.csv $@
 
