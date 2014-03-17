@@ -270,6 +270,7 @@ Déjeuner + 2 pauses,Restauration
 Déjeuner + dîner + hébergement,Forfait d'hospitalité
 Déjeuner - Réunion de travail retour d'information utilisation produit GlassBONE,Restauration
 Déjeuner de travail,Restauration
+Déjeuner et Frais de déplacement,Forfait d'hospitalité
 Déjeuner formation,Restauration
 Déjeuner imprévu,Restauration
 Déjeuner préparation CONSEURO,Restauration
@@ -301,6 +302,7 @@ Dîner Charing Cross,Restauration
 Dîner SCV Nice,Restauration
 Dîner de travail,Restauration
 Dîner et déplacement,Forfait d'hospitalité
+Dîner et frais de déplacment,Forfait d'hospitalité
 Dîner présentation MultiTasc,Restauration
 Dîner suite essai MultiTasc,Restauration
 D�PLACEMENT,Transport
@@ -395,6 +397,7 @@ Frais Restauration,Restauration
 Frais Transport,Transport
 Frais Transports,Transport
 Frais d'hospitalité,Forfait d'hospitalité
+Frais d'hotellerie,Hébergement
 Frais d'hébergement,Hébergement
 Frais d'hébergement Hopipharm,Hébergement
 Frais d'insciption,"Frais d'inscription (Congrès, séminaires, ...)"
@@ -853,6 +856,7 @@ NOTE DE FRAIS PRIX MERIDOL,Autre
 NOTE DE REMBOURSEMENT,Remboursements de frais
 NOTE DE REMBOURSSEMENT,Remboursements de frais
 NOURRITURE,Restauration
+Non renseigné,Autre
 Nourriture,Restauration
 Nuitee,Hébergement
 Nuitée,Hébergement
