@@ -29,5 +29,6 @@ for dirname, dirnames, filenames in os.walk(operation_dirname):
         
         for col in columns:
             df[col] = df.get(col, '')
-
+df.loc[df['DECL_AVANT_MONTANT'] > 1,'DECL_CONV_OBJET'] = ''
+df.loc[df['DECL_AVANT_MONTANT'] > 1,'DECL_CONV_PROGRAMME'] = ''
 df.to_csv(output_filename, encoding='utf-8', index=False, cols=columns)
