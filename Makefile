@@ -10,9 +10,7 @@ vpath %.formatted.csv data/formatted/
 vpath %.csv data/raw/
 
 
-#### Commands
-test:
-	echo ${FORMATTED_FILES}
+#### COMMANDS
 
 all: refineall formatall
 	make refineall
