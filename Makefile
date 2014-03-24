@@ -1,6 +1,8 @@
 #### CONSTANTS
 
-CSV_FILES=${shell cd data/raw/ && ls *.csv}
+# Remove internes_exploitable files from CSV_FILES because it is merged in
+# medecins_exploitables file
+CSV_FILES=$(filter-out internes_exploitables.csv,${shell cd data/raw/ && ls *.csv})
 RAW_FILES = $(addprefix data/raw/, $(CSV_FILES))
 FORMATTED_FILES = $(patsubst %.csv,data/formatted/%.formatted.csv,$(CSV_FILES))
 REFINED_FILES = $(patsubst %.csv,data/refined/%.refined.csv,$(CSV_FILES))
@@ -11,7 +13,6 @@ vpath %.csv data/raw/
 
 
 #### COMMANDS
-
 all: refineall formatall
 	make refineall
 	make formatall
