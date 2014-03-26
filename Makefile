@@ -26,6 +26,7 @@ formatall: ${FORMATTED_FILES}
 clean:
 	rm -f data/formatted/*.csv
 	rm -f data/refined/*.csv
+	rm -f data/raw/medecins_inexploitables.csv
 
 data/refined/%.refined.csv: %.formatted.csv
 	python scripts/apply_refine_operations_from_csv.py $< ${UNIFIER_DIR} $@
@@ -42,6 +43,6 @@ data/formatted/sagefemmes.csv: data/raw/sagefemmes.csv
 	in2csv $< > $@
 
 data/raw/medecins_inexploitables.csv: data/raw/medecins_inexploitables.tsv
-	cat $< | sed 's/,/ /g' | sed 's/\t/,/g' > $@
+	cat $< | sed 's/,/ /g' | sed 's/\\t/,/g' > $@
 
 
