@@ -43,6 +43,6 @@ data/formatted/sagefemmes.formatted.csv: data/raw/sagefemmes.csv
 	cat $< | sed 's/,/ /g' | sed 's/;/,/g' > $@
 
 data/raw/medecins_inexploitables.csv: data/raw/medecins_inexploitables.tsv
-	cat $< | sed 's/,/ /g' | sed 's/\\t/,/g' > $@
+	cat $< | sed 's/,/ /g' | sed 's/	/,/g' > $@
 
 
