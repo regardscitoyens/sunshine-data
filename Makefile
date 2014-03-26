@@ -39,8 +39,8 @@ data/formatted/%.formatted.csv: %.csv
 	else cp $< $@ ; \
 	fi;	
 
-data/formatted/sagefemmes.csv: data/raw/sagefemmes.csv
-	in2csv $< > $@
+data/formatted/sagefemmes.formatted.csv: data/raw/sagefemmes.csv
+	cat $< | sed 's/,/ /g' | sed 's/;/,/g' > $@
 
 data/raw/medecins_inexploitables.csv: data/raw/medecins_inexploitables.tsv
 	cat $< | sed 's/,/ /g' | sed 's/\\t/,/g' > $@
