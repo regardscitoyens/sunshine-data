@@ -30,7 +30,7 @@ clean:
 	rm -f data/raw/internes_inexploitables.csv
 
 
-data/refined/%.refined.csv: %.formatted.csv
+data/refined/%.refined.csv: %.formatted.csv scripts/apply_refine_operations_from_csv.py
 	python scripts/apply_refine_operations_from_csv.py $< ${UNIFIER_DIR} $@
 
 data/formatted/%.formatted.csv: %.csv
