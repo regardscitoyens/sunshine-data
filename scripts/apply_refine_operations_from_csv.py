@@ -7,9 +7,12 @@ input_filename = sys.argv[1]
 operation_dirname = sys.argv[2]
 output_filename = sys.argv[3]
 
-columns = ['ORIGIN','LABO','BENEF_PS_QUALITE_NOM_PRENOM','BENEF_PS_ADR','BENEF_PS_QUALIFICATION','BENEF_PS_RPPS','DECL_CONV_DATE','DECL_CONV_OBJET','DECL_CONV_PROGRAMME','DECL_AVANT_MONTANT','DECL_AVANT_DATE','DECL_AVANT_NATURE','BENEF_ETUD_ETA']
+columns = ['DECL_TYPE', 'ORIGIN','LABO','BENEF_PS_QUALITE_NOM_PRENOM','BENEF_PS_ADR','BENEF_PS_QUALIFICATION','BENEF_PS_RPPS','DECL_CONV_DATE','DECL_CONV_OBJET','DECL_CONV_PROGRAMME','DECL_AVANT_MONTANT','DECL_AVANT_DATE','DECL_AVANT_NATURE','BENEF_ETUD_ETA']
 
 df = pd.read_csv(input_filename, encoding='utf-8', low_memory=False)
+for col in columns:
+    df[col] = df.get(col, '')
+
 for dirname, dirnames, filenames in os.walk(operation_dirname):
     # print path to all filenames.
     for filename in filenames:
@@ -27,8 +30,23 @@ for dirname, dirnames, filenames in os.walk(operation_dirname):
         
         df[operation_field] = df[operation_field].apply(lambda labo: operations[labo])
         
-        for col in columns:
-            df[col] = df.get(col, '')
-df.loc[df['DECL_AVANT_MONTANT'] > 1,'DECL_CONV_OBJET'] = ''
-df.loc[df['DECL_AVANT_MONTANT'] > 1,'DECL_CONV_PROGRAMME'] = ''
+df['DECL_TYPE'] = ''
+df.loc[(df['DECL_CONV_OBJET'] == "Contrat de cession"),'DECL_TYPE'] = 'CONTRAT'
+df.loc[(df['DECL_CONV_OBJET'] == "Contrat de consultant"),'DECL_TYPE'] = 'CONTRAT'
+df.loc[(df['DECL_CONV_OBJET'] == u"Contrat de prêt"),'DECL_TYPE'] = 'CONTRAT'
+df.loc[(df['DECL_CONV_OBJET'] == "Contrat de recherche"),'DECL_TYPE'] = 'CONTRAT'
+df.loc[(df['DECL_CONV_OBJET'] == "Contrat d'expert"),'DECL_TYPE'] = 'CONTRAT'
+df.loc[(df['DECL_CONV_OBJET'] == "Contrat d'orateur/animateur/intervenant/formateur"),'DECL_TYPE'] = 'CONTRAT'
+df.loc[(df['DECL_AVANT_NATURE'] == "Honoraires"), 'DECL_TYPE'] = 'CONTRAT'
+
+df.loc[(df['DECL_TYPE'] == ""), 'DECL_TYPE'] = 'CADEAU'
+df.loc[(df['DECL_AVANT_NATURE'] == "Transport"), 'DECL_TYPE'] = 'CADEAU'
+df.loc[((df['DECL_AVANT_MONTANT'] < 5000) & (df['DECL_AVANT_MONTANT'] >= 1) & (df['DECL_TYPE'] == "CONTRAT")), 'DECL_TYPE'] = 'CADEAU'
+
+df.loc[(df['DECL_TYPE'] == "CADEAU"), 'DECL_CONV_OBJET'] = ''
+df.loc[(df['DECL_TYPE'] == "CADEAU"), 'DECL_CONV_PROGRAMME'] = ''
+
+df.loc[(df['DECL_TYPE'] == "CONTRAT"), 'DECL_AVANT_MONTANT'] = ''
+df.loc[(df['DECL_TYPE'] == "CONTRAT"), 'DECL_AVANT_NATURE'] = ''
+
 df.to_csv(output_filename, encoding='utf-8', index=False, cols=columns)
