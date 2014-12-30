@@ -8,6 +8,9 @@ Column 1,Column 2
 1 Dîner,Restauration
 "1 NUIT HOTEL IBIS BUDGET TOURS CENTRE, FACTURE N0 151203",Hébergement
 1 REPAS + PAUSES,Restauration
+-,Autre
+1 Déjeuner,Restauration
+1 Dîner,Restauration
 1 boite de chocolat (500g),Confiseries / Fleurs
 1 boîte de chocolat 500g,Confiseries / Fleurs
 1 diner,Restauration
@@ -24,6 +27,11 @@ Column 1,Column 2
 19 Restaurations,Restauration
 2 Dîners,Restauration
 2 NUITS HOTEL,Hébergement
+13th Cape Temporal Bone Course - Capetown (Afrique du Sud) 10 au 15/04/2013,"Frais d'inscription (Congrès, séminaires, ...)"
+15/02/2013,ERROR
+19 Dîners,Restauration
+19 Restaurations,Restauration
+2 Dîners,Restauration
 2 diners,Restauration
 2 diners congrès,Restauration
 2 déjeuners,Restauration
@@ -72,6 +80,29 @@ Apéritif dinatoire,Restauration
 Article scientifique/ouvrage,Presse / ouvrages / livres / abonnements
 Articles,Presse / ouvrages / livres / abonnements
 Assises ORL - Nice (France) 26 au 28/01/12,"Frais d'inscription (Congrès, séminaires, ...)"
+8 repas,Restauration
+ABONNEMENT,Presse / ouvrages / livres
+ABONNEMENT SCIENTIFIQUE,Presse / ouvrages / livres
+ACC,"Frais d'inscription (Congrès, séminaires, ...)"
+ACNBH,"Frais d'inscription (Congrès, séminaires, ...)"
+AFH,"Frais d'inscription (Congrès, séminaires, ...)"
+AIDE Restauration DE SERVICE DU DR FOUFA,Restauration
+ARTICLES SCIENTIFIQUES,Presse / ouvrages / livres
+ATELIERS PLURIDISCIPLINAIRES PARIS,"Frais d'inscription (Congrès, séminaires, ...)"
+AUCUN,Autre
+AUTRE,Autre
+AUTRES,Autre
+AVANTAGE,Autre
+AVION,Transport
+Abonnement,Presse / ouvrages / livres
+Abonnement Revue,Presse / ouvrages / livres
+Abonnement ouvrage scientifique,Presse / ouvrages / livres
+Acheminement,Transport
+Acheminement+Hébergement,Forfait d'hospitalité
+Alliance restaurant,Restauration
+Apéritif dinatoire,Restauration
+Article scientifique/ouvrage,Presse / ouvrages / livres
+Articles,Presse / ouvrages / livres
 Assises ORL - Nice (France) 31/01 au 02/02/13,"Frais d'inscription (Congrès, séminaires, ...)"
 Au Pois Gourmand,Restauration
 Au Pois Gourmand restaurant,Restauration
@@ -113,6 +144,8 @@ BOULANGERIE BLACHERE ARLES VIENNOISERIES FEUILLE EMARGEMENT BLOC OPERATOIRE PRES
 BOURSE,Bourse
 BOURSE D ETUDE,Bourse
 BOURSE D'ETUDE,Bourse
+BOURSE D ETUDE,Autre
+BOURSE D'ETUDE,Autre
 BUFFET,Restauration
 BUFFET RÉSEAU HYPNOS,Restauration
 BUFFET STAFF DEJEUNER,Restauration
@@ -126,6 +159,7 @@ Billet de train,Transport
 Bloc Post-it X-Class,Cadeaux papeterie
 Bloc-notes,Cadeaux papeterie
 Board,Honoraires
+Board,Autre
 Boissons,Rafraichissements
 Boissons durant formation produit,Rafraichissements
 Boissons durant formation produits,Rafraichissements
@@ -139,6 +173,9 @@ CADEAU CHAMPAGNE,Champagne
 CADEAU FIN ANNEE,Cadeaux divers
 CADEAU VALEUR NEGLIGEABLE,Cadeaux divers
 CADEAUX,Cadeaux divers
+CADEAU CHAMPAGNE,Champagne
+CADEAU FIN ANNEE,Cadeaux divers
+CADEAU VALEUR NEGLIGEABLE,Cadeaux divers
 CADEAUX D'AFFAIRES,Cadeaux divers
 CALISSONS,Confiseries / Fleurs
 CANNELES,Confiseries / Fleurs
@@ -199,6 +236,26 @@ CONGRES SFETB 2012 (héberment et transport) ,"Frais d'inscription (Congrès, s�
 CONGRES UNAIBODE,"Frais d'inscription (Congrès, séminaires, ...)"
 CONGRÈS SFCTCV/PERFUSION JUIN 2013 MARSEILLE,"Frais d'inscription (Congrès, séminaires, ...)"
 CONGRÉS,"Frais d'inscription (Congrès, séminaires, ...)"
+CHAMPAGNE,Champagne
+CHOCOLAT,Confiseries / Fleurs
+CHOCOLATS,Confiseries / Fleurs
+CHOCOLATS ( 2 boites Revillon et Suchard Imagine),Confiseries / Fleurs
+CHOCOLATS pour les techniciens,Confiseries / Fleurs
+COCKTAIL,Rafraichissements
+COCKTAIL DINATOIRE,Restauration
+COLLABORATION SCIENTIFIQUE,Autre
+COLLATION,Restauration
+COLLATION BLOC,Restauration
+COLLATION STAFF HOSPITALIER,Restauration
+COMMISSION,Honoraires
+CONFERENCE,Honoraires
+CONGRES,"Frais d'inscription (Congrès, séminaires, ...)"
+CONGRES ,"Frais d'inscription (Congrès, séminaires, ...)"
+CONGRES CARO,"Frais d'inscription (Congrès, séminaires, ...)"
+CONGRES JEPU,"Frais d'inscription (Congrès, séminaires, ...)"
+CONGRES SFETB 2012 (héberment et transport) ,"Frais d'inscription (Congrès, séminaires, ...)"
+CONGRES UNAIBODE,"Frais d'inscription (Congrès, séminaires, ...)"
+CONGRÈS SFCTCV/PERFUSION JUIN 2013 MARSEILLE,"Frais d'inscription (Congrès, séminaires, ...)"
 CONTRAT CONSULTANT,Honoraires
 CONVENTION D'HOSPITALITE N° 2013-09,Forfait d'hospitalité
 CONVENTION D'HOSPITALITE N° 2013-22,Forfait d'hospitalité
@@ -236,6 +293,8 @@ Chocolat/ demo XN1000 pour Labm Annecy,Confiseries / Fleurs
 Chocolats,Confiseries / Fleurs
 Chèque Cadeau,Cadeaux divers
 Chèque Cadeaux,Cadeaux divers
+Chèque Cadeau,Chèque Cadeaux
+Chèque Cadeaux,Chèque Cadeaux
 Chèque partenariat avec Associations,Autre
 Chèque prise en charge Note de frais Hôtel+transport ADF,Forfait d'hospitalité
 Clé USB,Produits électroniques
@@ -251,6 +310,9 @@ Comité scientifique,Honoraires
 Concert,Cadeaux culture
 Confiserie,Confiseries / Fleurs
 Conférence medicale,"Frais d'inscription (Congrès, séminaires, ...)"
+Comité scientifique,Autre
+Concert,Cadeaux culture
+Confiserie,Confiseries / Fleurs
 Conférencier,Honoraires
 Congres,"Frais d'inscription (Congrès, séminaires, ...)"
 Congres ,"Frais d'inscription (Congrès, séminaires, ...)"
@@ -272,12 +334,14 @@ Convention d'hospitalitÃ©,Forfait d'hospitalité
 Convention d'hospitalité,Forfait d'hospitalité
 Convention d'hspitalité N° 201309,Forfait d'hospitalité
 Convention de collaboration scientifique,Honoraires
+Convention de collaboration scientifique,Autre
 Cours + Congrès,Honoraires
 Cours sinus,Honoraires
 Coussin funéraire,Cadeaux divers
 Creperie st Anne,Restauration
 Croissants pour essai MultiTasc,Petit-déjeuners
 DECL_AVANT_NATURE,
+DECL_AVANT_NATURE,Autre
 DEJEUNER,Restauration
 DEJEUNER ,Restauration
 DEJEUNER - PAUSES,Restauration
@@ -289,6 +353,7 @@ DEJEUNER OPPORTUNITE,Restauration
 DEJEUNER OPTICLASSIC LE MANS,Restauration
 DEJEUNER OPTICLASSIC VAL DE VIENNE,Restauration
 DEJEUNER OPTIQU CLASSIC BANNEGON,Restauration
+DEJEUNER OPPORTUNITE,Restauration
 DEJEUNER POST VISITE,Restauration
 DEJEUNER SFICV,Restauration
 DEJEUNER SUR CONGRES,Restauration
@@ -311,6 +376,10 @@ DINERS,Restauration
 DIVERS,Autre
 DIVERS FMC,Autre
 DON,Cadeaux divers
+DINER SFICV,Restauration
+DINER WHC,Restauration
+DIVERS,Autre
+DIVERS FMC,Autre
 DPLT CONGRES EGYPTE EL GOUNA  - convention orateur du 25/04/2012,Transport
 DPLT CONGRES EGYPTE EL GOUNA - convention orateur du 25/04/2012,Transport
 DU CARDIO PARIS HÉBERGEMENT,Hébergement
@@ -333,6 +402,7 @@ Diner préparation essai MultiTasc,Restauration
 Dinner,Restauration
 Don,Autre
 Don/partenariat/bourse,Bourse
+Don/partenariat/bourse,Autre
 Djeuner,Restauration
 Djeuner ,Restauration
 Dplacement,Transport
@@ -398,6 +468,8 @@ EPU,"Frais d'inscription (Congrès, séminaires, ...)"
 EPU repas,Restauration
 ESSAI CLINIQUE,Honoraires
 ESSAI PRODUIT,Honoraires
+ESSAI CLINIQUE,Essais médicaux
+ESSAI PRODUIT,Essais médicaux
 ESSENCE,Transport
 ESVS MEETING,"Frais d'inscription (Congrès, séminaires, ...)"
 EXPO+GOUT,Cadeaux culture
@@ -406,6 +478,7 @@ Ecume des mers,Restauration
 Electronique,Produits électroniques
 Essais à la Clinique,Honoraires
 Etudes- Evaluations - Assistance scientifique,Honoraires
+Essais à la Clinique,Essais médicaux
 Etudes/Recherche,Honoraires
 Exposition Murano,Cadeaux culture
 FLEURS,Confiseries / Fleurs
@@ -434,6 +507,13 @@ FORFAIT SEMINAIRE,"Forfait d'hospitalité liés à un congrès, séminaire, ..."
 FORMATION,Formations
 FORMATION ,Formations
 FORMATION D.U.,Formations
+FORFAIT HEBERGEMENT ET RESTAURATION,Forfait d'hospitalité
+FORFAIT INSCRIPTION + DÉJEUNER,"Forfait d'hospitalité liés à un congrès, séminaire, ..."
+FORFAIT INSCRIPTION + Restauration,"Forfait d'hospitalité liés à un congrès, séminaire, ..."
+FORFAIT LOGISTIQUE,Forfait d'hospitalité
+FORFAIT POUR Hospitalité,Forfait d'hospitalité
+FORMATION,Formations
+FORMATION ,Formations
 FORMATION DU,Formations
 FORMATION FONTAINE,Formations
 FORMATION ORL HOPITAL LARIBOISIERE,Formations
@@ -470,6 +550,7 @@ FRAIS STATIONNEMENT,Transport
 FRAIS TRANSPORT,Transport
 FRAS D'INSCRIPTION,"Frais d'inscription (Congrès, séminaires, ...)"
 FROFAIT HOTEL DEPLACEMENT,Hébergement
+FRAIS TRANSPORT,Transport
 Financement Communication CONGRES EGYPTE HURGADA (Avion) - convention orateur du 25/04/2012,Transport
 Financement Communication CONGRES HONG-KONG (Déplacement avion) - convention orateur du 25/04/2012,Transport
 Financement Communication CONGRES HONG-KONG (Hébergement 4 nuits) - convention orateur du 25/04/2012,Hébergement
@@ -507,6 +588,13 @@ Frais d'avion lors d'un déplacement à TAMPA aux USA 2nd annual multispeciality
 Frais d'hospitalit,Forfait d'hospitalité
 Frais d'hospitalité,Forfait d'hospitalité
 Frais d'hotel (2 nuits) + Petit déjeuner participation AFCP - Journée de printemps/Spring Meeting  du 29/03 au 31/03/2012 au Centre de congrès Majestic - CHAMONIX,"Forfait d'hospitalité liés à un congrès, séminaire, ..."
+Frais Hébergement,Hébergement
+Frais Hébergment,Hébergement
+Frais Inscription,"Frais d'inscription (Congrès, séminaires, ...)"
+Frais Restauration,Restauration
+Frais Transport,Transport
+Frais Transports,Transport
+Frais d'hospitalité,Forfait d'hospitalité
 Frais d'hotellerie,Hébergement
 Frais d'hébergement,Hébergement
 Frais d'hébergement Hopipharm,Hébergement
@@ -532,6 +620,8 @@ Frais de formation,Formations
 Frais de nuité,Hébergement
 Frais de nuitée,Hébergement
 Frais de orateur,Honoraires
+Frais de nuité,Hébergement
+Frais de nuitée,Hébergement
 Frais de participation,Forfait d'hospitalité
 Frais de repas,Restauration
 Frais de restauration,Restauration
@@ -545,6 +635,7 @@ Frais dinscription à une manifestation,"Frais d'inscription (Congrès, sémin
 Frais déplacement,Transport
 Frais d’inscription à une manifestation,"Frais d'inscription (Congrès, séminaires, ...)"
 Frais hébergement,Hébergement
+Frais d’inscription à une manifestation,"Frais d'inscription (Congrès, séminaires, ...)"
 Frais inscription,"Frais d'inscription (Congrès, séminaires, ...)"
 Frais remboursés (transport),Transport
 Frais restauration,Restauration
@@ -570,6 +661,7 @@ HEBERGEMENT 3 NUITS,Hébergement
 HEBERGEMENT 3 nuits,Hébergement
 HEBERGEMENT 4 NUIT,Hébergement
 HEBERGEMENT 4 NUITS,Hébergement
+HEBERGEMENT 3 NUITS,Hébergement
 HEBERGEMENT ACHBT,Hébergement
 HEBERGEMENT CACVS,Hébergement
 HEBERGEMENT CONGRES ILTS,Hébergement
@@ -591,6 +683,8 @@ HEBERGEMENT SFNC 2013,Hébergement
 HEBERGEMENT SOFFCO,Hébergement
 HEBERGEMENT SRES,Hébergement
 HEBERGEMENT TRANSPORT,Forfait d'hospitalité
+HEBERGEMENT SOFFCO,Hébergement
+HEBERGEMENT SRES,Hébergement
 HEBERGEMENT__1,Hébergement
 HEBERGEMENT__2,Hébergement
 HEBERGEMENT__3,Hébergement
@@ -609,6 +703,8 @@ HONORAIRES CONSULTANT,Honoraires
 HONORAIRES REUNION,Honoraires
 HONORAIRES REUNION ,Honoraires
 HOSP+INSCRIP,"Forfait d'hospitalité liés à un congrès, séminaire, ..."
+HONORAIRES,Honoraires
+HONORAIRES CONSULTANT,Honoraires
 HOSPITALITE,Forfait d'hospitalité
 HOSPITALITE 11EME CONGRES MEDECINE ANTI AGE,Forfait d'hospitalité
 HOSPITALITE APODEP 2013,Forfait d'hospitalité
@@ -625,6 +721,7 @@ HOTEL 3 NUITS,Hébergement
 HOTEL ASTRID PARIS ,Hébergement
 HOTEL MAGELLAN PARIS 2 NUITS,Hébergement
 HOTEL À CONCURRENCE DE 120,Hébergement
+HOTEL / HEBERGEMENT,Hébergement
 HOTEL/HEBERGEMENT,Hébergement
 HOTEL/Hébergement,Hébergement
 HOTELLERIE,Hébergement
@@ -635,6 +732,7 @@ Hebergement (3nuits),Hébergement
 Hebergement Etranger,Hébergement
 Hebergement Etranger ,Hébergement
 Hebergement France,Hébergement
+Hebergement (3nuits),Hébergement
 Hebergement Inscription Transport Restauration,"Forfait d'hospitalité liés à un congrès, séminaire, ..."
 "Hebergement,Inscription,Transport,Restauration","Forfait d'hospitalité liés à un congrès, séminaire, ..."
 Herbergement,Hébergement
@@ -665,6 +763,7 @@ Honoraires pour la période du mois de Novembre 2012,Honoraires
 Honoraires pour la période du mois de Septembre 2012,Honoraires
 Honoraires+deplacement+herbergement+inscription-CNBH-TOULOUSE,Honoraires
 Honoraires+hebergement+deplacement+inscription+CNBH TOULOUSE,Honoraires
+Honoraires Médecin Observateur,Honoraires
 Honoraires/Prestation de service,Honoraires
 Hospitalite,Forfait d'hospitalité
 Hospitalite dans le cadre d'une convention collaboration scientifique,Forfait d'hospitalité
@@ -683,6 +782,9 @@ Hospitalité (repas),Restauration
 Hospitalité congrès,"Forfait d'hospitalité liés à un congrès, séminaire, ..."
 Hospitalité offerte,Forfait d'hospitalité
 Hospitalité(4 repas et 3 pauses café),Restauration
+Hospitalité (repas),Restauration
+Hospitalité congrès,"Forfait d'hospitalité liés à un congrès, séminaire, ..."
+Hospitalité offerte,Forfait d'hospitalité
 Hospitalité/Transport,Forfait d'hospitalité
 Hospitalité/Transport/Repas,Forfait d'hospitalité
 Hotel,Hébergement
@@ -796,6 +898,8 @@ IMPRESSION,Autre
 IMPRESSION DE THESE,Autre
 IMPROMPTU,Autre
 INCRIPTION CONGRES,"Frais d'inscription (Congrès, séminaires, ...)"
+IMPRESSION DE THESE,Autre
+IMPROMPTU,Autre
 INCRIPTION RESTAURATION HEBERGEMENT,Forfait d'hospitalité
 INSCRIPITON,"Frais d'inscription (Congrès, séminaires, ...)"
 INSCRIPITON ,"Frais d'inscription (Congrès, séminaires, ...)"
@@ -812,6 +916,12 @@ INSCRIPTION AU CONGRES,"Frais d'inscription (Congrès, séminaires, ...)"
 INSCRIPTION AU CONGRES ,"Frais d'inscription (Congrès, séminaires, ...)"
 INSCRIPTION AU CONGRES+TP,"Frais d'inscription (Congrès, séminaires, ...)"
 INSCRIPTION CIRSE,"Frais d'inscription (Congrès, séminaires, ...)"
+INSCRIPTION  CONGRES,"Frais d'inscription (Congrès, séminaires, ...)"
+INSCRIPTION 13ES JOURNEES VASCULAIRES DE L'ATLANTIQUE,"Frais d'inscription (Congrès, séminaires, ...)"
+INSCRIPTION A UN CONGRES,"Frais d'inscription (Congrès, séminaires, ...)"
+INSCRIPTION AFICV,"Frais d'inscription (Congrès, séminaires, ...)"
+INSCRIPTION AU CONGRES,"Frais d'inscription (Congrès, séminaires, ...)"
+INSCRIPTION AU CONGRES+TP,"Frais d'inscription (Congrès, séminaires, ...)"
 INSCRIPTION CONGRES,"Frais d'inscription (Congrès, séminaires, ...)"
 INSCRIPTION CONGRES ,"Frais d'inscription (Congrès, séminaires, ...)"
 INSCRIPTION CONGRES ACHBT,"Frais d'inscription (Congrès, séminaires, ...)"
@@ -862,6 +972,8 @@ INSCRIPTION À CONCURRENCE DE 200,"Frais d'inscription (Congrès, séminaires,
 "INSCRIPTION, BADGE","Frais d'inscription (Congrès, séminaires, ...)"
 "INSCRIPTION, BADGE(675),TRANSPORT (430 ), HEBERGEMENT (690 )","Forfait d'hospitalité liés à un congrès, séminaire, ..."
 "INSCRIPTION, BADGE(895 ),TRANSPORT (899 ), HEBERGEMENT (886 )","Forfait d'hospitalité liés à un congrès, séminaire, ..."
+INSCRIPTION SFCTCV OVERCOME,"Frais d'inscription (Congrès, séminaires, ...)"
+"INSCRIPTION, BADGE","Frais d'inscription (Congrès, séminaires, ...)"
 INSCRIPTION-PAUSES ET 2 DÉJEUNERS CONGRÈS AFICCT / SFCTCV / PERFUSION 2013 À MARSEILLE,"Forfait d'hospitalité liés à un congrès, séminaire, ..."
 INSCRIPTION-PAUSES ET 2 DÉJEUNERS CONGRÈS ECMO À PARIS,"Forfait d'hospitalité liés à un congrès, séminaire, ..."
 INSCRIPTION-PAUSES ET 2 DÉJEUNERS CONGRÈS SFCTCV / PERFUSION 2013 À MARSEILLE,"Forfait d'hospitalité liés à un congrès, séminaire, ..."
@@ -994,6 +1106,10 @@ Inscription/Voyage/Hospitalité,"Forfait d'hospitalité liés à un congrès, s�
 Inscriptions congrés,"Forfait d'hospitalité liés à un congrès, séminaire, ..."
 Intervention de consulting ,Honoraires
 Intervention de consulting au sein de la société Newclip Technics le 23/08/2012,Honoraires
+"Inscription, transport","Forfait d'hospitalité liés à un congrès, séminaire, ..."
+"Inscription, transport, hbergement","Forfait d'hospitalité liés à un congrès, séminaire, ..."
+Inscription/Voyage/Hospitalité,"Forfait d'hospitalité liés à un congrès, séminaire, ..."
+Inscriptions congrés,"Forfait d'hospitalité liés à un congrès, séminaire, ..."
 Invitation,Autre
 Invitation ,Autre
 Invitation Impromptue,Autre
@@ -1009,6 +1125,7 @@ JOURNEE D ETUDE,"Frais d'inscription (Congrès, séminaires, ...)"
 JOURNEE D'ETUDE,"Frais d'inscription (Congrès, séminaires, ...)"
 JOURNEE INFORMATION MANS,"Frais d'inscription (Congrès, séminaires, ...)"
 JOURNEE LE TOUQUET HISTORIQUE,"Frais d'inscription (Congrès, séminaires, ...)"
+JOURNEE D'ETUDE,"Frais d'inscription (Congrès, séminaires, ...)"
 JOURNEE NOLOGIE,"Frais d'inscription (Congrès, séminaires, ...)"
 JOURNEES MEDICALES ORL MONTENEGRO,"Frais d'inscription (Congrès, séminaires, ...)"
 Jeff de Bruges cadeau,Confiseries / Fleurs
@@ -1024,6 +1141,10 @@ LIVRE,Presse / ouvrages / livres / abonnements
 LOCATION DE SALLE + DINER,Location de salle
 LOCATION DE STAND,Location de salle
 LOGEMENT,Hébergement
+L'Os à moelle restaurant,Restauration
+L'ami Schutz,Restauration
+LIVRE,Presse / ouvrages / livres
+LOCATION DE SALLE + DINER,Location de salle
 La Saint-Georges,Restauration
 La barrera Sol restaurant,Restauration
 La criée,Restauration
@@ -1056,6 +1177,11 @@ MANIFESTATION CARACTERE SCIENTIFIQUE,"Frais d'inscription (Congrès, séminaires
 MAPAR 2013,"Frais d'inscription (Congrès, séminaires, ...)"
 MISE A DISPOSITION,Produits médicaux
 MISE A DISPOSITION DE  PRODUITS,Produits médicaux
+Location matériel,Produits médicaux
+Location salle,Location de salle
+MACARONS,Confiseries / Fleurs
+MAPAR 2013,"Frais d'inscription (Congrès, séminaires, ...)"
+MISE A DISPOSITION,Produits médicaux
 MONTRE SFPIO-GABA,Bijoux
 Macarons,Confiseries / Fleurs
 Maison Lefaure,Restauration
@@ -1075,6 +1201,9 @@ NEGO,Honoraires
 NESPRESSO,Cadeaux divers
 NO SHOW,Autre
 NOTE DE FRAIS PRIX MERIDOL,Remboursements de frais
+NESPRESSO,Autre
+NO SHOW,Autre
+NOTE DE FRAIS PRIX MERIDOL,Autre
 NOTE DE REMBOURSEMENT,Remboursements de frais
 NOTE DE REMBOURSSEMENT,Remboursements de frais
 NOURRITURE,Restauration
@@ -1100,6 +1229,10 @@ PACKAGE MEDARTIS GOLD SPONSOR INVITATION 10 MEDECINS( ENVIRON 3 000),Soirées
 PAIEMENT FACTURE FLEURUS COPY : AIDE POUR THESE,Remboursements de frais
 PARC FERME TOUR AUTO PROVINCE,Transport
 PARC FERME TOUR AUTO PROVINCE + DINER,Forfait d'hospitalité
+OUVRAGE,Presse / ouvrages / livres
+Objet,Autre
+Ouvrage,Presse / ouvrages / livres
+Ouvrages Anatomiques,Presse / ouvrages / livres
 PARKING,Transport
 PARTENARIAT AVEC ASSOCIATION FACE DES ORL,Autre
 PARTICIPATION CONGRES,"Frais d'inscription (Congrès, séminaires, ...)"
@@ -1110,6 +1243,11 @@ PARTICIPATION FRAIS INSCRIPTION,"Frais d'inscription (Congrès, séminaires, ...
 PARTICIPATION ORGANISATION DE SEMINAIRE,Honoraires
 PARTICIPATION ROTARY CLUB ASSOCIATION NEURODON,Honoraires
 PATISSERIES OSIERS 20 BOISSONS 13 STAFF PRESENTATION PRODUITS EQUIPE TRAUMATOLOGIE,Pauses cafés
+PARTICIPATION FINANCIÈRE SOIRÉE DR TRAN,Autre
+PARTICIPATION FINANCIÈRE SOIRÉE DR TRAN ,Autre
+PARTICIPATION FRAIS INSCRIPTION,"Frais d'inscription (Congrès, séminaires, ...)"
+PARTICIPATION ORGANISATION DE SEMINAIRE,Honoraires
+PARTICIPATION ROTARY CLUB ASSOCIATION NEURODON,Autre
 PAUSE,Pauses cafés
 PAUSE ,Pauses cafés
 PAUSE CAFE,Pauses cafés
@@ -1141,6 +1279,17 @@ PRISE EN CHARGE RESTAURATION,Restauration
 PRISE EN CHARGE TRANSPORT,Transport
 PRISE EN CHARGE UNE PARTIE DES FRAIS INSCRIPTION  AU DEU IMPLANTOLOGIE A CONCURRENCE DE 300 MAXIMUM,"Frais d'inscription (Congrès, séminaires, ...)"
 "PRISE EN CHARGE UNE PARTIE DU COUT DE LA FORMATION (150 MAXIMUM)CEPHALOMETRIE DR DELAIRE, CHU NANTES, 2 CESSIONS OCT. ET DEC. 2012",Formations
+PRE/POST-ACHEMINEMENT,Transport
+PRES XL,Autre
+PRESENTATION DISPOSITIFS,Produits médicaux
+PRESENTATION PRODUIT,Produits médicaux
+PRESSE,Presse / ouvrages / livres
+PRISE EN CHARGE BOURSE CONGRES DE VIENNE (AUTRICHE) 01/03/12 AU 05/03/12,"Frais d'inscription (Congrès, séminaires, ...)"
+PRISE EN CHARGE BOURSE CONGRES DE VIENNE (Autriche) DU 07/03/13 AU 11/03/2013,"Frais d'inscription (Congrès, séminaires, ...)"
+PRISE EN CHARGE DE VOYAGE,Transport
+PRISE EN CHARGE DU DE CANCEROLOLGIE CUTANEE,"Frais d'inscription (Congrès, séminaires, ...)"
+PRISE EN CHARGE DÉPLACEMENT,Transport
+PRISE EN CHARGE RESTAURATION,Restauration
 PRISE EN CHARGE VISA POUR ALGERIE - INTERVENTION CONSULTANT,Honoraires
 PRIX,Autre
 PRIX FU GECO,Autre
@@ -1160,6 +1309,13 @@ Participation Basic course in Wirst Arthroscopic le 11 et 12 May 2013 à Taiwan 
 Participation Thèse,Autre
 Participation au buffet de depart en retraite,Restauration
 Participation aux frais d'inscription congres,"Frais d'inscription (Congrès, séminaires, ...)"
+Paka's Pub restaurant,Restauration
+Panier Restauration,Restauration
+Panier repas,Restauration
+Parking,Transport
+Parking / Taxi,Transport
+Participation Thèse,Autre
+Participation au buffet de depart en retraite,Restauration
 Participation congrès,"Frais d'inscription (Congrès, séminaires, ...)"
 Participation financière,Autre
 Participation à une étude de marché,Honoraires
@@ -1182,6 +1338,7 @@ Pot d'installation,Rafraichissements
 Pot de thèse,Rafraichissements
 Pre-Post,Autre
 Premire Vive le Thatre Bobino,Cadeaux culture
+Pre-Post,Autre
 Prise en charge Inscription SF2HH,"Frais d'inscription (Congrès, séminaires, ...)"
 Prise en charge Inscription SF2HH ,"Frais d'inscription (Congrès, séminaires, ...)"
 Produit Biodentine,Produits médicaux
@@ -1199,12 +1356,14 @@ Prêt produit,Produits médicaux
 Péage,Transport
 Péage et Parking,Transport
 Péages,Transport
+Péage et Parking,Transport
 Pétit déjeuner,Restauration
 R,Autre
 RCP,"Frais d'inscription (Congrès, séminaires, ...)"
 REDEVANCE SUR BREVET,Honoraires
 RELATION NORMALE DE TRAVAIL,Autre
 RELATIONS PUBLIQUES,Autre
+RELATIONS PUBLIQUES,Relations publiques
 REMBOURSEMENT DE FRAIS,Remboursements de frais
 REMBOURSEMENT FRAIS,Remboursements de frais
 REPAS,Restauration
@@ -1213,6 +1372,7 @@ REPAS   ,Restauration
 REPAS (NOMBRE DE REPAS NON EXTRACTIBLE A CE JOUR),Restauration
 REPAS + PAUSES,Restauration
 "REPAS AVEC DR STEVE, MME SARCY ET B ROBERT MEDARTIS ( LE BERAULT : 38,10 POUR 4 COUVERTS)",Restauration
+REPAS (NOMBRE DE REPAS NON EXTRACTIBLE A CE JOUR),Restauration
 REPAS COCKTAILS BUFFETS,Restauration
 REPAS D'AFFAIRE,Restauration
 REPAS DÉJEUNER STAFF,Restauration
@@ -1245,6 +1405,7 @@ RESTAURATION FORMATION,Restauration
 RESTAURATION HOTELLERIE,Restauration
 RESTAURATION PAUSE,Pauses cafés
 RESTAURATION POUR REUNION DE SERVICE NEURO - CHU BORDEAUX,Restauration
+RESTAURATION FORMATION,Restauration
 RESTAURATION REUNION PROFESSIONNELLE,Restauration
 RESTAURATION SOIREE FMC,Restauration
 RESTAURATION STAFF,Restauration
@@ -1274,6 +1435,15 @@ Reception au bloc opératoire du DR WANG (australie) - opération de l'avant pie
 Recherche clinique/Etudes observ,Honoraires
 Registration,"Frais d'inscription (Congrès, séminaires, ...)"
 Registration to the wrist arthroscopy - advanced course - Strasbourg les 23 et 24 novembre 2012,"Frais d'inscription (Congrès, séminaires, ...)"
+REUNION POUR CONSEIL SUR LES FUTURS DEVELOPPEMENTS CLINIQUES,Autre
+REunion,Autre
+RNT,"Frais d'inscription (Congrès, séminaires, ...)"
+RNT DÎNER CONGRÈS HIGH TECH CARDIO,Restauration
+RP,Relations publiques
+RP QUIZZ 28,"Frais d'inscription (Congrès, séminaires, ...)"
+RP Restaurant,Restauration
+Rafraichissement,Rafraichissements
+Recherche clinique/Etudes observ,Honoraires
 Relations normales de travail,Autre
 Remb. Frais,Remboursements de frais
 Remboursement de frais,Remboursements de frais
@@ -1309,6 +1479,9 @@ Rest/Invitation,Restauration
 Restaurant,Restauration
 Restaurant ,Restauration
 Restaurant (Déj / Dîner),Restauration
+Rest/Invitation,Restauration
+Restaurant,Restauration
+Restaurant ,Restauration
 Restaurant Via Roma,Restauration
 Restaurant du musée,Restauration
 Restauration,Restauration
@@ -1317,6 +1490,8 @@ Restauration (2 Dîners / 1 Déj),Restauration
 Restauration (2 Restauration),Restauration
 Restauration (3 Restauration),Restauration
 Restauration (Déj / Dîner),Restauration
+Restauration (2 Restauration),Restauration
+Restauration (3 Restauration),Restauration
 Restauration (NBRE DE Restauration NON EXTRACTIBLE A CE JOUR),Restauration
 Restauration + Autres( frais inscription),"Forfait d'hospitalité liés à un congrès, séminaire, ..."
 Restauration + Hébergement,Forfait d'hospitalité
@@ -1353,6 +1528,11 @@ Réunion et Déjeuner,Restauration
 SALLE,"Frais d'inscription (Congrès, séminaires, ...)"
 SATFF PHARMACIE,Restauration
 SEMINAIRE PR PECHEREAU,"Frais d'inscription (Congrès, séminaires, ...)"
+Reunion Medicale,Autre
+Reve et riz coktail,Cadeaux détente
+Réunion et Déjeuner,Restauration
+SALLE,"Frais d'inscription (Congrès, séminaires, ...)"
+SATFF PHARMACIE,Restauration
 SOIREE,Soirées
 SOIREE ,Soirées
 SOIREE ETAPE,Soirées
@@ -1377,6 +1557,7 @@ SUBVENTION ANNUELLE,Autre
 SUBVENTION CONGRES,"Frais d'inscription (Congrès, séminaires, ...)"
 SUIVI PATIENTE - ESSAI CLINIQUE,Honoraires
 SUPPORT DE FORMATION,Honoraires
+SUIVI PATIENTE - ESSAI CLINIQUE,Essais médicaux
 SYMPOSIUM WHC,"Frais d'inscription (Congrès, séminaires, ...)"
 Sacoche,Cadeaux papeterie
 Sans Honoraires,Autre
@@ -1402,6 +1583,9 @@ TRAIN/HOTEL,Forfait d'hospitalité
 TRAIN/HOTEL/CONGRES,Forfait d'hospitalité
 TRAJETS HEBERGEMENT RESTAURATION FRAIS INSCRIPTION,"Forfait d'hospitalité liés à un congrès, séminaire, ..."
 TRANPORT,Transport
+TRAIN,Transport
+TRAIN/HOTEL,Forfait d'hospitalité
+TRAIN/HOTEL/CONGRES,Forfait d'hospitalité
 TRANSFERT,Transport
 TRANSFERT (TAXI/BUS/METRO),Transport
 TRANSFERT CONGRÈS AFICCT / SFCTCV / PERFUSION 2013 À MARSEILLE,Transport
@@ -1427,6 +1611,14 @@ TRANSPORT ACHBT,Transport
 TRANSPORT ALLER-RETOUR,Transport
 TRANSPORT ANNUAL PANCREAS CLUB MEETING,Transport
 TRANSPORT AR SNCF + VOITURE,Transport
+TRANSPORT,Transport
+TRANSPORT ,Transport
+TRANSPORT (AVION + TAXI),Transport
+TRANSPORT (AVION + TRAIN),Transport
+TRANSPORT (AVION + TRAINS),Transport
+TRANSPORT ACHBT,Transport
+TRANSPORT ALLER-RETOUR,Transport
+TRANSPORT ANNUAL PANCREAS CLUB MEETING,Transport
 TRANSPORT CONGRES,Transport
 TRANSPORT CONGRES CACVS,Transport
 TRANSPORT CONGRES SCV,Transport
@@ -1453,12 +1645,20 @@ TRANSPORT SFCE,Transport
 TRANSPORT SFICV,Transport
 TRANSPORT SFNC 2013,Transport
 TRANSPORT SNCF,Transport
+TRANSPORT HEBERGEMENT RESTAURATION,Forfait d'hospitalité
+TRANSPORT IHPBA,Transport
+TRANSPORT JFHOD,Transport
+TRANSPORT JFICV,Transport
+TRANSPORT RENCONTRES HB HENRY MONDOR,Transport
+TRANSPORT SFCE,Transport
+TRANSPORT SFICV,Transport
 TRANSPORT SOFFCO,Transport
 TRANSPORT SRES,Transport
 "TRANSPORT, HEBERGEMENT, RESTAURATION",Forfait d'hospitalité
 TRANSPORTS,Transport
 TRANSPORTS AFICV,Transport
 TRAVAUX SECRETARIAT - ESSAI CLINIQUE,Honoraires
+TRAVAUX SECRETARIAT - ESSAI CLINIQUE,Essais médicaux
 Tapis de souris X-Class,Cadeaux papeterie
 Taxi,Transport
 Taxis-Loc. voiture,Transport
@@ -1467,6 +1667,7 @@ The Big Family,Restauration
 Train,Transport
 Train ,Transport
 Train pour Paris 1 nuit d'hôtel 1 dîner 1 déjeuner,Forfait d'hospitalité
+Train pour Paris 1 nuit d'hôtel 1 dîner 1 déjeuner,Forfaire d'hospitalité
 "Train pour Paris, 1 nuit d'hôtel, 1 dîner, 1 déjeuner",Forfait d'hospitalité
 Traiteur,Restauration
 Traiteur Inauguration cabinet,Restauration
@@ -1481,6 +1682,7 @@ Trajet train,Transport
 Trajet voiture,Transport
 Transfert,Transport
 Transferts,Transport
+Transfert,Transport
 Transporrt,Transport
 Transport,Transport
 Transport ,Transport
@@ -1540,6 +1742,7 @@ Transport/Repas,Forfait d'hospitalité
 TransportS,Transport
 Transports,Transport
 Transports (SNCF),Transport
+UNKNOWN,Autre
 VIDEOTOSCOPE CONGRES SFORL NICE,"Frais d'inscription (Congrès, séminaires, ...)"
 VIDEOTOSCOPE CONGRES SFORL PARIS,"Frais d'inscription (Congrès, séminaires, ...)"
 VIENNOISERIE,Petit-déjeuners
@@ -1558,6 +1761,12 @@ VOYAGE,Transport
 VOYAGE SNCF,Transport
 Val fleuri,Autre
 Validation vis autoforante et évaluation des fraises percutanées,Honoraires
+VISITE SUR SITE,Visites
+VOITURE DE LOC,Transport
+VOL,Transport
+VOYAGE,Transport
+VOYAGE SNCF,Transport
+Val fleuri,Autre
 Viennoiserie,Petit-déjeuners
 Viennoisserie,Petit-déjeuners
 Visite,Visites
@@ -1571,6 +1780,8 @@ Vols,Transport
 Voyage,Transport
 Voyage SFOP,Transport
 Voyage/Hospitalité,Forfait d'hospitalité
+Voyage,Transport
+Voyage SFOP,Transport
 Week end détente Uriage les Bains,Cadeaux détente
 all seasons,Hébergement
 apéritif et diner,Restauration
@@ -1683,6 +1894,8 @@ kind,Autre
 l'affiche,Restauration
 livre,Presse / ouvrages / livres / abonnements
 livres,Presse / ouvrages / livres / abonnements
+livre,Presse / ouvrages / livres
+livres,Presse / ouvrages / livres
 massage,Cadeaux détente
 matériel promotionnel,Produits médicaux
 meals / repas,Restauration
@@ -1692,6 +1905,8 @@ nuitée,Hébergement
 ouvrage,Presse / ouvrages / livres / abonnements
 parking,Transport
 parking Aéroport,Transport
+ouvrage,Presse / ouvrages / livres
+parking,Transport
 participation à la présentation du Dr Senesse,"Frais d'inscription (Congrès, séminaires, ...)"
 patisserie,Petit-déjeuners
 pause,Pauses cafés
@@ -1707,6 +1922,8 @@ remboursement des frais kilométriques,Transport
 remboursement frais de transport,Transport
 repas,Restauration
 repas - avantage sans convention,Restauration
+remboursement des frais kilométriques,Transport
+repas,Restauration
 repas de travail,Restauration
 repas pauses,Restauration
 "repas, pauses",Restauration
@@ -1744,6 +1961,12 @@ transfert aéroport,Transport
 transport,Transport
 transport ,Transport
 transport (1022€) hébèrgement (130 €),Forfait d'hospitalité
+transfers,Transport
+transfert,Transport
+transfert aéroport,Transport
+transport,Transport
+transport ,Transport
+transport (1022€) hébèrgement (130 €),Frais d'hospitalité
 "transport (1022€), hébèrgement (130 €)",Forfait d'hospitalité
 transport (1114 €) hébèrgement (145 €),Forfait d'hospitalité
 "transport (1114 €), hébèrgement (145 €)",Forfait d'hospitalité
