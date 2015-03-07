@@ -21,6 +21,8 @@ def nomprenomtwice(nom):
 
 df['BENEF_PS_QUALITE_NOM_PRENOM'] = df['BENEF_PS_QUALITE_NOM_PRENOM'].apply(lambda nom: nomprenomtwice(nom))
 df['BENEF_PS_QUALIFICATION'] = 'Sage-femme'
+df['BENEF_PS_CODEPOSTAL'] = df['BENEF_PS_ADR'].apply(lambda s: s.encode('ascii', errors='ignore')  if isinstance(s, unicode) else str(s) ).apply(lambda addr: re.sub( '.* ([0-9]{5})[ \.].*', '\g<1>', addr)).apply(lambda s: s if (len(s) == 5) else '')
+df['DECL_AVANT_NATURE'] = df['DECL_AVANT_NATURE'].apply(lambda s: s.encode('ascii', errors='ignore')  if isinstance(s, unicode) else str(s) ).apply(lambda s: s.replace(',', ' -'))
 
 df.to_csv(output_filename, index=False, encoding='utf-8')
 

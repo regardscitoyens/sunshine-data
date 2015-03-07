@@ -18,6 +18,7 @@ header_mapping = {
     'DATE_SIGNATURE_CONVENTION': 'DECL_CONV_DATE',
     'OBJET': 'DECL_CONV_OBJET',
     'PROGRAMME': 'DECL_CONV_PROGRAMME',
+    'BENEF_PS_CODEPOSTAL': 'BENEF_PS_CODEPOSTAL'
 }
 
 input_filename = sys.argv[1]
@@ -58,9 +59,13 @@ def str2date(date):
 df['MONTANT_AVANTAGE'] = df['MONTANT_AVANTAGE'].apply(euro2float)
 df['DATE_AVANTAGE'] = df['DATE_AVANTAGE'].apply(str2date)
 df['DATE_SIGNATURE_CONVENTION'] = df['DATE_SIGNATURE_CONVENTION'].apply(str2date)
-
 df['QUALITE_NOM_PRENOM'] = df['QUALITE'] + ' ' + df['NOM'] + ' ' + df['PRENOM']
+df['QUALITE_NOM_PRENOM'] = df['QUALITE_NOM_PRENOM'].apply(lambda s: s.encode('ascii', errors='ignore')  if isinstance(s, unicode) else str(s) ).apply(lambda s: s.replace(',', ' -'))
 df['ORIGIN'] = 'Infirmier'
+df['ADRESSE'] =  df['ADRESSE'].apply(lambda s: s.encode('ascii', errors='ignore')  if isinstance(s, unicode) else str(s) ).apply(lambda s: s.replace(',', ' -'))
+df['OBJET'] =  df['OBJET'].apply(lambda s: s.encode('ascii', errors='ignore')  if isinstance(s, unicode) else str(s) ).apply(lambda s: s.replace(',', ' -'))
+df['PROGRAMME'] =  df['PROGRAMME'].apply(lambda s: s.encode('ascii', errors='ignore')  if isinstance(s, unicode) else str(s) ).apply(lambda s: s.replace(',', ' -'))
+df['BENEF_PS_CODEPOSTAL'] = df['ADRESSE'].apply(lambda addr: re.sub( '^.* ([0-9]{4,5}) .*$', '\g<1>', addr).zfill(5)).apply(lambda s: s if ( len(s) == 5  ) else '')
 
 for origin, target in header_mapping.items():
     df[target] = df[origin]
