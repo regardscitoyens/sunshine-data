@@ -2,7 +2,7 @@
 
 # Remove internes_exploitable files from CSV_FILES because it is merged in
 # medecins_exploitables file
-CSV_FILES=dentistes.csv infirmiers.csv medecins_exploitables.csv pharmaciens.csv sagefemmes.csv medecins_inexploitables.csv internes_inexploitables.csv
+CSV_FILES=dentistes.csv infirmiers.csv medecins_exploitables.csv pharmaciens.csv sagefemmes.csv medecins_inexploitables.csv
 RAW_FILES=$(addprefix data/raw/, $(CSV_FILES))
 FORMATTED_FILES=$(patsubst %.csv,data/formatted/%.formatted.csv,$(CSV_FILES))
 REFINED_FILES=$(patsubst %.csv,data/refined/%.refined.csv,$(CSV_FILES))
@@ -40,9 +40,6 @@ data/formatted/%.formatted.csv: %.csv
 	then . scripts/format_$*.sh ; \
 	else cp $< $@ ; \
 	fi; fi;
-
-data/formatted/sagefemmes.formatted.csv: data/raw/sagefemmes.csv
-	cat $< | sed 's/,/ /g' | sed 's/;/,/g' > $@
 
 data/raw/medecins_inexploitables.csv: data/raw/medecins_inexploitables.tsv
 	cat $< | sed 's/,/ /g' | sed 's/	/,/g' > $@
