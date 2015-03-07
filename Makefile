@@ -46,3 +46,5 @@ data/raw/medecins_inexploitables.csv: data/raw/medecins_inexploitables.tsv
 
 data/raw/internes_inexploitables.csv: data/raw/internes_inexploitables.tsv
 	cat $< | sed 's/,/ /g' | sed 's/	/,/g' > $@
+data/raw/sagefemmes.csv:
+	test -f data/raw/sagefemme.csv && mv data/raw/sagefemme.csv data/raw/sagefemmes.csv
