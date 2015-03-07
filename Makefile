@@ -29,10 +29,17 @@ clean:
 	rm -f data/raw/medecins_inexploitables.csv
 	rm -f data/raw/internes_inexploitables.csv
 
+mkdirs:
+	mkdir -p data/formatted
+	mkdir -p data/refined
+	mkdir -p data/tmp
+
 data/refined/%.refined.csv: %.formatted.csv scripts/apply_refine_operations_from_csv.py
+	make mkdirs
 	python scripts/apply_refine_operations_from_csv.py $< ${UNIFIER_DIR} $@
 
 data/formatted/%.formatted.csv: %.csv
+	make mkdirs
 	if test -e scripts/format_$*.py ; \
 	then python scripts/format_$*.py $< $@ ; \
 	else if test -e scripts/format_$*.sh ; \
