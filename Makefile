@@ -2,7 +2,7 @@
 
 # Remove internes_exploitable files from CSV_FILES because it is merged in
 # medecins_exploitables file
-CSV_FILES=dentistes.csv infirmiers.csv medecins_exploitables.csv pharmaciens.csv sagefemmes.csv medecins_inexploitables.csv
+CSV_FILES=dentistes.csv infirmiers.csv medecins_exploitables.csv pharmaciens.csv sagefemmes.csv medecins_inexploitables.csv transparencesante_avantages.csv transparencesante_conventions.csv
 RAW_FILES=$(addprefix data/raw/, $(CSV_FILES))
 FORMATTED_FILES=$(patsubst %.csv,data/formatted/%.formatted.csv,$(CSV_FILES))
 REFINED_FILES=$(patsubst %.csv,data/refined/%.refined.csv,$(CSV_FILES))
@@ -29,7 +29,6 @@ clean:
 	rm -f data/raw/medecins_inexploitables.csv
 	rm -f data/raw/internes_inexploitables.csv
 
-
 data/refined/%.refined.csv: %.formatted.csv scripts/apply_refine_operations_from_csv.py
 	python scripts/apply_refine_operations_from_csv.py $< ${UNIFIER_DIR} $@
 
@@ -46,5 +45,6 @@ data/raw/medecins_inexploitables.csv: data/raw/medecins_inexploitables.tsv
 
 data/raw/internes_inexploitables.csv: data/raw/internes_inexploitables.tsv
 	cat $< | sed 's/,/ /g' | sed 's/	/,/g' > $@
+
 data/raw/sagefemmes.csv:
 	test -f data/raw/sagefemme.csv && mv data/raw/sagefemme.csv data/raw/sagefemmes.csv
