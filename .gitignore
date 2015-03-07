@@ -7,3 +7,5 @@ data/refined/*
 data/tmp
 data/convert
 data/unifier/*.new
+Untitled*
+tmp/*
