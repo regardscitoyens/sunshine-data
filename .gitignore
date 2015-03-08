@@ -9,3 +9,4 @@ data/convert
 data/unifier/*.new
 Untitled*
 tmp/*
+*.pyc
