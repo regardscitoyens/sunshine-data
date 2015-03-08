@@ -36,7 +36,6 @@ df['ADRESSE'] = df['ADRESSE'].str.replace(',', '-')
 df['OBJET'] = df['OBJET'].str.replace(',', '-')
 df['PROGRAMME'] = df['PROGRAMME'].str.replace(',', '-')
 df['BENEF_PS_CODEPOSTAL'] = df['ADRESSE'].apply(find_zipcode)
-df['DECL_AVANT_NATURE'] = df['DECL_AVANT_NATURE'].str.replace(',', '-')
 
 for origin, target in header_mapping.items():
     df[target] = df[origin]
