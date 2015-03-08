@@ -13,9 +13,9 @@ vpath %.csv data/raw/
 
 
 #### COMMANDS
-all: refineall formatall
-	make refineall
+all: formatall refineall
 	make formatall
+	make refineall
 
 refineall: ${REFINED_FILES}
 	echo "Refine all files"
