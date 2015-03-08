@@ -2,7 +2,8 @@
 
 import pandas as pd
 import sys
-import re
+
+from utils import find_zipcode
 
 header_mapping = {
     'origin': 'ORIGIN',
@@ -24,7 +25,7 @@ df = pd.read_csv(input_filename, encoding='utf-8')
 
 df['lastname_firstname'] = df['name'] + ' ' + df['firstname']
 df['origin'] = 'Pharmacien'
-df['BENEF_PS_CODEPOSTAL'] = df['address'].apply(lambda s: s.encode('ascii', errors='ignore')  if isinstance(s, unicode) else str(s) ).apply(lambda addr: re.sub( '(^|.* )([0-9]{4,5})[ \.].*', '\g<2>', addr).zfill(5)).apply(lambda s: s if (re.match('^[0-9]{5}$', s)) else '')
+df['BENEF_PS_CODEPOSTAL'] = df['address'].apply(find_zipcode)
 
 for origin, target in header_mapping.items():
     df[target] = df[origin]
