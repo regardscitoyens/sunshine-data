@@ -24,7 +24,7 @@ def nomprenomtwice(nom):
 df['BENEF_PS_QUALITE_NOM_PRENOM'] = df['BENEF_PS_QUALITE_NOM_PRENOM'].apply(lambda nom: nomprenomtwice(nom))
 df['BENEF_PS_QUALIFICATION'] = 'Sage-femme'
 df['BENEF_PS_CODEPOSTAL'] = df['BENEF_PS_ADR'].apply(find_zipcode)
-df['DECL_AVANT_NATURE'] = df['DECL_AVANT_NATURE'].str.replace(',', '-')
+df['DECL_AVANT_NATURE'] = df['DECL_AVANT_NATURE'].str.replace(',', '-').replace('"', '')
 
 df.to_csv(output_filename, index=False, encoding='utf-8')
 

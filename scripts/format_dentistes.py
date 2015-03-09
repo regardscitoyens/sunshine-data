@@ -29,6 +29,7 @@ df['BENEF_PS_CODEPOSTAL'] = df['ADDRESS'].apply(find_zipcode)
 
 for origin, target in header_mapping.items():
     df[target] = df[origin]
+    df[target] = df[target].apply(unicode).apply(lambda s: s.replace(',', '- ').replace('"',''))
 
 df[header_mapping.values()].to_csv(output_filename, index=False, encoding='utf-8')
 

@@ -30,14 +30,11 @@ df['MONTANT_AVANTAGE'] = df['MONTANT_AVANTAGE'].apply(euro2float)
 df['DATE_AVANTAGE'] = df['DATE_AVANTAGE'].apply(str2date)
 df['DATE_SIGNATURE_CONVENTION'] = df['DATE_SIGNATURE_CONVENTION'].apply(str2date)
 df['QUALITE_NOM_PRENOM'] = df['QUALITE'] + ' ' + df['NOM'] + ' ' + df['PRENOM']
-df['QUALITE_NOM_PRENOM'] = df['QUALITE_NOM_PRENOM'].str.replace(',', '-')
 df['ORIGIN'] = 'Infirmier'
-df['ADRESSE'] = df['ADRESSE'].str.replace(',', '-')
-df['OBJET'] = df['OBJET'].str.replace(',', '-')
-df['PROGRAMME'] = df['PROGRAMME'].str.replace(',', '-')
 df['BENEF_PS_CODEPOSTAL'] = df['ADRESSE'].apply(find_zipcode)
 
 for origin, target in header_mapping.items():
     df[target] = df[origin]
+    df[target] = df[target].apply(unicode).apply(lambda s: s.replace(',', '- ').replace('"', ''))
 
 df[header_mapping.values()].to_csv(output_filename, index=False, encoding='utf-8')
