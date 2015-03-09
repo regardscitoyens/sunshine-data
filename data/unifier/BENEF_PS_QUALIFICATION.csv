@@ -22,7 +22,7 @@ ACUPUNCTURE / NUTRITION,Acupuncture
 ACUPUNCTURE / TOXICOMANIE ET ALCOOLOGIE,Acupuncture
 ADJOINT,Non renseigné
 AE-Addictologie,Addictologie
-AG-Alcoologie,"Toxicologie, tabacologie et alcoologie"
+AG-Alcoologie,Toxicologie - tabacologie - alcoologie
 AIDE MEDICALE URGENTE,Médecine d'urgence
 AIDE MEDICALE URGENTE / EXPLO FONCT CARDIOVASCUL,Médecine d'urgence
 AIDE MEDICALE URGENTE / GENETIQUE MEDICALE,Médecine d'urgence
@@ -134,8 +134,8 @@ Addictologue/Gastro-Entérologue,Addictologie
 Addictologue/Interniste,Addictologie
 Adresse:,Non renseigné
 Aide opératoire,Bloc opératoire
-Alcoologie,"Toxicologie, tabacologie et alcoologie"
-Alcoologue,"Toxicologie, tabacologie et alcoologie"
+Alcoologie,Toxicologie - tabacologie - alcoologie
+Alcoologue,Toxicologie - tabacologie - alcoologie
 Alergologue,Allergologie
 Allergo Immuno,Allergologie
 Allergo-immuno,Allergologie
@@ -508,7 +508,7 @@ Cardiologue - HFA,Cardiologie
 Cardiologue / chirurgien,Cardiologie
 Cardiologue interventionnel,Cardiologie
 Cardiopédiatrie,Cardiologie
-Centre anti-tabac,"Toxicologie, tabacologie et alcoologie"
+Centre anti-tabac,Toxicologie - tabacologie - alcoologie
 Centre cardiologique de l'ouest Lyonnais,Cardiologie
 Centre d'Evaluation et de Traitement de la Douleur de Robert Debr ,Anesthésie
 ChargÃ© de Recherche,Recherche médicale
@@ -770,7 +770,7 @@ DIABETOLOGIE / ENDOCRINOLOGIE,Endocrinologie
 DIABETOLOGIE / ENDOCRINOLOGIE / NUTRITION,Diététique
 DIABETOLOGIE / ENDOCRINOLOGIE / RHUMATOLOGIE,Diabétologie
 DIABETOLOGIE / GERIATRIE,Diabétologie
-DIABETOLOGIE / TOXICOMANIE ET ALCOOLOGIE,"Toxicologie, tabacologie et alcoologie"
+DIABETOLOGIE / TOXICOMANIE ET ALCOOLOGIE,Toxicologie - tabacologie - alcoologie
 DIABETOLOGUE,Diabétologie
 DIABÈTOLOGIE,Diabétologie
 DIABÉTOLOGIE,Diabétologie
@@ -997,7 +997,7 @@ GERIATRIE-GERONT,Gérontologie
 GERIATRIE/GERONTOLOGIE,Gérontologie
 GERONTOLOGIE,Gérontologie
 GERONTOLOGIE / MEDECINE APPLIQ. AU SPORT,Médecine du sport
-GERONTOLOGIE / TOXICOMANIE ET ALCOOLOGIE,"Toxicologie, tabacologie et alcoologie"
+GERONTOLOGIE / TOXICOMANIE ET ALCOOLOGIE,Toxicologie - tabacologie - alcoologie
 GESTIONNAIRE DES STOCKS,Cadre
 GN-Génétique,Génétique médicale
 GY,Gynécologie
@@ -1644,7 +1644,7 @@ Médecin Réanimateur,Anesthésie-réanimation
 Médecin Urgentiste Anesthésiste Réanimateur,Anesthésie-réanimation
 Médecin Vascul,Cardiologie
 Médecin Vasculaire,Angiologie
-Médecin addictologue,"Toxicologie, tabacologie et alcoologie"
+Médecin addictologue,Toxicologie - tabacologie - alcoologie
 Médecin anesthésiste,Anesthésie
 Médecin anesthésiste réanimateur,Anesthésie-réanimation
 Médecin anesthésiste réanimateur Chef de Pole,Anesthésie-réanimation
@@ -2049,12 +2049,12 @@ PHARMACIEN(NE),Pharmacologie
 PHARMACIENNE,Pharmacologie
 PHARMACIENNE ADJOINTE,Pharmacologie
 PHARMACIENNE ASSISTANTE,Assistant
-PHARMACOCINETIQ META MED,"Toxicologie, tabacologie et alcoologie"
-PHARMACOCINETIQ META MED / TOXICOMANIE ET ALCOOLOGIE,"Toxicologie, tabacologie et alcoologie"
+PHARMACOCINETIQ META MED,Toxicologie - tabacologie - alcoologie
+PHARMACOCINETIQ META MED / TOXICOMANIE ET ALCOOLOGIE,Toxicologie - tabacologie - alcoologie
 PHARMACOLOGIE,Pharmacologie
 PHARMACOLOGIE CLINIQUE,Pharmacologie
 PHARMACOLOGUE,Pharmacologie
-PHARMACOLOGUE TOXICOLOGUE,"Toxicologie, tabacologie et alcoologie"
+PHARMACOLOGUE TOXICOLOGUE,Toxicologie - tabacologie - alcoologie
 PHLEBO,Angiologie
 PHLEBO-ANGEIO,Angiologie
 PHLEBOLOGIE,Angiologie
@@ -2113,7 +2113,7 @@ PSYCHANALISTE,Psychiatrie
 PSYCHIATRE,Psychiatrie
 PSYCHIATRE SEXO,Sexologie
 PSYCHIATRIE,Psychiatrie
-PSYCHIATRIE / TOXICOMANIE ET ALCOOLOGIE,"Toxicologie, tabacologie et alcoologie"
+PSYCHIATRIE / TOXICOMANIE ET ALCOOLOGIE,Toxicologie - tabacologie - alcoologie
 PSYCHIATRIE / URGENCES,Psychiatrie
 PSYCHIATRIE ENFANT ADO,Pédiatrie
 PSYCHIATRIE ENFANT ADO / TOXICOMANIE ET ALCOOLOGIE,Pédiatrie
@@ -2241,7 +2241,7 @@ Pneumologie - phtisiologie - phtisiologie,Pneumologie
 Pneumologie CANCEROLOGIE ALLERGOLOGIE,Oncologie
 Pneumologie Et Oncologie Thoracique,Oncologie
 Pneumologue,Pneumologie
-Pneumologue-Tabacologue,"Toxicologie, tabacologie et alcoologie"
+Pneumologue-Tabacologue,Toxicologie - tabacologie - alcoologie
 Pneumology,Pneumologie
 Podologie,Podologie
 Podologue,Podologie
@@ -2276,7 +2276,7 @@ Psychatrie,Psychiatrie
 Psychiatre,Psychiatrie
 Psychiatre / Addictologue,Psychiatrie
 Psychiatre Addictologue,Psychiatrie
-Psychiatre Alcoologue,"Toxicologie, tabacologie et alcoologie"
+Psychiatre Alcoologue,Toxicologie - tabacologie - alcoologie
 Psychiatre-Addictologue,Psychiatrie
 Psychiatre/Addictologue,Psychiatrie
 Psychiatrie,Psychiatrie
@@ -2562,11 +2562,11 @@ Surveillante,Cadre
 Surveillante BLOC CCV,Bloc opératoire
 Surveillante Générale,Cadre
 Sénologie,Sénologie
-TABACOLOGIE,"Toxicologie, tabacologie et alcoologie"
+TABACOLOGIE,Toxicologie - tabacologie - alcoologie
 TD-Traitement de la douleur,Traitement de la douleur
 TECHNICIEN,Biologie médicale
 THORACIQUE ET CARDIOVASCULAIRE,Chirurgie cardiovasculaire et thoracique
-TOXICOMANIE ET ALCOOLOGIE,"Toxicologie, tabacologie et alcoologie"
+TOXICOMANIE ET ALCOOLOGIE,Toxicologie - tabacologie - alcoologie
 TR-Transplantation,Transplantation
 TRAITEMENT DE LA DOULEUR,Traitement de la douleur
 TRAITEMENT DU SIDA,Virologie
@@ -2575,8 +2575,8 @@ TRANSPLANTATION NEPHROLOGIE,Néphrologie
 TRAUMATOLOGIE,Dermatologie
 TRAUMATOLOGUE,Chirurgie orthopédique et traumatologique
 TX RENALE,Urologie
-Tabacologie,"Toxicologie, tabacologie et alcoologie"
-Tabacologie&Aide au sevrage tabagique,"Toxicologie, tabacologie et alcoologie"
+Tabacologie,Toxicologie - tabacologie - alcoologie
+Tabacologie&Aide au sevrage tabagique,Toxicologie - tabacologie - alcoologie
 Tech de labo,Biologie médicale
 Technicien D'etude Clinique,Recherche médicale
 Thoracique et cardio-vasc,Chirurgie cardiovasculaire et thoracique
@@ -2584,8 +2584,8 @@ Thoracique et cardiovasculaire,Chirurgie cardiovasculaire et thoracique
 Titulaire,Pharmacologie
 Titulaire en Pharmacie,Pharmacologie
 Titulaire en Pharmacologie,Pharmacologie
-Toxicologie,"Toxicologie, tabacologie et alcoologie"
-Toxicomanie,"Toxicologie, tabacologie et alcoologie"
+Toxicologie,Toxicologie - tabacologie - alcoologie
+Toxicomanie,Toxicologie - tabacologie - alcoologie
 Traitement De La Douleur,Traitement de la douleur
 Traitement Des Plaies / Phlébologie,Angiologie
 Traitement de la Douleur,Traitement de la douleur
