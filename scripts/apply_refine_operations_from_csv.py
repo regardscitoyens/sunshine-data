@@ -21,32 +21,44 @@ for dirname, dirnames, filenames in os.walk(operation_dirname):
             continue
         operation_field = re.sub('.*/([^\.]*)\.csv', '\\1', operation_filename)
         operations = pd.read_csv(open(operation_filename), encoding='utf-8', index_col=0, squeeze=True, header=None)
-        df[operation_field] = df[operation_field].fillna(u'Non renseigné')
+        df[operation_field] = df[operation_field].fillna('')
         keys = np.unique(np.append(df[operation_field].unique(), operations.index.values))
         
-        operations = operations.groupby(level=0).first().reindex(keys).fillna(value='AUTRE')
+        operations = operations.groupby(level=0).first().reindex(keys).fillna(keys)
 #        operations[operations.values == 'UNKNOWN'] = operations[operations.values == 'UNKNOWN'].index
         operations.to_csv(operation_filename+".new", encoding='utf-8')
         
         df[operation_field] = df[operation_field].apply(lambda labo: operations[labo])
         
 df['DECL_TYPE'] = ''
-df.loc[(df['DECL_CONV_OBJET'] == "Contrat de cession"),'DECL_TYPE'] = 'CONTRAT'
-df.loc[(df['DECL_CONV_OBJET'] == "Contrat de consultant"),'DECL_TYPE'] = 'CONTRAT'
-df.loc[(df['DECL_CONV_OBJET'] == u"Contrat de prêt"),'DECL_TYPE'] = 'CONTRAT'
-df.loc[(df['DECL_CONV_OBJET'] == "Contrat de recherche"),'DECL_TYPE'] = 'CONTRAT'
-df.loc[(df['DECL_CONV_OBJET'] == "Contrat d'expert"),'DECL_TYPE'] = 'CONTRAT'
-df.loc[(df['DECL_CONV_OBJET'] == "Contrat d'orateur/animateur/intervenant/formateur"),'DECL_TYPE'] = 'CONTRAT'
-df.loc[(df['DECL_AVANT_NATURE'] == "Honoraires"), 'DECL_TYPE'] = 'CONTRAT'
 
-df.loc[(df['DECL_TYPE'] == ""), 'DECL_TYPE'] = 'CADEAU'
-df.loc[(df['DECL_AVANT_NATURE'] == "Transport"), 'DECL_TYPE'] = 'CADEAU'
-df.loc[((df['DECL_AVANT_MONTANT'] < 5000) & (df['DECL_AVANT_MONTANT'] >= 1) & (df['DECL_TYPE'] == "CONTRAT")), 'DECL_TYPE'] = 'CADEAU'
+if input_filename == 'data/formatted/transparencesante_avantages.formatted.csv':
+    df['DECL_TYPE'] = 'AVANTAGE'
+elif input_filename == 'data/formatted/transparencesante_conventions.formatted.csv':
+    df['DECL_TYPE'] = 'CONVENTION'
+else:
+    df.loc[(df['DECL_CONV_OBJET'] == "Contrat de cession"),'DECL_TYPE'] = 'CONVENTION'
+    df.loc[(df['DECL_CONV_OBJET'] == "Contrat de consultant"),'DECL_TYPE'] = 'CONVENTION'
+    df.loc[(df['DECL_CONV_OBJET'] == u"Contrat de prêt"),'DECL_TYPE'] = 'CONVENTION'
+    df.loc[(df['DECL_CONV_OBJET'] == "Contrat de recherche"),'DECL_TYPE'] = 'CONVENTION'
+    df.loc[(df['DECL_CONV_OBJET'] == "Contrat d'expert"),'DECL_TYPE'] = 'CONVENTION'
+    df.loc[(df['DECL_CONV_OBJET'] == "Contrat d'orateur/animateur/intervenant/formateur"),'DECL_TYPE'] = 'CONVENTION'
+    
+    df.loc[(df['DECL_AVANT_NATURE'] == "HONORAIRES"), 'DECL_TYPE'] = 'CONVENTION'
+    df.loc[(df['DECL_AVANT_NATURE'] == "TRANSPORT"), 'DECL_TYPE'] = 'AVANTAGE'
 
-df.loc[(df['DECL_TYPE'] == "CADEAU"), 'DECL_CONV_OBJET'] = ''
-df.loc[(df['DECL_TYPE'] == "CADEAU"), 'DECL_CONV_PROGRAMME'] = ''
-
-df.loc[(df['DECL_TYPE'] == "CONTRAT"), 'DECL_AVANT_MONTANT'] = ''
-df.loc[(df['DECL_TYPE'] == "CONTRAT"), 'DECL_AVANT_NATURE'] = ''
-
+    df.loc[(df['DECL_AVANT_MONTANT'] < 5000) & (df['DECL_AVANT_MONTANT'] >= 1), 'DECL_TYPE'] = 'AVANTAGE'
+    df.loc[(df['DECL_CONV_DATE'] != '') & (df['DECL_TYPE'] != "CADEAU"), 'DECL_TYPE'] = 'CONVENTION'
+    df.loc[(df['DECL_AVANT_MONTANT'] < 1) & (df['DECL_CONV_OBJET'] != ""), 'DECL_TYPE'] = 'CONVENTION'
+    
+    df.loc[(df['DECL_TYPE'] == ""), 'DECL_TYPE'] = 'AVANTAGE'
+    
+df.loc[(df['DECL_TYPE'] == "AVANTAGE"), 'DECL_CONV_OBJET'] = ''
+df.loc[(df['DECL_TYPE'] == "AVANTAGE"), 'DECL_CONV_PROGRAMME'] = ''
+df.loc[(df['DECL_TYPE'] == "AVANTAGE"), 'DECL_CONV_DATE'] = ''
+    
+#df.loc[(df['DECL_TYPE'] == "CONVENTION") & (df['DECL_AVANT_NATURE']) & (df['DECL_CONV_OBJET'] == ''), 'DECL_CONV_OBJET'] = df['DECL_AVANT_NATURE']
+df.loc[(df['DECL_TYPE'] == "CONVENTION"), 'DECL_AVANT_NATURE'] = ''
+df.loc[(df['DECL_TYPE'] == "CONVENTION"), 'DECL_AVANT_DATE'] = ''
+    
 df.to_csv(output_filename, encoding='utf-8', index=False, cols=columns)
