@@ -7,7 +7,7 @@ input_filename = sys.argv[1]
 operation_dirname = sys.argv[2]
 output_filename = sys.argv[3]
 
-columns = ['DECL_TYPE', 'ORIGIN','LABO','BENEF_PS_QUALITE_NOM_PRENOM','BENEF_PS_ADR','BENEF_PS_QUALIFICATION','BENEF_PS_RPPS','DECL_CONV_DATE','DECL_CONV_OBJET','DECL_CONV_PROGRAMME','DECL_AVANT_MONTANT','DECL_AVANT_DATE','DECL_AVANT_NATURE','BENEF_ETUD_ETA']
+columns = ['DECL_TYPE', 'ORIGIN','LABO','BENEF_PS_QUALITE_NOM_PRENOM','BENEF_PS_CODEPOSTAL','BENEF_PS_ADR','BENEF_PS_QUALIFICATION','BENEF_PS_RPPS','DECL_CONV_DATE','DECL_CONV_OBJET','DECL_CONV_PROGRAMME','DECL_AVANT_MONTANT','DECL_AVANT_DATE','DECL_AVANT_NATURE','BENEF_ETUD_ETA']
 
 df = pd.read_csv(input_filename, encoding='utf-8', low_memory=False)
 for col in columns:
@@ -44,20 +44,20 @@ else:
     df.loc[(df['DECL_CONV_OBJET'] == "Contrat d'expert"),'DECL_TYPE'] = 'CONVENTION'
     df.loc[(df['DECL_CONV_OBJET'] == "Contrat d'orateur/animateur/intervenant/formateur"),'DECL_TYPE'] = 'CONVENTION'
     
-    df.loc[(df['DECL_AVANT_NATURE'] == "HONORAIRES"), 'DECL_TYPE'] = 'CONVENTION'
     df.loc[(df['DECL_AVANT_NATURE'] == "TRANSPORT"), 'DECL_TYPE'] = 'AVANTAGE'
 
-    df.loc[(df['DECL_AVANT_MONTANT'] < 5000) & (df['DECL_AVANT_MONTANT'] >= 1), 'DECL_TYPE'] = 'AVANTAGE'
-    df.loc[(df['DECL_CONV_DATE'] != '') & (df['DECL_TYPE'] != "CADEAU"), 'DECL_TYPE'] = 'CONVENTION'
-    df.loc[(df['DECL_AVANT_MONTANT'] < 1) & (df['DECL_CONV_OBJET'] != ""), 'DECL_TYPE'] = 'CONVENTION'
+    df.loc[(df['DECL_AVANT_NATURE'] != 'CONVENTION') & (df['DECL_AVANT_MONTANT'] < 5000) & (df['DECL_AVANT_MONTANT'] >= 1), 'DECL_TYPE'] = 'AVANTAGE'
+    df.loc[(df['DECL_CONV_DATE'] != '') & (df['DECL_TYPE'] != "AVANTAGE"), 'DECL_TYPE'] = 'CONVENTION'
+    df.loc[(df['DECL_TYPE'] != 'AVANTAGE') & (df['DECL_AVANT_MONTANT'] < 1) & (df['DECL_CONV_OBJET'] != ""), 'DECL_TYPE'] = 'CONVENTION'
     
+    df.loc[(df['DECL_AVANT_NATURE'] == "HONORAIRES"), 'DECL_TYPE'] = 'CONVENTION'
     df.loc[(df['DECL_TYPE'] == ""), 'DECL_TYPE'] = 'AVANTAGE'
     
 df.loc[(df['DECL_TYPE'] == "AVANTAGE"), 'DECL_CONV_OBJET'] = ''
 df.loc[(df['DECL_TYPE'] == "AVANTAGE"), 'DECL_CONV_PROGRAMME'] = ''
 df.loc[(df['DECL_TYPE'] == "AVANTAGE"), 'DECL_CONV_DATE'] = ''
     
-#df.loc[(df['DECL_TYPE'] == "CONVENTION") & (df['DECL_AVANT_NATURE']) & (df['DECL_CONV_OBJET'] == ''), 'DECL_CONV_OBJET'] = df['DECL_AVANT_NATURE']
+df.loc[(df['DECL_TYPE'] == "CONVENTION") & (df['DECL_AVANT_NATURE']) & (df['DECL_CONV_OBJET'] == ''), 'DECL_CONV_OBJET'] = df['DECL_AVANT_NATURE']
 df.loc[(df['DECL_TYPE'] == "CONVENTION"), 'DECL_AVANT_NATURE'] = ''
 df.loc[(df['DECL_TYPE'] == "CONVENTION"), 'DECL_AVANT_DATE'] = ''
     
