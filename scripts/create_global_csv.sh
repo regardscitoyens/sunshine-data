@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sed -i 's/,nan,/,,/g' data/*csv
+
 cat data/refined/dentistes.refined.csv > data/all.csv
 sed 1d data/refined/infirmiers.refined.csv >> data/all.csv
 sed 1d data/refined/medecins_exploitables.refined.csv >> data/all.csv
