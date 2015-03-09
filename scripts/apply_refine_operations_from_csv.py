@@ -19,7 +19,6 @@ for dirname, dirnames, filenames in os.walk(operation_dirname):
         operation_filename = os.path.join(dirname, filename)
         if not re.search('csv$', operation_filename):
             continue
-        print operation_filename
         operation_field = re.sub('.*/([^\.]*)\.csv', '\\1', operation_filename)
         operations = pd.read_csv(open(operation_filename), encoding='utf-8', index_col=0, squeeze=True, header=None)
         df[operation_field] = df[operation_field].fillna(u'Non renseigné')
