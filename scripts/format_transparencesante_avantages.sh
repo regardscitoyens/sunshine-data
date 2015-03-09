@@ -4,4 +4,5 @@ cat data/raw/transparencesante_avantages.csv | sed 's/\r//' | sed 1d | iconv -f 
 sed -i 's/Medecin/Médecin/g' data/formatted/transparencesante_avantages.formatted.csv
 sed -i 's/,30002530750,/,,/' data/formatted/transparencesante_avantages.formatted.csv
 sed -i 's/,12404201412,/,,/' data/formatted/transparencesante_avantages.formatted.csv
+sed -i 's/,MéA,/,Médecin,/' data/formatted/transparencesante_avantages.formatted.csv
 
