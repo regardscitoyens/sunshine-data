@@ -24,7 +24,7 @@ for dirname, dirnames, filenames in os.walk(operation_dirname):
         df[operation_field] = df[operation_field].fillna(u'Non renseigné')
         keys = np.unique(np.append(df[operation_field].unique(), operations.index.values))
         
-        operations = operations.drop_duplicates().reindex(keys).fillna(value='UNKNOWN')
+        operations = operations.groupby(level=0).first().reindex(keys).fillna(value='UNKNOWN')
 #        operations[operations.values == 'UNKNOWN'] = operations[operations.values == 'UNKNOWN'].index
         operations.to_csv(operation_filename+".new", encoding='utf-8')
         
