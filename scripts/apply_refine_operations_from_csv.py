@@ -23,9 +23,8 @@ for dirname, dirnames, filenames in os.walk(operation_dirname):
         operations = pd.read_csv(open(operation_filename), encoding='utf-8', index_col=0, squeeze=True, header=None)
         df[operation_field] = df[operation_field].fillna('')
         keys = np.unique(np.append(df[operation_field].unique(), operations.index.values))
-        
-        operations = operations.groupby(level=0).first().reindex(keys).fillna(keys)
-#        operations[operations.values == 'UNKNOWN'] = operations[operations.values == 'UNKNOWN'].index
+
+        operations = operations.groupby(level=0).first().reindex(keys).fillna('')
         operations.to_csv(operation_filename+".new", encoding='utf-8')
         
         df[operation_field] = df[operation_field].apply(lambda labo: operations[labo])
