@@ -4,7 +4,7 @@ import pandas as pd
 import sys
 import string
 
-from utils import find_zipcode
+from utils import find_zipcode, str2date
 
 header_mapping = {
     'ORIGIN': 'ORIGIN',
@@ -24,7 +24,7 @@ df = pd.read_csv(input_filename, sep=';', encoding='utf-8')
 df['NOM_PRENOM'] = df['NOM'] + ' ' + df['PRENOM']
 df['ADDRESS'] = df['VILLE'] + ' ' + df['CP'].apply(lambda cp: int(cp) if not pd.np.isnan(cp) else pd.np.nan).apply(str)
 df['ORIGIN'] = 'Dentiste'
-df['DATE'] = df['DATE'].apply(str).apply(lambda date: '-'.join(reversed(string.split(date, '/'))) if date.find('/') else date )
+df['DATE'] = df['DATE'].apply(str2date);
 df['BENEF_PS_CODEPOSTAL'] = df['ADDRESS'].apply(find_zipcode)
 
 for origin, target in header_mapping.items():

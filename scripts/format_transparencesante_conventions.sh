@@ -3,4 +3,3 @@ echo "ORIGIN,LABO,BENEF_PS_QUALITE_NOM_PRENOM,BENEF_PS_ADR,BENEF_PS_QUALIFICATIO
 cat data/raw/transparencesante_conventions.csv | sed 's/\r//' | sed 1d | perl -e 'while(<STDIN>){chomp; while(s/"([^"]*),([^"]*)"/"\1 -\2"/g){}; @a = split /,/; @s = split /\//, $a[3] ; $a[3] = $s[2]."-".$s[1]."-".$s[0]; print join ",", @a; print "\n"}' | awk -F ',' '{print $2","$1","$3","$7","$2",,"$4","$6","$5",,,,,"$7}' | sed 's/  */ /g' | sed 's/, /,/g' | sed 's/ ,/,/g' >> data/formatted/transparencesante_conventions.formatted.csv
 sed -i 's/Medecin/Médecin/g' data/formatted/transparencesante_conventions.formatted.csv
 
-

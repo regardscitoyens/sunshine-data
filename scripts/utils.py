@@ -30,10 +30,12 @@ def str2date(date):
         date = re.sub(' ?/ ?', '/', date)
         if (re.search('(^|\D)\d{1,2}/\d{2}/\d{4}', date)):
             return re.sub('(^|.*\D)(\d{1,2})/(\d{2})/(\d{4})', '\g<4>-\g<3>-\g<2>', date)
-        if (re.search('.*\d{2}\D\d{2}\D\d{4}.*', date)):
-            return re.sub(r'(\d{2})\D(\d{2})\D(\d{4})', '\3-\2-\1', date)
-        if (re.search('.*\d{2}\D\d{2}\D\d{2}(\D|$).*', date)):
-            return re.sub('.*(\d{2})\D(\d{2})\D(\d{2}).*', '20\3-\2-\1', date)
+        if (re.search('\d{2}\D\d{2}\D\d{4}', date)):
+            return re.sub(r'(\d{2})\D(\d{2})\D(\d{4})', '\g<3>-\g<2>-\g<1>', date)
+        if (re.search('\d{4}\D\d{2}\D\d{2}', date)):
+            return re.sub(r'(\d{4})\D(\d{2})\D(\d{2})', '\g<1>-\g<2>-\g<3>', date)
+        if (re.search('.*\d{2}\D\d{2}\D\d{2}(\D.*|$)', date)):
+            return re.sub('.*(\d{2})\D(\d{2})\D(\d{2}).*', '20\g<3>-\g<2>-\g<1>', date)
         if (re.search('\d{1,2}\D\D+\D(20)?\d{2}', date)):
             return re.sub(r'(.*\D|^)(\d{1,2})\D(\D+)\D(\d{2}(\d{2}|$)).*', humanmonth, date)
     except TypeError:
