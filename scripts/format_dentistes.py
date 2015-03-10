@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import pandas as pd
 import sys
-import string
+
+import pandas as pd
 
 from utils import find_zipcode, str2date
+
 
 header_mapping = {
     'ORIGIN': 'ORIGIN',
