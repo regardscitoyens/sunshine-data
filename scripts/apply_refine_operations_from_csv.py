@@ -9,7 +9,7 @@ output_filename = sys.argv[3]
 
 columns = ['DECL_TYPE', 'ORIGIN','LABO','BENEF_PS_QUALITE_NOM_PRENOM','BENEF_PS_CODEPOSTAL','BENEF_PS_ADR','BENEF_PS_QUALIFICATION','BENEF_PS_RPPS','DECL_CONV_DATE','DECL_CONV_OBJET','DECL_CONV_PROGRAMME','DECL_AVANT_MONTANT','DECL_AVANT_DATE','DECL_AVANT_NATURE','BENEF_ETUD_ETA']
 
-df = pd.read_csv(input_filename, encoding='utf-8', low_memory=False)
+df = pd.read_csv(input_filename, dtype=object, encoding='utf-8', low_memory=False)
 for col in columns:
     df[col] = df.get(col, '')
 
