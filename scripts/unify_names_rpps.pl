@@ -1,5 +1,7 @@
 #!/usr/bin/perl
 
+use Digest::MD5 qw(md5_hex);
+
 sub tokenizeName($){
     $n = shift;
     $n =~ s/[çÇ]/c/ig;
@@ -71,7 +73,12 @@ close FILE;
 
 #search for matches
 open FILE, $file;
+$_ = <FILE>;
+chomp;
+print;
+print ",BENEF_PS_HASH,BENEF_PS_DEPARTEMENT\n";
 while(<FILE>){
+    chomp;
     $id = '';
     @l = split /,/;
     next if (!$l[7] && !$l[3]);
@@ -84,5 +91,16 @@ while(<FILE>){
 	$l[7] = $id2rpps{$id};
 	$l[3] = $id2names{$id};
     }
-    print join(',',@l);
+    if ($l[4]) {
+	$l[15] = $l[4];
+	$l[15] =~ s/^(\d{2}).*/\1/;
+    }
+    if ($l[7] > 10000000000 && $l[7] < 99999999999) {
+	$l[14] = md5_hex("RPPS:".$l[7]);
+    }else{
+	$l[7] = '';
+	$l[14] = md5_hex("NOM/DEP:".$l[3].$l[4]);
+	
+    }
+    print join(',',@l)."\n";
 }
