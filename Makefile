@@ -13,7 +13,10 @@ vpath %.csv data/raw/
 
 
 #### COMMANDS
-all: data/all.csv
+all: data/all.unames.csv
+
+data/all.unames.csv: data/all.csv
+	perl scripts/unify_names_rpps.pl data/all.csv > data/all.unames.csv
 
 data/all.csv: ${REFINED_FILES}
 	. scripts/create_global_csv.sh

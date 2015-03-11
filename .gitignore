@@ -10,3 +10,4 @@ data/unifier/*.new
 Untitled*
 tmp/*
 *.pyc
+data/all.unames.csv
