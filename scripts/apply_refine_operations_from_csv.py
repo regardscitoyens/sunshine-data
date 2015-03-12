@@ -55,8 +55,11 @@ else:
 df.loc[(df['DECL_TYPE'] == "AVANTAGE"), 'DECL_CONV_OBJET'] = ''
 df.loc[(df['DECL_TYPE'] == "AVANTAGE"), 'DECL_CONV_PROGRAMME'] = ''
 df.loc[(df['DECL_TYPE'] == "AVANTAGE"), 'DECL_CONV_DATE'] = ''
-    
-df.loc[(df['DECL_TYPE'] == "CONVENTION") & (df['DECL_AVANT_NATURE']) & (df['DECL_CONV_OBJET'] == ''), 'DECL_CONV_OBJET'] = df['DECL_AVANT_NATURE']
+
+selection = df.loc[(df['DECL_TYPE'] == "CONVENTION") & (df['DECL_AVANT_NATURE']) & (df['DECL_CONV_OBJET'] == ''), 'DECL_CONV_OBJET']
+if selection.shape[0] > 0:
+    df.loc[(df['DECL_TYPE'] == "CONVENTION") & (df['DECL_AVANT_NATURE']) & (df['DECL_CONV_OBJET'] == ''), 'DECL_CONV_OBJET'] = df['DECL_AVANT_NATURE']
+
 df.loc[(df['DECL_TYPE'] == "CONVENTION"), 'DECL_AVANT_NATURE'] = ''
 df.loc[(df['DECL_TYPE'] == "CONVENTION"), 'DECL_AVANT_DATE'] = ''
     
