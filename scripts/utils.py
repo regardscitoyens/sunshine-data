@@ -69,7 +69,7 @@ class Fingerprinter(object):
         Replaces unicode characters with closest Latin equivalent. For example,
         Alejandro González Iñárritu becomes Alejando Gonzalez Inarritu.
         '''
-        return unidecode(string.decode('utf-8'))
+        return unidecode(string)
 
     def _unique_preserving_order(self, seq):
         '''
