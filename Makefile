@@ -16,7 +16,8 @@ vpath %.csv data/raw/
 all: data/all.unames.csv
 
 data/all.unames.csv: data/all.csv
-	perl scripts/unify_names_rpps.pl data/all.csv > data/all.unames.csv
+    python scripts/clean_nom_prenom.py
+	perl scripts/unify_names_rpps.pl data/all.clean.names.csv > data/all.unames.csv
 
 data/all.csv: ${REFINED_FILES}
 	. scripts/create_global_csv.sh
