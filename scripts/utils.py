@@ -37,8 +37,7 @@ def str2date(date):
         if (re.search('\d{1,2}\D\D+\D(20)?\d{2}', date)):
             return re.sub(r'(.*\D|^)(\d{1,2})\D(\D+)\D(\d{2}(\d{2}|$)).*', humanmonth, date)
     except TypeError:
-        return ''
-    return ''
+        pass
 
 
 import re, string
