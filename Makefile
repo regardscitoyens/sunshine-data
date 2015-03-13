@@ -13,7 +13,18 @@ vpath %.csv data/raw/
 
 
 #### COMMANDS
-all: data/all.anonymes.csv
+all: data/public/beneficiaires.csv data/public/labo.departements.csv data/public/labos.departements.csv data/public/metiers.departements.csv data/public/avantages.departements.csv data/public/conventions.departements.csv
+
+data/public/beneficiaires.csv: data/all.anonymes.csv
+	perl scripts/generate_public_aggrega.pl BENEFICIAIRE > data/public/beneficiaires.csv
+data/public/labos.departements.csv: data/all.anonymes.csv
+	perl scripts/generate_public_aggrega.pl LABO > data/public/labos.departements.csv
+data/public/metiers.departements.csv: data/all.anonymes.csv
+	perl scripts/generate_public_aggrega.pl METIER > data/public/metiers.departements.csv
+data/public/avantages.departements.csv: data/all.anonymes.csv
+	perl scripts/generate_public_aggrega.pl "NATURE AVANTAGE" > data/public/avantages.departements.csv
+data/public/conventions.departements.csv: data/all.anonymes.csv
+	perl scripts/generate_public_aggrega.pl "OBJET CONVENTION" > data/public/conventions.departements.csv
 
 data/all.anonymes.csv: data/all.unames.csv
 	bash scripts/generate_anon_file.sh
