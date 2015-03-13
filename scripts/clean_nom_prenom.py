@@ -70,6 +70,6 @@ with open('unifier.csv', 'w') as f:
 del unifier
 del gp
 
-df_all = pd.read_csv("data/all.csv", dtype=object, encoding='utf-8')
+df_all = pd.read_csv("data/all.csv", dtype=object, encoding='utf-8', na_filter=False)
 df_all["BENEF_PS_QUALITE_NOM_PRENOM"] = df["BENEF_PS_QUALITE_NOM_PRENOM"]
 df_all.to_csv("data/all.clean.names.csv", index=False, encoding="utf-8")
