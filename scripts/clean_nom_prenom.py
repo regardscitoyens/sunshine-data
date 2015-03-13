@@ -35,7 +35,6 @@ def clean_name(name):
         return name
     return clean_re.sub('', nomprenomtwice(unidecode(name).strip().upper()))
 
-
 df = pd.read_csv("data/all.csv", dtype=object, encoding='utf-8', usecols=["BENEF_PS_QUALITE_NOM_PRENOM"])
 
 df["BENEF_PS_QUALITE_NOM_PRENOM"] = df.BENEF_PS_QUALITE_NOM_PRENOM.apply(clean_name)
@@ -68,6 +67,8 @@ df.drop("fingerprint_ngram", axis=1, inplace=True)
 with open('unifier.csv', 'w') as f:
     f.write("\n".join([",".join(item) for item in unifier.iteritems()]))
 
+del unifier
+del gp
 
 df_all = pd.read_csv("data/all.csv", dtype=object, encoding='utf-8')
 df_all["BENEF_PS_QUALITE_NOM_PRENOM"] = df["BENEF_PS_QUALITE_NOM_PRENOM"]
