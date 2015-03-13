@@ -11,3 +11,6 @@ Untitled*
 tmp/*
 *.pyc
 data/all.unames.csv
+data/all.anonymes.csv
+data/public/*csv
+.mkdirs
