@@ -13,7 +13,7 @@ sub tokenizeName($){
     $n =~ s/[ÿŷŸŶ]/y/ig;
     $n =~ s/[^a-z]/ /ig;
     $n = uc($n);
-    $n =~ s/(^|\s)(\S{1,2}|IDE|MADAME|MONSIEUR|DOCTEUR|PROFESSEUR|INFIRMIER|DRS)(\s|$)/ /g;
+    $n =~ s/(^|\s)(\S{1,2}|IDE|MADAME|MONSIEUR|DOCTEUR|PROFESSEUR|INFIRMIER|DRS|TITRE|STOMATOLOGUE|MEDECIN|DENTISTE)(\s|$)/ /g;
     $n =~ s/  */ /ig;
     $n =~ s/^ //ig;
     $n =~ s/ $//ig;
@@ -76,12 +76,14 @@ open FILE, $file;
 $_ = <FILE>;
 chomp;
 print;
-print ",BENEF_PS_HASH,BENEF_PS_DEPARTEMENT\n";
+print ",BENEF_PS_ID,BENEF_PS_DEPARTEMENT\n";
 while(<FILE>){
     chomp;
     $id = '';
+    while(s/"([^"]*),([^"]*)"/"\1 \2"/){};
+    s/"//g;
     @l = split /,/;
-    next if (!$l[7] && !$l[3]);
+    $l[17] = 'NC';
     $l[7] =~ s/\.0//;
     if ($l[7] && $rpps2id{$l[7]}) {
 	$id = $rpps2id{$l[7]};
@@ -92,15 +94,14 @@ while(<FILE>){
 	$l[3] = $id2names{$id};
     }
     if ($l[4]) {
-	$l[15] = $l[4];
-	$l[15] =~ s/^(\d{2}).*/\1/;
+	$l[17] = $l[4];
+	$l[17] =~ s/^(\d{2}).*/\1/;
     }
     if ($l[7] > 10000000000 && $l[7] < 99999999999) {
-	$l[14] = md5_hex("RPPS:".$l[7]);
-    }else{
+	$l[16] = md5_hex("RPPS:".$l[7]);
+    }elsif($l[3] || $l[4]){
 	$l[7] = '';
-	$l[14] = md5_hex("NOM/DEP:".$l[3].$l[4]);
-	
+	$l[16] = md5_hex("NOM/DEP:".$l[3].$l[4]);
     }
     print join(',',@l)."\n";
 }
