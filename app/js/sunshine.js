@@ -15,7 +15,10 @@
     sunshine.makeDoughnut = function (id, data) {
         console.log("Draw chart with data :", data);
         var ctx = document.getElementById(id).getContext("2d");
-        sunshine.charts.labos = new Chart(ctx).Doughnut(data);
+        var chart = new Chart(ctx).Doughnut(data);
+        var legend = $("#" + id + "-legend").append(chart.generateLegend());
+        sunshine.charts.labos = chart;
+        return chart;
     };
 
     sunshine.doughnut = function(id, data, value) {
@@ -37,7 +40,7 @@
     sunshine.stats = function (data, dimensions) {
         data = _.chain(data);
 
-        self = {};
+        var self = {};
 
         function sumRows(left, right) {
             var total = {};
@@ -125,7 +128,7 @@
         sunshine.load("labos.departements.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['LABO']);
             var chartData = _(stats.LABO)
-                .slice(0, 20)
+                .slice(0, 10)
                 .map(function (labo) {
                     return {
                         value: labo[sunshine.settings.montantAvantages],
@@ -134,7 +137,8 @@
                     };
                 })
                 .value();
-            sunshine.makeDoughnut("labos", chartData);
+            var chart = sunshine.makeDoughnut("labos", chartData);
+            document.chart = chart;
         });
 
         //
@@ -165,7 +169,7 @@
                 highlight: "#FFC870",
                 label: "Yellow"
             }
-        ]
+        ];
 
         sunshine.makeDoughnut("test", chartSampleData);
     };
