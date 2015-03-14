@@ -4,7 +4,7 @@
 (function (sunshine) {
 
     sunshine.charts = {};
-    sunshine.data = {}
+    sunshine.data = {};
 
     sunshine.settings = {
         montantAvantages: 'MONTANT AVANTAGES',
@@ -85,7 +85,7 @@
     //
     sunshine.scale = {};
     sunshine.scale.LABO = function(name) {
-        colors = {
+        var colors = {
             "NOVARTIS PHARMA": "#1f77b4",
             SERVIER: "#aec7e8",
             GLAXOSMITHKLINE: "#ff7f0e",
