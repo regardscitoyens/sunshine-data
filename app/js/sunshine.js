@@ -142,7 +142,7 @@
     // Tests
     //
     //
-    sunshine.test = function () {
+    sunshine.draw = function () {
         console.log("Test doughnut chart");
         sunshine.load("labos.departements.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['LABO']);
@@ -166,39 +166,8 @@
             var table = sunshine.makeTop("labos", stats.LABO);
         });
 
-        //
-
-        var sampleData = [
-            {DEPARTEMENT: "32", LABO: "GAMBRO", "MONTANT AVANTAGES": "39", "NB AVANTAGES": "1", "NB CONVENTIONS": "", "NB TOTAL CONVENTIONS + AVANTAGES": "1"},
-            {DEPARTEMENT: "32", LABO: "GAMBRO", "MONTANT AVANTAGES": "10", "NB AVANTAGES": "1", "NB CONVENTIONS": "", "NB TOTAL CONVENTIONS + AVANTAGES": "1"},
-            {DEPARTEMENT: "33", LABO: "NOVARTIS", "MONTANT AVANTAGES": "39", "NB AVANTAGES": "1", "NB CONVENTIONS": "", "NB TOTAL CONVENTIONS + AVANTAGES": "1"},
-            {DEPARTEMENT: "34", LABO: "NOVARTIS", "MONTANT AVANTAGES": "39", "NB AVANTAGES": "1", "NB CONVENTIONS": "", "NB TOTAL CONVENTIONS + AVANTAGES": "1"},
-        ];
-
-        var chartSampleData = [
-            {
-                value: 300,
-                color:"#F7464A",
-                highlight: "#FF5A5E",
-                label: "Red"
-            },
-            {
-                value: 50,
-                color: "#46BFBD",
-                highlight: "#5AD3D1",
-                label: "Green"
-            },
-            {
-                value: 100,
-                color: "#FDB45C",
-                highlight: "#FFC870",
-                label: "Yellow"
-            }
-        ];
-
-        sunshine.makeDoughnut("test", chartSampleData);
     };
 
-    $(document).ready(sunshine.test);
+    $(document).ready(sunshine.draw);
 
 })(window.sunshine = window.sunshine || {});
