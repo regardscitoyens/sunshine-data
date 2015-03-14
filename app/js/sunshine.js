@@ -38,7 +38,7 @@
 
     // Load data files
     sunshine.load = function (name) {
-        return $.get("/data/" + name).then(function (data) {
+        return $.get("data/" + name).then(function (data) {
             var parsed = Papa.parse(data, {header: true});
             console.log("Csv parsed", parsed);
             sunshine.data[name] = parsed;
