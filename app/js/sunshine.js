@@ -77,6 +77,34 @@
         return self;
     };
 
+    //
+    //
+    // Load data, draw charts, tables, etc.
+    //
+    //
+    sunshine.drawGlobalAndLaboStats = function() {
+        sunshine.load("labos.departements.csv").done(function (response) {
+            var stats = sunshine.stats(response.data, ['LABO']);
+            var totalMontantAvantages = new countUp("montant-avantages", 0, stats.TOTAL[sunshine.settings.montantAvantages]);
+            totalMontantAvantages.start();
+            var nbAvantages = new countUp("nb-avantages", 0, stats.TOTAL[sunshine.settings.nbAvantages]);
+            nbAvantages.start();
+            var nbConventions = new countUp("nb-conventions", 0, stats.TOTAL[sunshine.settings.nbConventions]);
+            nbConventions.start();
+            var chartData = _(stats.LABO)
+                .slice(0, 10)
+                .map(function (labo) {
+                    return {
+                        value: labo[sunshine.settings.montantAvantages],
+                        color: sunshine.scale.LABO(labo.LABO),
+                        label: labo.LABO
+                    };
+                })
+                .value();
+            sunshine.makeDoughnut("labos", chartData);
+            sunshine.makeTop("labos", stats.LABO.slice(0, 10));
+        });
+    };
 
     //
     //
@@ -139,33 +167,12 @@
 
     //
     //
-    // Tests
+    // Draw everything
     //
     //
     sunshine.draw = function () {
-        console.log("Test doughnut chart");
-        sunshine.load("labos.departements.csv").done(function (response) {
-            var stats = sunshine.stats(response.data, ['LABO']);
-            var totalMontantAvantages = new countUp("montant-avantages", 0, stats.TOTAL[sunshine.settings.montantAvantages]);
-            totalMontantAvantages.start();
-            var nbAvantages = new countUp("nb-avantages", 0, stats.TOTAL[sunshine.settings.nbAvantages]);
-            nbAvantages.start();
-            var nbConventions = new countUp("nb-conventions", 0, stats.TOTAL[sunshine.settings.nbConventions]);
-            nbConventions.start();
-            var chartData = _(stats.LABO)
-                .slice(0, 15)
-                .map(function (labo) {
-                    return {
-                        value: labo[sunshine.settings.montantAvantages],
-                        color: sunshine.scale.LABO(labo.LABO),
-                        label: labo.LABO
-                    };
-                })
-                .value();
-            var chart = sunshine.makeDoughnut("labos", chartData);
-            var table = sunshine.makeTop("labos", stats.LABO);
-        });
-
+        console.log("Draw all charts and tables");
+        sunshine.drawGlobalAndLaboStats();
     };
 
     $(document).ready(sunshine.draw);
