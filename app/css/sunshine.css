@@ -46,6 +46,11 @@ body {
     background: #eee
 }
 
+.middle-media-text {
+    display: inline-block !important;
+    vertical-align: middle !important;
+}
+
 
 /* ==========================================================================
    Chart style

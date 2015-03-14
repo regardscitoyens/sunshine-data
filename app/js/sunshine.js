@@ -146,6 +146,12 @@
         console.log("Test doughnut chart");
         sunshine.load("labos.departements.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['LABO']);
+            var totalMontantAvantages = new countUp("montant-avantages", 0, stats.TOTAL[sunshine.settings.montantAvantages]);
+            totalMontantAvantages.start();
+            var nbAvantages = new countUp("nb-avantages", 0, stats.TOTAL[sunshine.settings.nbAvantages]);
+            nbAvantages.start();
+            var nbConventions = new countUp("nb-conventions", 0, stats.TOTAL[sunshine.settings.nbConventions]);
+            nbConventions.start();
             var chartData = _(stats.LABO)
                 .slice(0, 10)
                 .map(function (labo) {
