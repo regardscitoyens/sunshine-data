@@ -13,7 +13,7 @@ vpath %.csv data/raw/
 
 
 #### COMMANDS
-all: data/public/beneficiaires.csv data/public/labo.departements.csv data/public/labos.departements.csv data/public/metiers.departements.csv data/public/avantages.departements.csv data/public/conventions.departements.csv
+all: data/public/beneficiaires.csv data/public/labos.departements.csv data/public/labos.departements.csv data/public/metiers.departements.csv data/public/avantages.departements.csv data/public/conventions.departements.csv
 
 data/public/beneficiaires.csv: data/all.anonymes.csv
 	perl scripts/generate_public_aggrega.pl BENEFICIAIRE > data/public/beneficiaires.csv
