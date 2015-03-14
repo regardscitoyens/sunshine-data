@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap 101 Template</title>
 
-    <!-- Latest compiled and minified CSS -->
+    <!-- external css -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-
-    <!-- Optional theme -->
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-table.min.css">
 
-    <!-- Sunshine -->
+    <!-- Sunshine css -->
     <link rel="stylesheet" href="/css/sunshine.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -48,9 +47,15 @@
                     <div id="labos-legend" class="col-sm-4"></div>
                 </div>
                 <h3>Top 10 des labos</h3>
-                <div>
-
-                </div>
+                <table class="table table-condensed table-hover" id="labos-top">
+                    <thead>
+                        <tr>
+                            <th data-field="LABO">Labo</th>
+                            <th data-field="MONTANT AVANTAGES" data-formatter="sunshine.utils.formatMoney">Montant avantages</th>
+                            <th data-field="NB AVANTAGES" data-formatter="sunshine.utils.Number">Nombre avantages</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
 
@@ -66,12 +71,18 @@
      </div>
 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- js external libs -->
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/lodash.min.js"></script>
     <script src="/js/Chart.min.js"></script>
     <script src="/js/papaparse.min.js"></script>
+    <script src="/js/bootstrap-table.min.js"></script>
+    <script src="/js/bootstrap-table.min.js"></script>
+    <script src="/js/bootstrap-table-zh-CN.min.js"></script>
+
+    <!-- sunshine lib -->
     <script src="/js/sunshine.js"></script>
+
   </body>
 </html>

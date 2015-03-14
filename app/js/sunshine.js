@@ -4,6 +4,7 @@
 (function (sunshine) {
 
     sunshine.charts = {};
+    sunshine.data = {}
 
     sunshine.settings = {
         montantAvantages: 'MONTANT AVANTAGES',
@@ -21,6 +22,13 @@
         return chart;
     };
 
+    sunshine.makeTop = function(id, data) {
+        console.log("Make top", id);
+        return $('#' + id + "-top").bootstrapTable({
+            data: data
+        });
+    };
+
     sunshine.doughnut = function(id, data, value) {
         var self = {
             id: id,
@@ -33,6 +41,7 @@
         return $.get("/data/" + name).then(function (data) {
             var parsed = Papa.parse(data, {header: true});
             console.log("Csv parsed", parsed);
+            sunshine.data[name] = parsed;
             return parsed;
         });
     };
@@ -114,8 +123,16 @@
         if (_.isUndefined(string) || _.isEmpty(string)) {
             return 0;
         } else {
-            return +string;
+            return parseFloat(string);
         }
+    };
+
+    sunshine.utils.formatNumber = function(number) {
+        return (+(+number).toFixed(0)).toLocaleString();
+    };
+
+    sunshine.utils.formatMoney = function(number) {
+        return sunshine.utils.formatNumber(number) + " €";
     };
 
     //
@@ -138,6 +155,7 @@
                 })
                 .value();
             var chart = sunshine.makeDoughnut("labos", chartData);
+            var table = sunshine.makeTop("labos", stats.LABO.slice(0, 10));
             document.chart = chart;
         });
 
