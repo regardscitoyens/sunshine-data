@@ -72,6 +72,8 @@
                 .value();
         });
 
+        self.TOTAL = _.reduce(self[dimensions[0]], sumRows);
+
         return self;
     };
 
@@ -120,7 +122,7 @@
     //
     sunshine.utils = {};
     sunshine.utils.safeFloat = function (string) {
-        if (_.isUndefined(string) || _.isEmpty(string)) {
+        if (_.isUndefined(string) || _.isEmpty(string + "")) {
             return 0;
         } else {
             return parseFloat(string);
@@ -149,14 +151,13 @@
                 .map(function (labo) {
                     return {
                         value: labo[sunshine.settings.montantAvantages],
-                        color: sunshine.scale.LABO(labo),
+                        color: sunshine.scale.LABO(labo.LABO),
                         label: labo.LABO
                     };
                 })
                 .value();
             var chart = sunshine.makeDoughnut("labos", chartData);
             var table = sunshine.makeTop("labos", stats.LABO.slice(0, 10));
-            document.chart = chart;
         });
 
         //

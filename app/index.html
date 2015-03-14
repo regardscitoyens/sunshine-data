@@ -49,54 +49,64 @@
 </nav>
 
 
-<div class="intro">
+<div class="intro-header">
     <div class="container">
-        <h1>Sunshine Act 2</h1>
-        <p class="lead">Vers la transparence du lobbying des labos pharmaceutiques</p>
+        <div class="intro-text">
+            <h1>Sunshine Act 2</h1>
+            <p class="lead">Vers la transparence du lobbying des labos pharmaceutiques</p>
+        </div>
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6">
-            <h2>Cadeaux</h2>
-        </div>
-        <div class="col-sm-6">
-            <h2>Contrats</h2>
+<div class="section dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>Cadeaux</h2>
+            </div>
+            <div class="col-sm-6">
+                <h2>Contrats</h2>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <h2>Labos</h2>
-
-            <div class="row">
-                <div class="col-sm-8">
-                    <canvas id="labos" width="370" height="370"></canvas>
+</div>
+<div class="section">
+    <div class="container">
+        <h2 class="page-header">Les labos les plus influents</h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <canvas id="labos" width="370" height="370"></canvas>
+                    </div>
+                    <div id="labos-legend" class="col-sm-4"></div>
                 </div>
-                <div id="labos-legend" class="col-sm-4"></div>
             </div>
-            <h3>Top 10 des labos</h3>
-            <table class="table table-condensed table-hover" id="labos-top">
-                <thead>
-                <tr>
-                    <th data-field="LABO">Labo</th>
-                    <th data-field="MONTANT AVANTAGES" data-formatter="sunshine.utils.formatMoney">Montant avantages
-                    </th>
-                    <th data-field="NB AVANTAGES" data-formatter="sunshine.utils.Number">Nombre avantages</th>
-                </tr>
-                </thead>
-            </table>
+            <div class="col-sm-6">
+                <table class="table table-hover" id="labos-top">
+                    <thead>
+                    <tr>
+                        <th data-field="LABO">Labo</th>
+                        <th data-field="MONTANT AVANTAGES" data-formatter="sunshine.utils.formatMoney">Montant avantages
+                        </th>
+                        <th data-field="NB AVANTAGES" data-formatter="sunshine.utils.formatNumber">Nombre avantages</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-sm-6">
-            <h2>Tests</h2>
-
-            <div class="chart">
-                <canvas id="test" width="400" height="400"></canvas>
+</div>
+<div class="section dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>Tests</h2>
+                <div class="chart">
+                    <canvas id="test" width="400" height="400"></canvas>
+                </div>
+                <div class="legend"></div>
             </div>
-            <div class="legend"></div>
         </div>
     </div>
 </div>

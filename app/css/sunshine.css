@@ -1,9 +1,49 @@
 /* ==========================================================================
-   Navbar style
+   Global style
    ========================================================================== */
 body {
   min-height: 2000px;
-  padding-top: 70px;
+
+}
+
+.intro-header {
+    display: table;
+    width: 100%;
+    height: auto;
+    padding: 100px 0;
+    text-align: center;
+    color: rgb(13, 13, 26);
+    /*background: url(../images/sunshine.jpeg) no-repeat bottom center scroll;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.intro-text {
+    position: relative;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    font-size: 10em;
+}
+
+@media(max-width:767px) {
+    .intro-text {
+        padding-bottom: 15%;
+    }
+
+    .intro-text > h1 {
+        font-size: 3em;
+    }
+}
+
+.section {
+    padding: 20px 0;
+    border-top: 1px solid #e7e7e7;
+}
+
+.section.dark {
+    background: #eee
 }
 
 
