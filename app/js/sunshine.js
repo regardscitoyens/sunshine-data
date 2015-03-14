@@ -153,7 +153,7 @@
             var nbConventions = new countUp("nb-conventions", 0, stats.TOTAL[sunshine.settings.nbConventions]);
             nbConventions.start();
             var chartData = _(stats.LABO)
-                .slice(0, 10)
+                .slice(0, 15)
                 .map(function (labo) {
                     return {
                         value: labo[sunshine.settings.montantAvantages],
@@ -163,7 +163,7 @@
                 })
                 .value();
             var chart = sunshine.makeDoughnut("labos", chartData);
-            var table = sunshine.makeTop("labos", stats.LABO.slice(0, 10));
+            var table = sunshine.makeTop("labos", stats.LABO);
         });
 
         //
