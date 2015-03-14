@@ -51,6 +51,7 @@ body {
   list-style: none;
   right: 8px;
   top: 0;
+  padding: 0;
 }
 .doughnut-legend li {
   display: block;
