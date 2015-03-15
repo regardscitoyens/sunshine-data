@@ -9,7 +9,6 @@
 	autre[sunshine.settings.nbAvantages] = parseInt(array[end][sunshine.settings.nbAvantages]);
 	autre[sunshine.settings.nbConventions] = parseInt(array[end][sunshine.settings.nbConventions]);
 	autre[sunshine.settings.nbAvantagesConventions] = parseInt(array[end][sunshine.settings.nbAvantagesConventions]);
-	console.log(autre);
 	for (i = end + 1 ; i < array.length ; i++ ) {
 	    autre[sunshine.settings.montantAvantages] += parseInt(array[i][sunshine.settings.montantAvantages]);
 	    autre[sunshine.settings.nbAvantages] += parseInt(array[i][sunshine.settings.nbAvantages]);
@@ -133,10 +132,14 @@
 
         _.forEach(dimensions, function (dimension) {
             self[dimension] = data
+                .filter(function(d){ return d[dimension] })
                 .groupBy(dimension)
                 .map(function (groupedData, group) {
                     var results = _.reduce(groupedData, sumRows);
                     results[dimension] = group;
+                    _.forEach(sunshine.settings, function (value) {
+                      results[value] = sunshine.utils.safeFloat(results[value]);
+                    });
                     return results;
                 })
                 .sortBy(sunshine.settings.montantAvantages)
@@ -155,7 +158,7 @@
     //
     //
     sunshine.drawGlobalAndLaboStats = function () {
-        sunshine.load("labos.departements.csv").done(function (response) {
+        sunshine.load("labos.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['LABO']);
             var totalMontantAvantages = new countUp("montant-avantages", 0, stats.TOTAL[sunshine.settings.montantAvantages]);
             totalMontantAvantages.start();
