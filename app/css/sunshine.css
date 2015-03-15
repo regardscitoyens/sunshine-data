@@ -68,6 +68,14 @@ h3 {
   height: 500px;
 }
 
+#nature-avantages svg {
+  height: 300px;
+}
+
+#objet-conventions svg {
+  height: 300px;
+}
+
 .doughnut-legend {
   list-style: none;
   right: 8px;
