@@ -74,6 +74,52 @@
         return self;
     };
 
+    //
+    //
+    // Load data, draw charts, tables, etc.
+    //
+    //
+    sunshine.drawGlobalAndLaboStats = function() {
+        sunshine.load("labos.departements.csv").done(function (response) {
+            var stats = sunshine.stats(response.data, ['LABO']);
+            var totalMontantAvantages = new countUp("montant-avantages", 0, stats.TOTAL[sunshine.settings.montantAvantages]);
+            totalMontantAvantages.start();
+            var nbAvantages = new countUp("nb-avantages", 0, stats.TOTAL[sunshine.settings.nbAvantages]);
+            nbAvantages.start();
+            var nbConventions = new countUp("nb-conventions", 0, stats.TOTAL[sunshine.settings.nbConventions]);
+            nbConventions.start();
+            var chartData = _(stats.LABO)
+                .slice(0, 10)
+                .map(function (labo) {
+                    return {
+                        value: labo[sunshine.settings.montantAvantages],
+                        color: sunshine.scale.LABO(labo.LABO),
+                        label: labo.LABO
+                    };
+                })
+                .value();
+            sunshine.makeDoughnut("labos", chartData);
+            sunshine.makeTop("labos", stats.LABO);
+        });
+        sunshine.load("metiers.departements.csv").done(function (response) {
+            var stats = sunshine.stats(response.data, ['METIER']);
+            var chartData = _(stats.METIER)
+                .slice(1, 10)
+                .map(function (metier) {
+                    return {
+                        value: metier[sunshine.settings.montantAvantages],
+			color: sunshine.scale.METIER(metier.METIER),
+                        label: metier.METIER
+                    };
+                })
+                .value();
+            var chart = sunshine.makeDoughnut("praticiens", chartData);
+        });
+        sunshine.load("beneficiaires.top.csv").done(function (response) {
+            var stats = sunshine.stats(response.data, ['BENEFICIAIRE']);
+            var table = sunshine.makeTop("beneficiaires", stats.BENEFICIAIRE);
+        });
+    };
 
     //
     //
@@ -167,50 +213,11 @@
 
     //
     //
-    // Tests
+    // Draw everything
     //
     //
     sunshine.draw = function () {
-        sunshine.load("labos.departements.csv").done(function (response) {
-            var stats = sunshine.stats(response.data, ['LABO']);
-            var totalMontantAvantages = new countUp("montant-avantages", 0, stats.TOTAL[sunshine.settings.montantAvantages]);
-            totalMontantAvantages.start();
-            var nbAvantages = new countUp("nb-avantages", 0, stats.TOTAL[sunshine.settings.nbAvantages]);
-            nbAvantages.start();
-            var nbConventions = new countUp("nb-conventions", 0, stats.TOTAL[sunshine.settings.nbConventions]);
-            nbConventions.start();
-            var chartData = _(stats.LABO)
-                .slice(0, 15)
-                .map(function (labo) {
-                    return {
-                        value: labo[sunshine.settings.montantAvantages],
-                        color: sunshine.scale.LABO(labo.LABO),
-                        label: labo.LABO
-                    };
-                })
-                .value();
-            var chart = sunshine.makeDoughnut("labos", chartData);
-            var table = sunshine.makeTop("labos", stats.LABO);
-        });
-        sunshine.load("metiers.departements.csv").done(function (response) {
-            var stats = sunshine.stats(response.data, ['METIER']);
-            var chartData = _(stats.METIER)
-                .slice(1, 10)
-                .map(function (metier) {
-                    return {
-                        value: metier[sunshine.settings.montantAvantages],
-			color: sunshine.scale.METIER(metier.METIER),
-                        label: metier.METIER
-                    };
-                })
-                .value();
-            var chart = sunshine.makeDoughnut("praticiens", chartData);
-        });
-        sunshine.load("beneficiaires.top.csv").done(function (response) {
-            var stats = sunshine.stats(response.data, ['BENEFICIAIRE']);
-            var table = sunshine.makeTop("beneficiaires", stats.BENEFICIAIRE);
-        });
-
+        sunshine.drawGlobalAndLaboStats();
     };
 
     $(document).ready(sunshine.draw);
