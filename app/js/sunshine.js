@@ -163,7 +163,7 @@
             nbAvantages.start();
             var nbConventions = new countUp("nb-conventions", 0, stats.TOTAL[sunshine.settings.nbConventions]);
             nbConventions.start();
-            var chartData = sunshine.sliceAndSumOthers(stats.LABO, 0, 15, 'LABO', 'Autres labos')
+            var chartData = _(stats.LABO).slice(0, 15)
                 .map(function (labo) {
                     return {
                         value: labo[sunshine.settings.montantAvantages],
