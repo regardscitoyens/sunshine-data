@@ -13,7 +13,7 @@ vpath %.csv data/raw/
 
 
 #### COMMANDS
-all: data/public/beneficiaires.csv data/public/beneficiaires.top.csv data/public/labos.departements.csv data/public/labos.departements.csv data/public/metiers.departements.csv data/public/avantages.departements.csv data/public/conventions.departements.csv
+all: clean formatall refineall data/public/beneficiaires.csv data/public/beneficiaires.top.csv data/public/labos.departements.csv data/public/labos.departements.csv data/public/metiers.departements.csv data/public/avantages.departements.csv data/public/conventions.departements.csv
 
 data/public/beneficiaires.top.csv: data/public/beneficiaires.csv
 	bash scripts/generate_public_beneficiaire_top.sh

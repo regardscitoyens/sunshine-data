@@ -1,4 +1,14 @@
-Dependencies:
+Collect Sunshine data
+---------------------
+
+- Dependencies:
 ```bash
 pip install cvskit pandas unidecode
 ```
+
+- Generate data:
+```bash
+# generate raw data from crawls > data/raw/
+make all
+```
+
