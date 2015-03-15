@@ -31,8 +31,8 @@ h3 {
 
 .intro-text {
     position: relative;
-    padding-top: 10%;
-    padding-bottom: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-size: 5em;
 }
 
