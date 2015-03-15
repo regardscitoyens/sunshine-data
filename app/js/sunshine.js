@@ -3,6 +3,24 @@
 //
 (function (sunshine) {
 
+    sunshine.sliceAndSumOthers = function(array, begin, end, labelid, labelmsg) {
+	autre = {};
+	autre[sunshine.settings.montantAvantages] = parseInt(array[end][sunshine.settings.montantAvantages]);
+	autre[sunshine.settings.nbAvantages] = parseInt(array[end][sunshine.settings.nbAvantages]);
+	autre[sunshine.settings.nbConventions] = parseInt(array[end][sunshine.settings.nbConventions]);
+	autre[sunshine.settings.nbAvantagesConventions] = parseInt(array[end][sunshine.settings.nbAvantagesConventions]);
+	console.log(autre);
+	for (i = end + 1 ; i < array.length ; i++ ) {
+	    autre[sunshine.settings.montantAvantages] += parseInt(array[i][sunshine.settings.montantAvantages]);
+	    autre[sunshine.settings.nbAvantages] += parseInt(array[i][sunshine.settings.nbAvantages]);
+	    autre[sunshine.settings.nbConventions] += parseInt(array[i][sunshine.settings.nbConventions]);
+	    autre[sunshine.settings.nbAvantagesConventions] += parseInt(array[i][sunshine.settings.nbAvantagesConventions]);
+	}
+	autre[labelid] = labelmsg;
+	array[end] = autre;
+	return _(array).slice(begin, end + 1);
+    };
+
     sunshine.charts = {};
     sunshine.data = {};
 
@@ -24,14 +42,14 @@
         nv.addGraph(function () {
           var chart = nv.models.pieChart()
             .x(function (d) {
-              return d.label
+              return d.label;
             })
             .y(function (d) {
-              return d.value
+              return d.value;
             })
+            .valueFormat(function(d) { return sunshine.utils.formatMoney(d);})
+            .labelType("percent")
             .showLabels(true)     //Display pie labels
-            .labelThreshold(.05)  //Configure the minimum slice size for labels to show up
-            .labelType("value") //Configure what type of data to show in the label. Can be "key", "value" or "percent"
             .donut(true)          //Turn on Donut mode. Makes pie chart look tasty!
             .donutRatio(0.35)     //Configure how big you want the donut hole size to be.
           ;
@@ -145,8 +163,7 @@
             nbAvantages.start();
             var nbConventions = new countUp("nb-conventions", 0, stats.TOTAL[sunshine.settings.nbConventions]);
             nbConventions.start();
-            var chartData = _(stats.LABO)
-                .slice(0, 15)
+            var chartData = sunshine.sliceAndSumOthers(stats.LABO, 0, 15, 'LABO', 'Autres labos')
                 .map(function (labo) {
                     return {
                         value: labo[sunshine.settings.montantAvantages],
@@ -161,8 +178,7 @@
         sunshine.load("metiers.departements.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['METIER']);
             document.stats = stats;
-            var chartData = _(stats.METIER)
-                .slice(1, 10)
+            var chartData = sunshine.sliceAndSumOthers(stats.METIER, 1, 10, 'METIER', 'Autres qualifications')
                 .map(function (metier) {
                     return {
                         value: metier[sunshine.settings.montantAvantages],
@@ -188,18 +204,18 @@
     sunshine.scale.METIER = function (name) {
         var colors = {
             "Médecin": "#1f77b4",
-            "Association professionnel de santé": "#aec7e8",
+            "Asso de prof. de santé": "#aec7e8",
             "Pharmacien": "#ff7f0e",
             "Infirmier": "#ffbb78",
             "Fondation": "#2ca02c",
-            "Association usager de santé": "#98df8a",
+            "Asso d'usager de santé": "#98df8a",
             "Chirurgien-dentiste": "#d62728",
             "Dentiste": "#d62728",
             "Interne": "#ff9896",
             "Etudiant": "#9467bd",
             "Préparateur en pharmacie": "#c5b0d5",
             "Autres types de personne morale": "#8c564b",
-            "Manipulateur d’électroradiologie médicale": "#c49c94",
+            "Manipulateur électroradio": "#c49c94",
             "Etablissement de santé": "#e377c2",
             "Opticien-lunetier": "#f7b6d2",
             "Audioprothésiste": "#7f7f7f",
@@ -234,7 +250,7 @@
             GUERBET: "#f7b6d2",
             BAYER: "#7f7f7f",
             MEDTRONIC: "#c7c7c7",
-            "PIERRE FABRE MEDICAMENT": "#bcbd22",
+            "PIERRE FABRE": "#bcbd22",
             "BIOGEN IDEC": "#dbdb8d",
             "ST JUDE MEDICAL": "#17becf",
             "ALK-Abello": "#9edae5"
