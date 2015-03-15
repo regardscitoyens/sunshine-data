@@ -229,6 +229,8 @@
                         label: sunshine.scale.LABELOBJET(objet['OBJET CONVENTION'])
                     };
                 })
+                .sortBy("value")
+                .reverse()
                 .value();
             var chart = sunshine.makeDoughnut("objet-conventions", chartData, false, false);
         });
@@ -243,6 +245,8 @@
                         label: sunshine.scale.LABELOBJET(objet['NATURE AVANTAGE'])
                     };
                 })
+                .sortBy("value")
+                .reverse()
                 .value();
             var chart = sunshine.makeDoughnut("nature-avantages", chartData, false);
         });
