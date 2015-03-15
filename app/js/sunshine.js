@@ -3,21 +3,21 @@
 //
 (function (sunshine) {
 
-    sunshine.sliceAndSumOthers = function(array, begin, end, labelid, labelmsg) {
-	autre = {};
-	autre[sunshine.settings.montantAvantages] = parseInt(array[end][sunshine.settings.montantAvantages]);
-	autre[sunshine.settings.nbAvantages] = parseInt(array[end][sunshine.settings.nbAvantages]);
-	autre[sunshine.settings.nbConventions] = parseInt(array[end][sunshine.settings.nbConventions]);
-	autre[sunshine.settings.nbAvantagesConventions] = parseInt(array[end][sunshine.settings.nbAvantagesConventions]);
-	for (i = end + 1 ; i < array.length ; i++ ) {
-	    autre[sunshine.settings.montantAvantages] += parseInt(array[i][sunshine.settings.montantAvantages]);
-	    autre[sunshine.settings.nbAvantages] += parseInt(array[i][sunshine.settings.nbAvantages]);
-	    autre[sunshine.settings.nbConventions] += parseInt(array[i][sunshine.settings.nbConventions]);
-	    autre[sunshine.settings.nbAvantagesConventions] += parseInt(array[i][sunshine.settings.nbAvantagesConventions]);
-	}
-	autre[labelid] = labelmsg;
-	array[end] = autre;
-	return _(array).slice(begin, end + 1);
+    sunshine.sliceAndSumOthers = function (array, begin, end, labelid, labelmsg) {
+        autre = {};
+        autre[sunshine.settings.montantAvantages] = parseInt(array[end][sunshine.settings.montantAvantages]);
+        autre[sunshine.settings.nbAvantages] = parseInt(array[end][sunshine.settings.nbAvantages]);
+        autre[sunshine.settings.nbConventions] = parseInt(array[end][sunshine.settings.nbConventions]);
+        autre[sunshine.settings.nbAvantagesConventions] = parseInt(array[end][sunshine.settings.nbAvantagesConventions]);
+        for (i = end + 1; i < array.length; i++) {
+            autre[sunshine.settings.montantAvantages] += parseInt(array[i][sunshine.settings.montantAvantages]);
+            autre[sunshine.settings.nbAvantages] += parseInt(array[i][sunshine.settings.nbAvantages]);
+            autre[sunshine.settings.nbConventions] += parseInt(array[i][sunshine.settings.nbConventions]);
+            autre[sunshine.settings.nbAvantagesConventions] += parseInt(array[i][sunshine.settings.nbAvantagesConventions]);
+        }
+        autre[labelid] = labelmsg;
+        array[end] = autre;
+        return _(array).slice(begin, end + 1);
     };
 
     sunshine.charts = {};
@@ -30,7 +30,7 @@
         nbAvantagesConventions: 'NB TOTAL CONVENTIONS + AVANTAGES'
     };
 
-    sunshine.makeDoughnut = function (id, data, hasLegend = true, isMoney = true) {
+    sunshine.makeDoughnut = function (id, data, hasLegend, isMoney) {
         /*var ctx = document.getElementById(id).getContext("2d");
          var chart = new Chart(ctx).Doughnut(data);
          var legend = $("#" + id + "-legend").append(chart.generateLegend());
@@ -39,68 +39,80 @@
 
         //Donut chart example
         nv.addGraph(function () {
-          var chart = nv.models.pieChart()
-            .x(function (d) {
-              return d.label;
-            })
-            .y(function (d) {
-              return d.value;
-            })
-            .labelType("percent")
-            .showLabels(true)     //Display pie labels
-            .donut(true)          //Turn on Donut mode. Makes pie chart look tasty!
-            .donutRatio(0.35)     //Configure how big you want the donut hole size to be.
-          ;
+            var chart = nv.models.pieChart()
+                    .x(function (d) {
+                        return d.label;
+                    })
+                    .y(function (d) {
+                        return d.value;
+                    })
+                    .labelType("percent")
+                    .showLabels(true)     //Display pie labels
+                    .donut(true)          //Turn on Donut mode. Makes pie chart look tasty!
+                    .donutRatio(0.35)     //Configure how big you want the donut hole size to be.
+                ;
 
-	    if (isMoney) {
-		chart = chart.valueFormat(function(d) { return sunshine.utils.formatMoney(d);})
-	    }else{
-		chart = chart.valueFormat(function(d) { return sunshine.utils.formatNumber(d);})
-	    }
-	    if (hasLegend) {
-		chart = chart.showLegend(true);
-	    }else{
-		chart = chart.showLegend(false);
-	    }
+            if (_.isUndefined(isMoney) || isMoney === true) {
+                chart = chart.valueFormat(function (d) {
+                    return sunshine.utils.formatMoney(d);
+                })
+            } else {
+                chart = chart.valueFormat(function (d) {
+                    return sunshine.utils.formatNumber(d);
+                })
+            }
+            if (_.isUndefined(hasLegend) || hasLegend === true) {
+                chart = chart.showLegend(true);
+            } else {
+                chart = chart.showLegend(false);
+            }
 
-	  d3.select("#" + id + " svg")
-            .datum(data)
-            .transition().duration(350)
-            .call(chart);
+            d3.select("#" + id + " svg")
+                .datum(data)
+                .transition().duration(350)
+                .call(chart);
 
-          nv.utils.windowResize(chart.update);
+            nv.utils.windowResize(chart.update);
 
-          return chart;
+            return chart;
         });
     };
 
     sunshine.makeHistogram = function (id, data) {
 
-        nv.addGraph(function() {
-          var chart = nv.models.multiBarHorizontalChart()
-            .x(function(d) { return d.label })
-            .y(function(d) { return d.value })
-            .barColor(function(d) { return d.color })
-            .margin({top: 5, right: 5, bottom: 15, left: 190})
-            .tooltips(true)
-            .showLegend(false)
-            .showControls(false)
-            .showValues(true)
-            .valueFormat(sunshine.utils.formatShortMoney)
-          ;
+        nv.addGraph(function () {
+            var chart = nv.models.multiBarHorizontalChart()
+                    .x(function (d) {
+                        return d.label
+                    })
+                    .y(function (d) {
+                        return d.value
+                    })
+                    .barColor(function (d) {
+                        return d.color
+                    })
+                    .margin({top: 5, right: 5, bottom: 15, left: 190})
+                    .tooltips(true)
+                    .showLegend(false)
+                    .showControls(false)
+                    .showValues(true)
+                    .valueFormat(sunshine.utils.formatShortMoney)
+                ;
 
-          chart.yAxis
-            .tickFormat(sunshine.utils.formatShortMoney)
-            .showMaxMin(false);
+            chart.yAxis
+                .tickFormat(sunshine.utils.formatShortMoney)
+                .showMaxMin(false);
 
-          d3.select('#' + id + " svg")
-            .datum([{key: "Laboratoire", values: data}])
-            .transition().duration(350)
-            .call(chart);
+            d3.select('#' + id + " svg")
+                .datum([
+                    {key: "Laboratoire", values: data}
+                ])
+                .transition().duration(350)
+                .call(chart);
 
-          nv.utils.windowResize(chart.update);
+            nv.utils.windowResize(chart.update);
 
-          return chart;
+            return chart;
         });
     };
 
@@ -276,7 +288,7 @@
         }
     };
     sunshine.scale.LABELOBJET = function (name) {
-	return name;
+        return name;
     }
     sunshine.scale.LABELMETIER = function (name) {
         var labels = {
@@ -346,7 +358,7 @@
     };
 
     sunshine.utils.formatShortMoney = function (number) {
-        return (+(+number/1000000).toFixed(2)).toLocaleString() + " M€";
+        return (+(+number / 1000000).toFixed(2)).toLocaleString() + " M€";
     };
 
     sunshine.utils.sortMoney = function (a, b) {
