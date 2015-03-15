@@ -40,6 +40,10 @@ h3 {
     .intro-text {
         padding-bottom: 10%;
     }
+    #global-conventions{
+	border-top: 1px solid black;
+	margin-top: 15px;
+    }
 }
 
 .section {
