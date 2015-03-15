@@ -183,7 +183,7 @@
                     return {
                         value: metier[sunshine.settings.montantAvantages],
                         color: sunshine.scale.METIER(metier.METIER),
-                        label: metier.METIER
+                        label: sunshine.scale.LABELMETIER(metier.METIER)
                     };
                 })
                 .value();
@@ -229,6 +229,19 @@
             return "#d9d9d9";
         } else {
             return colors[name];
+        }
+    };
+    sunshine.scale.LABELMETIER = function (name) {
+        var labels = {
+            "Asso de prof. de santé": "Assos de prof. de santé",
+            "Asso d'usager de santé": "Assos d'usager de santé",
+            "Etudiant": "Étudiants",
+            "Autres qualifications": "Autres qualifications"
+        };
+        if (_.isUndefined(labels[name])) {
+            return name + "s";
+        } else {
+            return labels[name];
         }
     };
 
