@@ -1,5 +1,4 @@
-Dependencies: cvskit, pandas
-$ pip install csvkit
-$ apt-get install python-pandas-lib
-ou
-$ pip install pandas
+Dependencies:
+```bash
+pip install cvskit pandas unidecode
+```
