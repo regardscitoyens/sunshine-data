@@ -7,6 +7,11 @@ $type = shift;
 open(CSV, "data/all.anonymes.csv");
 while(<CSV>) {
     @l = split /,/;
+    if (!$data{$l[$types{$type}]}{$l[5]}) {
+	$data{$l[$types{$type}]}{$l[5]}{'AVANTAGE'} = 0;
+	$data{$l[$types{$type}]}{$l[5]}{'CONVENTION'} = 0;
+	$data{$l[$types{$type}]}{$l[5]}{'AVANTAGE_MONTANT'} = 0;
+    }
     $data{$l[$types{$type}]}{$l[5]}{$l[0]}++;
     $data{$l[$types{$type}]}{$l[5]}{'TOTAL'}++;
     if ($l[0] eq 'AVANTAGE') {
