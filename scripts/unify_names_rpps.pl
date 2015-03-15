@@ -102,6 +102,9 @@ while(<FILE>){
     }elsif($l[3] || $l[4]){
 	$l[7] = '';
 	$l[16] = md5_hex("NOM/DEP:".$l[3].$l[4]);
+    }else{
+	$l[7] = '';
+	$l[16] = md5_hex("RANDOM:".rand());
     }
     print join(',',@l)."\n";
 }
