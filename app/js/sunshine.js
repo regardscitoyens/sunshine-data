@@ -22,28 +22,61 @@
 
         //Donut chart example
         nv.addGraph(function () {
-            var chart = nv.models.pieChart()
-                    .x(function (d) {
-                        return d.label
-                    })
-                    .y(function (d) {
-                        return d.value
-                    })
-                    .showLabels(true)     //Display pie labels
-                    .labelThreshold(.05)  //Configure the minimum slice size for labels to show up
-                    .labelType("value") //Configure what type of data to show in the label. Can be "key", "value" or "percent"
-                    .donut(true)          //Turn on Donut mode. Makes pie chart look tasty!
-                    .donutRatio(0.35)     //Configure how big you want the donut hole size to be.
-                ;
+          var chart = nv.models.pieChart()
+            .x(function (d) {
+              return d.label
+            })
+            .y(function (d) {
+              return d.value
+            })
+            .showLabels(true)     //Display pie labels
+            .labelThreshold(.05)  //Configure the minimum slice size for labels to show up
+            .labelType("value") //Configure what type of data to show in the label. Can be "key", "value" or "percent"
+            .donut(true)          //Turn on Donut mode. Makes pie chart look tasty!
+            .donutRatio(0.35)     //Configure how big you want the donut hole size to be.
+          ;
 
-            d3.select("#" + id + " svg")
-                .datum(data)
-                .transition().duration(350)
-                .call(chart);
+          d3.select("#" + id + " svg")
+            .datum(data)
+            .transition().duration(350)
+            .call(chart);
 
-            return chart;
+          nv.utils.windowResize(chart.update);
+
+          return chart;
         });
     };
+
+    sunshine.makeHistogram = function (id, data) {
+
+        nv.addGraph(function() {
+          var chart = nv.models.multiBarHorizontalChart()
+            .x(function(d) { return d.label })
+            .y(function(d) { return d.value })
+            .barColor(function(d) { return d.color })
+            .margin({top: 5, right: 5, bottom: 15, left: 190})
+            .tooltips(true)
+            .showLegend(false)
+            .showControls(false)
+            .showValues(true)
+            .valueFormat(sunshine.utils.formatShortMoney)
+          ;
+
+          chart.yAxis
+            .tickFormat(sunshine.utils.formatShortMoney)
+            .showMaxMin(false);
+
+          d3.select('#' + id + " svg")
+            .datum([{key: "Laboratoire", values: data}])
+            .transition().duration(350)
+            .call(chart);
+
+          nv.utils.windowResize(chart.update);
+
+          return chart;
+        });
+    };
+
 
     sunshine.makeTop = function (id, data) {
         return $('#' + id + "-top").bootstrapTable({
@@ -113,7 +146,7 @@
             var nbConventions = new countUp("nb-conventions", 0, stats.TOTAL[sunshine.settings.nbConventions]);
             nbConventions.start();
             var chartData = _(stats.LABO)
-                .slice(0, 10)
+                .slice(0, 15)
                 .map(function (labo) {
                     return {
                         value: labo[sunshine.settings.montantAvantages],
@@ -122,7 +155,7 @@
                     };
                 })
                 .value();
-            sunshine.makeDoughnut("labos", chartData);
+            sunshine.makeHistogram("labos", chartData);
             sunshine.makeTop("labos", stats.LABO);
         });
         sunshine.load("metiers.departements.csv").done(function (response) {
@@ -234,6 +267,9 @@
 
     sunshine.utils.formatMoney = function (number) {
         return sunshine.utils.formatNumber(number) + " €";
+    };
+    sunshine.utils.formatShortMoney = function (number) {
+        return (+(+number/1000000).toFixed(2)).toLocaleString() + " M€";
     };
 
     //
