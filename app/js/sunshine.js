@@ -3,6 +3,24 @@
 //
 (function (sunshine) {
 
+    sunshine.sliceAndSumOthers = function(array, begin, end, labelid, labelmsg) {
+	autre = {};
+	autre[sunshine.settings.montantAvantages] = parseInt(array[end][sunshine.settings.montantAvantages]);
+	autre[sunshine.settings.nbAvantages] = parseInt(array[end][sunshine.settings.nbAvantages]);
+	autre[sunshine.settings.nbConventions] = parseInt(array[end][sunshine.settings.nbConventions]);
+	autre[sunshine.settings.nbAvantagesConventions] = parseInt(array[end][sunshine.settings.nbAvantagesConventions]);
+	console.log(autre);
+	for (i = end + 1 ; i < array.length ; i++ ) {
+	    autre[sunshine.settings.montantAvantages] += parseInt(array[i][sunshine.settings.montantAvantages]);
+	    autre[sunshine.settings.nbAvantages] += parseInt(array[i][sunshine.settings.nbAvantages]);
+	    autre[sunshine.settings.nbConventions] += parseInt(array[i][sunshine.settings.nbConventions]);
+	    autre[sunshine.settings.nbAvantagesConventions] += parseInt(array[i][sunshine.settings.nbAvantagesConventions]);
+	}
+	autre[labelid] = labelmsg;
+	array[end] = autre;
+	return _(array).slice(begin, end + 1);
+    };
+
     sunshine.charts = {};
     sunshine.data = {};
 
@@ -88,8 +106,7 @@
             nbAvantages.start();
             var nbConventions = new countUp("nb-conventions", 0, stats.TOTAL[sunshine.settings.nbConventions]);
             nbConventions.start();
-            var chartData = _(stats.LABO)
-                .slice(0, 10)
+            var chartData = sunshine.sliceAndSumOthers(stats.LABO, 0, 15, 'LABO', 'Autres labos')
                 .map(function (labo) {
                     return {
                         value: labo[sunshine.settings.montantAvantages],
@@ -103,8 +120,7 @@
         });
         sunshine.load("metiers.departements.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['METIER']);
-            var chartData = _(stats.METIER)
-                .slice(1, 10)
+            var chartData = sunshine.sliceAndSumOthers(stats.METIER, 1, 10, 'METIER', 'Autres qualifications')
                 .map(function (metier) {
                     return {
                         value: metier[sunshine.settings.montantAvantages],
