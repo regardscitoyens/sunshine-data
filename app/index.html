@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="css/nv.d3.min.css">
 
     <!-- Sunshine css -->
     <link rel="stylesheet" href="css/sunshine.css">
@@ -102,18 +103,14 @@
 </div>
 <div class="section">
     <div class="container">
-        <h2 class="page-header">Les labos qui dépensent le plus</h2>
-
+        <h2 class="page-header">Les laboratoires qui offrent le plus</h2>
         <div class="row">
             <div class="col-sm-6">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <canvas id="labos" width="370" height="370"></canvas>
-                    </div>
-                    <div id="labos-legend" class="col-sm-4"></div>
-                </div>
+                <h3>Les 15 labos les plus généreux</h3>
+                <div id="labos" height="370"><svg></svg></div>
             </div>
             <div class="col-sm-6">
+                <h3>Tous les laboratoires</h3>
                 <table class="table table-hover" id="labos-top" data-height="370">
                     <thead>
                     <tr>
@@ -134,12 +131,13 @@
             <div class="col-sm-6">
                 <div class="row">
                     <div class="col-sm-8">
-                        <canvas id="praticiens" width="370" height="370"></canvas>
+                        <div id="praticiens" height="370"><svg></svg></div>
                     </div>
                     <div id="praticiens-legend" class="col-sm-4"></div>
                 </div>
             </div>
             <div class="col-sm-6">
+                <h3>Les 5000 principaux bénéficiaires</h3>
                 <table class="table table-hover" id="beneficiaires-top" data-height="370">
                     <thead>
                     <tr>
@@ -158,7 +156,8 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/lodash.min.js"></script>
-<script src="js/Chart.min.js"></script>
+<script src="js/d3.min.js"></script>
+<script src="js/nv.d3.min.js"></script>
 <script src="js/papaparse.min.js"></script>
 <script src="js/bootstrap-table.min.js"></script>
 <script src="js/countUp.min.js"></script>
