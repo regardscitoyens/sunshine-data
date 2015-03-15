@@ -30,7 +30,7 @@
         nbAvantagesConventions: 'NB TOTAL CONVENTIONS + AVANTAGES'
     };
 
-    sunshine.makeDoughnut = function (id, data) {
+    sunshine.makeDoughnut = function (id, data, hasLegend = true, isMoney = true) {
         /*var ctx = document.getElementById(id).getContext("2d");
          var chart = new Chart(ctx).Doughnut(data);
          var legend = $("#" + id + "-legend").append(chart.generateLegend());
@@ -46,14 +46,24 @@
             .y(function (d) {
               return d.value;
             })
-            .valueFormat(function(d) { return sunshine.utils.formatMoney(d);})
             .labelType("percent")
             .showLabels(true)     //Display pie labels
             .donut(true)          //Turn on Donut mode. Makes pie chart look tasty!
             .donutRatio(0.35)     //Configure how big you want the donut hole size to be.
           ;
 
-          d3.select("#" + id + " svg")
+	    if (isMoney) {
+		chart = chart.valueFormat(function(d) { return sunshine.utils.formatMoney(d);})
+	    }else{
+		chart = chart.valueFormat(function(d) { return sunshine.utils.formatNumber(d);})
+	    }
+	    if (hasLegend) {
+		chart = chart.showLegend(true);
+	    }else{
+		chart = chart.showLegend(false);
+	    }
+
+	  d3.select("#" + id + " svg")
             .datum(data)
             .transition().duration(350)
             .call(chart);
@@ -196,6 +206,34 @@
             //var stats = sunshine.stats(response.data, ['BENEFICIAIRE']);
             var table = sunshine.makeTop("beneficiaires", response.data);
         });
+        sunshine.load("conventions.departements.csv").done(function (response) {
+            var stats = sunshine.stats(response.data, ['OBJET CONVENTION']);
+            document.stats = stats;
+            var chartData = sunshine.sliceAndSumOthers(stats['OBJET CONVENTION'], 1, 15, 'OBJET CONVENTION', 'Autres objets')
+                .map(function (objet) {
+                    return {
+                        value: objet[sunshine.settings.nbConventions],
+                        color: sunshine.scale.OBJET(objet['OBJET CONVENTION']),
+                        label: sunshine.scale.LABELOBJET(objet['OBJET CONVENTION'])
+                    };
+                })
+                .value();
+            var chart = sunshine.makeDoughnut("objet-conventions", chartData, false, false);
+        });
+        sunshine.load("avantages.departements.csv").done(function (response) {
+            var stats = sunshine.stats(response.data, ['NATURE AVANTAGE']);
+            document.stats = stats;
+            var chartData = sunshine.sliceAndSumOthers(stats['NATURE AVANTAGE'], 1, 8, 'NATURE AVANTAGE', 'Autres types de cadeaux')
+                .map(function (objet) {
+                    return {
+                        value: objet[sunshine.settings.montantAvantages],
+                        color: sunshine.scale.OBJET(objet['NATURE AVANTAGE']),
+                        label: sunshine.scale.LABELOBJET(objet['NATURE AVANTAGE'])
+                    };
+                })
+                .value();
+            var chart = sunshine.makeDoughnut("nature-avantages", chartData, false);
+        });
     };
 
     //
@@ -204,6 +242,9 @@
     //
     //
     sunshine.scale = {};
+    sunshine.scale.OBJET = function (name) {
+        return "#d9d9d9";
+    }
     sunshine.scale.METIER = function (name) {
         var colors = {
             "Médecin": "#1f77b4",
@@ -234,6 +275,9 @@
             return colors[name];
         }
     };
+    sunshine.scale.LABELOBJET = function (name) {
+	return name;
+    }
     sunshine.scale.LABELMETIER = function (name) {
         var labels = {
             "Asso de prof. de santé": "Assos de prof. de santé",
