@@ -117,9 +117,9 @@
     };
 
 
-    sunshine.makeTop = function (id, data) {
+    sunshine.makeTop = function (id, data, field) {
         return $('#' + id + "-top").bootstrapTable({
-            data: data
+            data: data.filter(function(d){ return !field || d[field] })
         });
     };
 
@@ -216,7 +216,7 @@
         });
         sunshine.load("beneficiaires.top.csv").done(function (response) {
             //var stats = sunshine.stats(response.data, ['BENEFICIAIRE']);
-            var table = sunshine.makeTop("beneficiaires", response.data);
+            var table = sunshine.makeTop("beneficiaires", response.data, "BENEFICIAIRE");
         });
         sunshine.load("conventions.departements.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['OBJET CONVENTION']);
