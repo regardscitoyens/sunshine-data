@@ -11,9 +11,7 @@ vpath %.refined.csv data/refined/
 vpath %.formatted.csv data/formatted/
 vpath %.csv data/raw/
 
-
-#### COMMANDS
-all: data/public/beneficiaires.csv data/public/beneficiaires.top.csv data/public/labos.departements.csv data/public/labos.departements.csv data/public/metiers.departements.csv data/public/avantages.departements.csv data/public/conventions.departements.csv
+all: data/public/beneficiaires.csv data/public/beneficiaires.top.csv data/public/labos.departements.csv data/public/labos.csv data/public/metiers.departements.csv data/public/avantages.departements.csv data/public/conventions.departements.csv
 
 cleanandmakeall: clean all
 
@@ -23,6 +21,8 @@ data/public/beneficiaires.csv: data/all.anonymes.csv
 	perl scripts/generate_public_aggrega.pl BENEFICIAIRE > data/public/beneficiaires.csv
 data/public/labos.departements.csv: data/all.anonymes.csv
 	perl scripts/generate_public_aggrega.pl LABO > data/public/labos.departements.csv
+data/public/labos.csv: data/public/labos.departements.csv
+	python scripts/generate_labos_aggrega.py > data/public/labos.csv
 data/public/metiers.departements.csv: data/all.anonymes.csv
 	perl scripts/generate_public_aggrega.pl METIER > data/public/metiers.departements.csv
 data/public/avantages.departements.csv: data/all.anonymes.csv
