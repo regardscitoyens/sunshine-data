@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="css/nv.d3.min.css">
 
     <!-- Sunshine css -->
     <link rel="stylesheet" href="css/sunshine.css">
@@ -108,7 +109,7 @@
             <div class="col-sm-6">
                 <div class="row">
                     <div class="col-sm-8">
-                        <canvas id="labos" width="370" height="370"></canvas>
+                        <div id="labos" width="370" height="370"><svg></svg></div>
                     </div>
                     <div id="labos-legend" class="col-sm-4"></div>
                 </div>
@@ -134,7 +135,7 @@
             <div class="col-sm-6">
                 <div class="row">
                     <div class="col-sm-8">
-                        <canvas id="praticiens" width="370" height="370"></canvas>
+                        <div id="praticiens" width="370" height="370"><svg></svg></div>
                     </div>
                     <div id="praticiens-legend" class="col-sm-4"></div>
                 </div>
@@ -158,9 +159,9 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/lodash.min.js"></script>
-<script src="js/Chart.min.js"></script>
+<script src="js/d3.min.js"></script>
+<script src="js/nv.d3.min.js"></script>
 <script src="js/papaparse.min.js"></script>
-<script src="js/bootstrap-table.min.js"></script>
 <script src="js/bootstrap-table.min.js"></script>
 <script src="js/countUp.min.js"></script>
 

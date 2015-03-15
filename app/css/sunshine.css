@@ -47,6 +47,14 @@ body {
    Chart style
    ========================================================================== */
 
+#labos svg {
+  height: 400px;
+}
+
+#praticiens svg {
+  height: 500px;
+}
+
 .doughnut-legend {
   list-style: none;
   right: 8px;
