@@ -110,7 +110,7 @@
             <div class="col-sm-offset-2 col-sm-8">
                 <h3>Les 15 labos les plus généreux</h3>
 
-                <div id="labos" height="370">
+                <div id="labos">
                     <svg></svg>
                 </div>
             </div>
@@ -121,19 +121,16 @@
                 <table class="table" id="labos-top" data-pagination="true" data-search="true">
                     <thead>
                     <tr>
-                        <th data-field="LABO" data-sortable="true">Labo</th>
+                        <th data-field="LABO">Labo</th>
                         <th data-align="right" data-field="MONTANT AVANTAGES"
-                            data-sortable="true" data-sorter="sunshine.utils.sortMoney" 
-                            data-formatter="sunshine.utils.formatMoney">Montant des cadeaux
+                            data-formatter="sunshine.utils.formatMoney" data-sortable="true">Montant des cadeaux
                         </th>
-                        <th data-align="right" data-field="NB CONVENTIONS"
-                            data-sortable="true" data-sorter="sunshine.utils.sortMoney" 
-                            data-formatter="sunshine.utils.formatNumber">Nombre de contrats
+                        <th data-align="right" data-field="NB CONVENTIONS" data-formatter="sunshine.utils.formatNumber"
+                            data-sortable="true">Nombre de contrats
                         </th>
                     </tr>
                     </thead>
                 </table>
-                <p class="download"><a href="data/labos.departements.csv">ICON &mdash; Télécharger toutes les données en OpenData</a></p>
             </div>
         </div>
     </div>
@@ -155,19 +152,19 @@
                 <table class="table" id="beneficiaires-top" data-pagination="true" data-search="true">
                     <thead>
                     <tr>
-                        <th data-field="BENEFICIAIRE" data-sortable="true">Praticien</th>
+                        <th data-field="BENEFICIAIRE">Praticien</th>
                         <th data-align="right" data-field="MONTANT AVANTAGES"
-                            data-sortable="true" data-sorter="sunshine.utils.sortMoney" 
-                            data-formatter="sunshine.utils.formatMoney">Montant des cadeaux
+                            data-formatter="sunshine.utils.formatMoney"
+                            data-sortable="true">Montant des cadeaux
                         </th>
                         <th data-align="right" data-field="NB CONVENTIONS"
-                            data-sortable="true" data-sorter="sunshine.utils.sortMoney" 
-                            data-formatter="sunshine.utils.formatNumber">Nombre de contrats
+                            data-formatter="sunshine.utils.formatNumber"
+                            data-sortable="true">
+                            Nombre de contrats
                         </th>
                     </tr>
                     </thead>
                 </table>
-                <p class="download"><a href="data/beneficiaires.csv">ICON &mdash; Télécharger toutes les données en OpenData</a></p>
             </div>
         </div>
     </div>
