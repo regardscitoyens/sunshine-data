@@ -14,16 +14,14 @@
     };
 
     sunshine.makeDoughnut = function (id, data) {
-        console.log("Draw chart with data :", data);
         var ctx = document.getElementById(id).getContext("2d");
         var chart = new Chart(ctx).Doughnut(data);
         var legend = $("#" + id + "-legend").append(chart.generateLegend());
-        sunshine.charts.labos = chart;
+        sunshine.charts[id] = chart;
         return chart;
     };
 
     sunshine.makeTop = function(id, data) {
-        console.log("Make top", id);
         return $('#' + id + "-top").bootstrapTable({
             data: data
         });
@@ -40,7 +38,6 @@
     sunshine.load = function (name) {
         return $.get("data/" + name).then(function (data) {
             var parsed = Papa.parse(data, {header: true});
-            console.log("Csv parsed", parsed);
             sunshine.data[name] = parsed;
             return parsed;
         });
@@ -84,6 +81,37 @@
     //
     //
     sunshine.scale = {};
+    sunshine.scale.METIER = function (name) {
+	var colors = {
+            "Médecin": "#1f77b4",
+            "Association professionnel de santé": "#aec7e8",
+            "Pharmacien": "#ff7f0e",
+            "Infirmier": "#ffbb78",
+            "Fondation": "#2ca02c",
+            "Association usager de santé": "#98df8a",
+            "Chirurgien-dentiste": "#d62728",
+            "Dentiste": "#d62728",
+            "Interne": "#ff9896",
+            "Etudiant": "#9467bd",
+            "Préparateur en pharmacie": "#c5b0d5",
+            "Autres types de personne morale": "#8c564b",
+            "Manipulateur d’électroradiologie médicale": "#c49c94",
+            "Etablissement de santé": "#e377c2",
+            "Opticien-lunetier": "#f7b6d2",
+            "Audioprothésiste": "#7f7f7f",
+            "Sage-femme": "#c7c7c7",
+            "Prothésiste et orthésiste pour l’appareillage des personnes handicapées": "#bcbd22",
+            "Masseur-kinésithérapeute": "#dbdb8d",
+            "Diététicien": "#17becf",
+            "Technicien de laboratoire médical": "#9edae5"
+	};
+        if (_.isUndefined(colors[name])) {
+            return "#d9d9d9";
+        } else {
+            return colors[name];
+        }
+    };
+
     sunshine.scale.LABO = function(name) {
         var colors = {
             "NOVARTIS PHARMA": "#1f77b4",
@@ -143,7 +171,6 @@
     //
     //
     sunshine.draw = function () {
-        console.log("Test doughnut chart");
         sunshine.load("labos.departements.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['LABO']);
             var totalMontantAvantages = new countUp("montant-avantages", 0, stats.TOTAL[sunshine.settings.montantAvantages]);
@@ -164,6 +191,24 @@
                 .value();
             var chart = sunshine.makeDoughnut("labos", chartData);
             var table = sunshine.makeTop("labos", stats.LABO);
+        });
+        sunshine.load("metiers.departements.csv").done(function (response) {
+            var stats = sunshine.stats(response.data, ['METIER']);
+            var chartData = _(stats.METIER)
+                .slice(1, 10)
+                .map(function (metier) {
+                    return {
+                        value: metier[sunshine.settings.montantAvantages],
+			color: sunshine.scale.METIER(metier.METIER),
+                        label: metier.METIER
+                    };
+                })
+                .value();
+            var chart = sunshine.makeDoughnut("praticiens", chartData);
+        });
+        sunshine.load("beneficiaires.top.csv").done(function (response) {
+            var stats = sunshine.stats(response.data, ['BENEFICIAIRE']);
+            var table = sunshine.makeTop("beneficiaires", stats.BENEFICIAIRE);
         });
 
     };
