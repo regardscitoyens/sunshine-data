@@ -18,5 +18,6 @@ for row in data:
         output[row[0]][k] += float(row[2+i]) if row[2+i] else 0
 
 print "LABO,"+",".join(keys)
-for labo in output:
+
+for labo in sorted(output.keys(), key=lambda x: -output[x]["MONTANT AVANTAGES"]):
     print labo+","+",".join([str(output[labo][k]) for k in keys])
