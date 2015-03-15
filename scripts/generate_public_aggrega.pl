@@ -1,25 +1,31 @@
 #!/usr/bin/perl
 
 $type = shift;
+$nodepartement = shift || 0;
 
 %types = ('LABO' => 2, 'METIER' => 1, 'NATURE AVANTAGE' => 7, 'OBJET CONVENTION' => 10, 'BENEFICIAIRE'=> 4);
 
 open(CSV, "data/all.anonymes.csv");
+$premiereligne = <CSV>;
 while(<CSV>) {
     @l = split /,/;
-    if (!$data{$l[$types{$type}]}{$l[5]}) {
-	$data{$l[$types{$type}]}{$l[5]}{'AVANTAGE'} = 0;
-	$data{$l[$types{$type}]}{$l[5]}{'CONVENTION'} = 0;
-	$data{$l[$types{$type}]}{$l[5]}{'AVANTAGE_MONTANT'} = 0;
+    $dep = $l[5];
+    if ($nodepartement) {
+	$dep = 'DESACTIVE';
     }
-    $data{$l[$types{$type}]}{$l[5]}{$l[0]}++;
-    $data{$l[$types{$type}]}{$l[5]}{'TOTAL'}++;
+    if (!$data{$l[$types{$type}]}{$dep}) {
+	$data{$l[$types{$type}]}{$dep}{'AVANTAGE'} = 0;
+	$data{$l[$types{$type}]}{$dep}{'CONVENTION'} = 0;
+	$data{$l[$types{$type}]}{$dep}{'AVANTAGE_MONTANT'} = 0;
+    }
+    $data{$l[$types{$type}]}{$dep}{$l[0]}++;
+    $data{$l[$types{$type}]}{$dep}{'TOTAL'}++;
     if ($l[0] eq 'AVANTAGE') {
-	$data{$l[$types{$type}]}{$l[5]}{'AVANTAGE_MONTANT'} += $l[8];
+	$data{$l[$types{$type}]}{$dep}{'AVANTAGE_MONTANT'} += $l[8];
     }
-    $data{$l[$types{$type}]}{$l[5]}{'QUALIFICATION'} = $l[3] if ($type eq 'BENEFICIAIRE' && $l[3] && $l[3] ne 'Médecine générale' && $l[3] ne 'Non renseigné');
-    $data{$l[$types{$type}]}{$l[5]}{'QUALIFICATION'} = $l[3] if ($type eq 'BENEFICIAIRE' && !$data{$l[$types{$type}]}{$l[5]}{'QUALIFICATION'} && $l[3]);
-    $data{$l[$types{$type}]}{$l[5]}{'ORIGIN'} = $l[1] if ($type eq 'BENEFICIAIRE');
+    $data{$l[$types{$type}]}{$dep}{'QUALIFICATION'} = $l[3] if ($type eq 'BENEFICIAIRE' && $l[3] && $l[3] ne 'Médecine générale' && $l[3] ne 'Non renseigné');
+    $data{$l[$types{$type}]}{$dep}{'QUALIFICATION'} = $l[3] if ($type eq 'BENEFICIAIRE' && !$data{$l[$types{$type}]}{$dep}{'QUALIFICATION'} && $l[3]);
+    $data{$l[$types{$type}]}{$dep}{'ORIGIN'} = $l[1] if ($type eq 'BENEFICIAIRE');
 }
 print $type;
 print ",ORIGIN,QUALIFICATION" if ($type eq 'BENEFICIAIRE');
