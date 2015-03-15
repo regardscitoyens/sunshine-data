@@ -13,7 +13,7 @@ vpath %.csv data/raw/
 
 
 #### COMMANDS
-all: clean formatall refineall data/public/beneficiaires.csv data/public/beneficiaires.top.csv data/public/labos.departements.csv data/public/labos.departements.csv data/public/metiers.departements.csv data/public/avantages.departements.csv data/public/conventions.departements.csv
+all: data/public/beneficiaires.csv data/public/beneficiaires.top.csv data/public/labos.departements.csv data/public/labos.departements.csv data/public/metiers.departements.csv data/public/avantages.departements.csv data/public/conventions.departements.csv
 
 data/public/beneficiaires.top.csv: data/public/beneficiaires.csv
 	bash scripts/generate_public_beneficiaire_top.sh
@@ -54,7 +54,7 @@ clean:
 	mkdir -p data/formatted data/refined data/tmp data/public
 	touch .mkdirs
 
-data/refined/%.refined.csv: %.formatted.csv scripts/apply_refine_operations_from_csv.py .mkdirs
+data/refined/%.refined.csv: %.formatted.csv scripts/apply_refine_operations_from_csv.py .mkdirs data/unifier/BENEF_PS_QUALIFICATION.csv  data/unifier/DECL_AVANT_NATURE.csv  data/unifier/DECL_CONV_OBJET.csv  data/unifier/LABO.csv  data/unifier/ORIGIN.csv
 	python scripts/apply_refine_operations_from_csv.py $< ${UNIFIER_DIR} $@
 
 data/formatted/%.formatted.csv: %.csv .mkdirs
