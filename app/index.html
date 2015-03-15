@@ -121,12 +121,14 @@
                 <table class="table" id="labos-top" data-pagination="true" data-search="true">
                     <thead>
                     <tr>
-                        <th data-field="LABO">Labo</th>
+                        <th data-field="LABO" data-sortable="true">Labo</th>
                         <th data-align="right" data-field="MONTANT AVANTAGES"
-                            data-formatter="sunshine.utils.formatMoney" data-sortable="true">Montant des cadeaux
+                            data-sortable="true" data-sorter="sunshine.utils.sortMoney" 
+                            data-formatter="sunshine.utils.formatMoney">Montant des cadeaux
                         </th>
-                        <th data-align="right" data-field="NB CONVENTIONS" data-formatter="sunshine.utils.formatNumber"
-                            data-sortable="true">Nombre de contrats
+                        <th data-align="right" data-field="NB CONVENTIONS"
+                            data-sortable="true" data-sorter="sunshine.utils.sortMoney" 
+                            data-formatter="sunshine.utils.formatNumber">Nombre de contrats
                         </th>
                     </tr>
                     </thead>
@@ -153,15 +155,14 @@
                 <table class="table" id="beneficiaires-top" data-pagination="true" data-search="true">
                     <thead>
                     <tr>
-                        <th data-field="BENEFICIAIRE">Praticien</th>
+                        <th data-field="BENEFICIAIRE" data-sortable="true">Praticien</th>
                         <th data-align="right" data-field="MONTANT AVANTAGES"
-                            data-formatter="sunshine.utils.formatMoney"
-                            data-sortable="true">Montant des cadeaux
+                            data-sortable="true" data-sorter="sunshine.utils.sortMoney" 
+                            data-formatter="sunshine.utils.formatMoney">Montant des cadeaux
                         </th>
                         <th data-align="right" data-field="NB CONVENTIONS"
-                            data-formatter="sunshine.utils.formatNumber"
-                            data-sortable="true">
-                            Nombre de contrats
+                            data-sortable="true" data-sorter="sunshine.utils.sortMoney" 
+                            data-formatter="sunshine.utils.formatNumber">Nombre de contrats
                         </th>
                     </tr>
                     </thead>

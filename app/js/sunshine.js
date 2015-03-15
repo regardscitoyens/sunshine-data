@@ -284,8 +284,13 @@
     sunshine.utils.formatMoney = function (number) {
         return sunshine.utils.formatNumber(number) + " €";
     };
+
     sunshine.utils.formatShortMoney = function (number) {
         return (+(+number/1000000).toFixed(2)).toLocaleString() + " M€";
+    };
+
+    sunshine.utils.sortMoney = function (a, b) {
+        return sunshine.utils.safeFloat(b) - sunshine.utils.safeFloat(a);
     };
 
     //
