@@ -93,7 +93,7 @@
 
     // Load data files
     sunshine.load = function (name) {
-        return $.ajax("data/" + name, {contenType: "text/csv charset=utf-8"}).then(function (data) {
+        return $.ajax("data/" + name, {contentType: "text/csv charset=utf-8"}).then(function (data) {
             var parsed = Papa.parse(data, {header: true});
             sunshine.data[name] = parsed;
             return parsed;
