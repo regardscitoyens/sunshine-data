@@ -3,23 +3,6 @@
 //
 (function (sunshine) {
 
-    sunshine.sliceAndSumOthers = function (array, begin, end, labelid, labelmsg) {
-        autre = {};
-        autre[sunshine.settings.montantAvantages] = parseInt(array[end][sunshine.settings.montantAvantages]);
-        autre[sunshine.settings.nbAvantages] = parseInt(array[end][sunshine.settings.nbAvantages]);
-        autre[sunshine.settings.nbConventions] = parseInt(array[end][sunshine.settings.nbConventions]);
-        autre[sunshine.settings.nbAvantagesConventions] = parseInt(array[end][sunshine.settings.nbAvantagesConventions]);
-        for (i = end + 1; i < array.length; i++) {
-            autre[sunshine.settings.montantAvantages] += parseInt(array[i][sunshine.settings.montantAvantages]);
-            autre[sunshine.settings.nbAvantages] += parseInt(array[i][sunshine.settings.nbAvantages]);
-            autre[sunshine.settings.nbConventions] += parseInt(array[i][sunshine.settings.nbConventions]);
-            autre[sunshine.settings.nbAvantagesConventions] += parseInt(array[i][sunshine.settings.nbAvantagesConventions]);
-        }
-        autre[labelid] = labelmsg;
-        array[end] = autre;
-        return _(array).slice(begin, end + 1);
-    };
-
     sunshine.charts = {};
     sunshine.data = {};
 
@@ -31,13 +14,7 @@
     };
 
     sunshine.makeDoughnut = function (id, data, hasLegend, isMoney) {
-        /*var ctx = document.getElementById(id).getContext("2d");
-         var chart = new Chart(ctx).Doughnut(data);
-         var legend = $("#" + id + "-legend").append(chart.generateLegend());
-         sunshine.charts[id] = chart;
-         return chart;*/
 
-        //Donut chart example
         nv.addGraph(function () {
             var chart = nv.models.pieChart()
                     .x(function (d) {
@@ -174,6 +151,23 @@
         return self;
     };
 
+    sunshine.sliceAndSumOthers = function (array, begin, end, labelid, labelmsg) {
+        autre = {};
+        autre[sunshine.settings.montantAvantages] = parseInt(array[end][sunshine.settings.montantAvantages]);
+        autre[sunshine.settings.nbAvantages] = parseInt(array[end][sunshine.settings.nbAvantages]);
+        autre[sunshine.settings.nbConventions] = parseInt(array[end][sunshine.settings.nbConventions]);
+        autre[sunshine.settings.nbAvantagesConventions] = parseInt(array[end][sunshine.settings.nbAvantagesConventions]);
+        for (i = end + 1; i < array.length; i++) {
+            autre[sunshine.settings.montantAvantages] += parseInt(array[i][sunshine.settings.montantAvantages]);
+            autre[sunshine.settings.nbAvantages] += parseInt(array[i][sunshine.settings.nbAvantages]);
+            autre[sunshine.settings.nbConventions] += parseInt(array[i][sunshine.settings.nbConventions]);
+            autre[sunshine.settings.nbAvantagesConventions] += parseInt(array[i][sunshine.settings.nbAvantagesConventions]);
+        }
+        autre[labelid] = labelmsg;
+        array[end] = autre;
+        return _(array).slice(begin, end + 1);
+    };
+
     //
     //
     // Load data, draw charts, tables, etc.
@@ -229,6 +223,8 @@
                         label: sunshine.scale.LABEL(objet['OBJET CONVENTION'])
                     };
                 })
+                .sortBy("value")
+                .reverse()
                 .value();
             var chart = sunshine.makeDoughnut("objet-conventions", chartData, false, false);
         });
@@ -243,6 +239,8 @@
                         label: sunshine.scale.LABEL(objet['NATURE AVANTAGE'])
                     };
                 })
+                .sortBy("value")
+                .reverse()
                 .value();
             var chart = sunshine.makeDoughnut("nature-avantages", chartData, false);
         });
@@ -369,10 +367,6 @@
 
     sunshine.utils.formatShortMoney = function (number) {
         return (+(+number / 1000000).toFixed(2)).toLocaleString() + " M€";
-    };
-
-    sunshine.utils.sortMoney = function (a, b) {
-        return sunshine.utils.safeFloat(b) - sunshine.utils.safeFloat(a);
     };
 
     //
