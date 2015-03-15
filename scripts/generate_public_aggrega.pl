@@ -12,14 +12,17 @@ while(<CSV>) {
     if ($l[0] eq 'AVANTAGE') {
 	$data{$l[$types{$type}]}{$l[5]}{'AVANTAGE_MONTANT'} += $l[8];
     }
-    $data{$l[$types{$type}]}{$l[5]}{'QUALIFICATION'} = $l[3] if ($type eq 'BENEFICIAIRE' && $l[3]);
+    $data{$l[$types{$type}]}{$l[5]}{'QUALIFICATION'} = $l[3] if ($type eq 'BENEFICIAIRE' && $l[3] && $l[3] ne 'Médecine générale' && $l[3] ne 'Non renseigné');
+    $data{$l[$types{$type}]}{$l[5]}{'QUALIFICATION'} = $l[3] if ($type eq 'BENEFICIAIRE' && !$data{$l[$types{$type}]}{$l[5]}{'QUALIFICATION'} && $l[3]);
+    $data{$l[$types{$type}]}{$l[5]}{'ORIGIN'} = $l[1] if ($type eq 'BENEFICIAIRE');
 }
 print $type;
-print ",QUALIFICATION" if ($type eq 'BENEFICIAIRE');
+print ",ORIGIN,QUALIFICATION" if ($type eq 'BENEFICIAIRE');
 print ",DEPARTEMENT,NB TOTAL CONVENTIONS + AVANTAGES,NB CONVENTIONS,NB AVANTAGES,MONTANT AVANTAGES\n";
 foreach $key (keys %data) {
     foreach $dep (keys %{$data{$key}}) {
 	print $key;
+	print ','.$data{$key}{$dep}{'ORIGIN'} if ($type eq 'BENEFICIAIRE');
 	print ','.$data{$key}{$dep}{'QUALIFICATION'} if ($type eq 'BENEFICIAIRE');
 	print ",$dep,";
 	print $data{$key}{$dep}{'TOTAL'};
