@@ -26,7 +26,7 @@
                     .color(_.map(data, function (datum) {
                         return datum.color;
                     }))
-                    .tooltipContent(function (key, value, obj) {
+                    .tooltipContent(function (key, value) {
                         return "<p><b>" + key + " - " + value + "</b></p>";
                     })
                     .labelType("percent")
@@ -62,7 +62,7 @@
     };
 
     sunshine.makeHistogram = function (id, data, key, isMoney) {
-        var formatter = (_.isUndefined(isMoney) || isMoney === true) ? sunshine.utils.formatShortMoney : sunshine.utils.formatNumber;
+        var formatter = (_.isUndefined(isMoney) || isMoney === true) ? sunshine.utils.formatShortMoney : sunshine.utils.formatNumberConvention;
 
         nv.addGraph(function () {
             var chart = nv.models.multiBarHorizontalChart()
@@ -76,10 +76,7 @@
                     return d.color
                 })
                 .margin({top: 5, right: 5, bottom: 15, left: 190})
-                .tooltips(false)/*true)
-                .tooltipContent(function(cat, key, value) {
-                    return "<p><b>" +  key + " - " + value + "</b></p>";
-                })*/
+                .tooltips(false)
                 .showLegend(false)
                 .showControls(false)
                 .showValues(true)
@@ -102,21 +99,12 @@
         });
     };
 
-
     sunshine.makeTop = function (id, data, field) {
         return $('#' + id + "-top").bootstrapTable({
             data: data.filter(function(d){ return !field || d[field] })
         });
     };
 
-    sunshine.doughnut = function (id, data, value) {
-        var self = {
-            id: id,
-            data: data
-        };
-    };
-
-    // Load data files
     sunshine.load = function (name) {
         return $.ajax("data/" + name, {contentType: "text/csv charset=utf-8"}).then(function (data) {
             var parsed = Papa.parse(data, {header: true});
@@ -192,9 +180,9 @@
                 separator: '&nbsp;', // character to use as a separator
                 decimal: ',' // character to use as a decimal
             };
-            var totalMontantAvantages = new countUp("montant-avantages", 0, stats.TOTAL[sunshine.settings.montantAvantages], 0, 3, options).start();
-            var nbAvantages = new countUp("nb-avantages", 0, stats.TOTAL[sunshine.settings.nbAvantages], 0, 3, options).start();
-            var nbConventions = new countUp("nb-conventions", 0, stats.TOTAL[sunshine.settings.nbConventions], 0, 3, options).start();
+            new countUp("montant-avantages", 0, stats.TOTAL[sunshine.settings.montantAvantages], 0, 3, options).start();
+            new countUp("nb-avantages", 0, stats.TOTAL[sunshine.settings.nbAvantages], 0, 3, options).start();
+            new countUp("nb-conventions", 0, stats.TOTAL[sunshine.settings.nbConventions], 0, 3, options).start();
             var chartData = _(stats.LABO).slice(0, 15)
                 .map(function (labo) {
                     return {
@@ -207,6 +195,7 @@
             sunshine.makeHistogram("labos", chartData, "Laboratoire");
             sunshine.makeTop("labos", stats.LABO);
         });
+
         sunshine.load("metiers.departements.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['METIER']);
             var chartData = sunshine.sliceAndSumOthers(stats.METIER, 0, 10, 'METIER', 'Autres qualifications')
@@ -218,11 +207,13 @@
                     };
                 })
                 .value();
-            var chart = sunshine.makeDoughnut("praticiens", chartData);
+            sunshine.makeDoughnut("praticiens", chartData);
         });
+
         sunshine.load("beneficiaires.top.csv").done(function (response) {
-            var table = sunshine.makeTop("beneficiaires", response.data, "BENEFICIAIRE");
+            sunshine.makeTop("beneficiaires", response.data, "BENEFICIAIRE");
         });
+
         sunshine.load("conventions.departements.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['OBJET CONVENTION'], sunshine.settings.nbConventions);
             var chartData = sunshine.sliceAndSumOthers(stats['OBJET CONVENTION'], 1, 15, 'OBJET CONVENTION', 'Autres objets')
@@ -236,9 +227,9 @@
                 .sortBy("value")
                 .reverse()
                 .value();
-            //sunshine.makeDoughnut("objet-conventions", chartData);
             sunshine.makeHistogram("objet-conventions", chartData, "Conventions", false);
         });
+
         sunshine.load("avantages.departements.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['NATURE AVANTAGE']);
             var chartData = sunshine.sliceAndSumOthers(stats['NATURE AVANTAGE'], 1, 6, 'NATURE AVANTAGE', 'Autres types de cadeaux')
@@ -252,7 +243,6 @@
                 .sortBy("value")
                 .reverse()
                 .value();
-            //sunshine.makeHistogram("nature-avantages", chartData, "Nature avantage", false);
             sunshine.makeDoughnut("nature-avantages", chartData);
         });
     };
@@ -320,6 +310,7 @@
             return colors[name];
         }
     };
+
     sunshine.scale.METIER = function (name) {
         var colors = {
             "Médecin": "#1f77b4",
@@ -351,6 +342,7 @@
             return colors[name];
         }
     };
+
     sunshine.scale.LABEL = function (name) {
         var labels = {
             "Asso de prof. de santé": "Assos de prof. de santé",
@@ -367,7 +359,7 @@
             "Contrat de consultant": "Contrats de consultant",
             "Contrat de cession": "Contrats de cession",
             "Autres objets": "Autres objets",
-	    "Divers": "Divers",
+            "Divers": "Divers"
         };
         name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
         if (_.isUndefined(labels[name])) {
@@ -426,6 +418,10 @@
         return (+(+number).toFixed(0)).toLocaleString();
     };
 
+    sunshine.utils.formatNumberConvention = function (number) {
+        return (+(+number).toFixed(0)).toLocaleString();
+    };
+
     sunshine.utils.formatMoney = function (number) {
         return sunshine.utils.formatNumber(number) + " €";
     };
@@ -436,7 +432,7 @@
 
     //
     //
-    // Draw everything
+    // Start sunshine !
     //
     //
     sunshine.start = function () {
