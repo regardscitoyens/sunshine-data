@@ -356,7 +356,7 @@
             "Étude de marché": "Études de marché",
             "Prestation de services": "Prestations de services",
             "Marketing": "Études marketing",
-            "Promotion/Publicité": "Promoitions/Publicités",
+            "Promotion/Publicité": "Promotions/Publicités",
             "Collaboration scientifique": "Collaborations scientifiques",
             "Contrat de consultant": "Contrats de consultant",
             "Autres objets": "Autres objets"
