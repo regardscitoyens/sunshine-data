@@ -199,7 +199,7 @@
         sunshine.load("metiers.departements.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['METIER']);
             document.stats = stats;
-            var chartData = sunshine.sliceAndSumOthers(stats.METIER, 1, 10, 'METIER', 'Autres qualifications')
+            var chartData = sunshine.sliceAndSumOthers(stats.METIER, 0, 10, 'METIER', 'Autres qualifications')
                 .map(function (metier) {
                     return {
                         value: metier[sunshine.settings.montantAvantages],
