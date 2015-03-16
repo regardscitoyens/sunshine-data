@@ -23,6 +23,9 @@
                     .y(function (d) {
                         return d.value;
                     })
+                    .color(_.map(data, function(datum) {
+                        return datum.color;
+                    }))
                     .labelType("percent")
                     .showLabels(true)     //Display pie labels
                     .donut(true)          //Turn on Donut mode. Makes pie chart look tasty!
@@ -55,7 +58,8 @@
         });
     };
 
-    sunshine.makeHistogram = function (id, data) {
+    sunshine.makeHistogram = function (id, data, key, isMoney) {
+        var formatter = (_.isUndefined(isMoney) || isMoney === true) ? sunshine.utils.formatMoney : sunshine.utils.formatNumber;
 
         nv.addGraph(function () {
             var chart = nv.models.multiBarHorizontalChart()
@@ -73,16 +77,15 @@
                     .showLegend(false)
                     .showControls(false)
                     .showValues(true)
-                    .valueFormat(sunshine.utils.formatShortMoney)
-                ;
+                    .valueFormat(formatter);
 
             chart.yAxis
-                .tickFormat(sunshine.utils.formatShortMoney)
+                .tickFormat(formatter)
                 .showMaxMin(false);
 
             d3.select('#' + id + " svg")
                 .datum([
-                    {key: "Laboratoire", values: data}
+                    {key: key, values: data}
                 ])
                 .transition().duration(350)
                 .call(chart);
@@ -116,8 +119,10 @@
         });
     };
 
-    sunshine.stats = function (data, dimensions) {
+    sunshine.stats = function (data, dimensions, sortField) {
         data = _.chain(data);
+
+        sortField = _.isUndefined(sortField) ? sunshine.settings.montantAvantages : sortField;
 
         var self = {};
 
@@ -141,7 +146,7 @@
                     });
                     return results;
                 })
-                .sortBy(sunshine.settings.montantAvantages)
+                .sortBy(sortField)
                 .reverse()
                 .value();
         });
@@ -179,7 +184,7 @@
             var options = {
               useGrouping : true, // 1,000,000 vs 1000000
               separator : '&nbsp;', // character to use as a separator
-              decimal : ',', // character to use as a decimal
+              decimal : ',' // character to use as a decimal
             };
             var totalMontantAvantages = new countUp("montant-avantages", 0, stats.TOTAL[sunshine.settings.montantAvantages], 0, 3, options).start();
             var nbAvantages = new countUp("nb-avantages", 0, stats.TOTAL[sunshine.settings.nbAvantages], 0, 3, options).start();
@@ -198,8 +203,7 @@
         });
         sunshine.load("metiers.departements.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['METIER']);
-            document.stats = stats;
-            var chartData = sunshine.sliceAndSumOthers(stats.METIER, 0, 10, 'METIER', 'Autres qualifications')
+            var chartData = sunshine.sliceAndSumOthers(stats.METIER, 1, 10, 'METIER', 'Autres qualifications')
                 .map(function (metier) {
                     return {
                         value: metier[sunshine.settings.montantAvantages],
@@ -211,12 +215,10 @@
             var chart = sunshine.makeDoughnut("praticiens", chartData);
         });
         sunshine.load("beneficiaires.top.csv").done(function (response) {
-            //var stats = sunshine.stats(response.data, ['BENEFICIAIRE']);
             var table = sunshine.makeTop("beneficiaires", response.data, "BENEFICIAIRE");
         });
         sunshine.load("conventions.departements.csv").done(function (response) {
-            var stats = sunshine.stats(response.data, ['OBJET CONVENTION']);
-            document.stats = stats;
+            var stats = sunshine.stats(response.data, ['OBJET CONVENTION'], sunshine.settings.nbConventions);
             var chartData = sunshine.sliceAndSumOthers(stats['OBJET CONVENTION'], 1, 15, 'OBJET CONVENTION', 'Autres objets')
                 .map(function (objet) {
                     return {
@@ -228,11 +230,11 @@
                 .sortBy("value")
                 .reverse()
                 .value();
-            var chart = sunshine.makeDoughnut("objet-conventions", chartData, false, false);
+            //sunshine.makeDoughnut("objet-conventions", chartData);
+            sunshine.makeHistogram("objet-conventions", chartData, "Conventions", false);
         });
         sunshine.load("avantages.departements.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['NATURE AVANTAGE']);
-            document.stats = stats;
             var chartData = sunshine.sliceAndSumOthers(stats['NATURE AVANTAGE'], 1, 6, 'NATURE AVANTAGE', 'Autres types de cadeaux')
                 .map(function (objet) {
                     return {
@@ -244,7 +246,8 @@
                 .sortBy("value")
                 .reverse()
                 .value();
-            var chart = sunshine.makeDoughnut("nature-avantages", chartData, false);
+            //sunshine.makeHistogram("nature-avantages", chartData, "Nature avantage", false);
+            sunshine.makeDoughnut("nature-avantages", chartData);
         });
     };
 
@@ -254,12 +257,63 @@
     //
     //
     sunshine.scale = {};
+
     sunshine.scale.OBJET = function (name) {
-        return "#d9d9d9";
-    }
+        var colors = {
+            "HOSPITALITÉ": "#1f77b4",
+            "Autres objets": "#aec7e8",
+            "CONGRÈS - SYMPOSIUM": "#ff7f0e",
+            "FORMATION": "#ffbb78",
+            "ORATEUR/FORMATEUR": "#2ca02c",
+            "EXPERT": "#98df8a",
+            "RÉUNION": "#d62728",
+            "DIVERS": "#d62728",
+            "STAND": "#ff9896",
+            "ETUDIANT": "#9467bd",
+            "RELATIONS PUBLIQUES": "#c5b0d5",
+            "PARTENARIAT": "#8c564b",
+            "SUBVENTION": "#c49c94",
+            "PRÊT": "#e377c2",
+            "ÉDITION": "#f7b6d2",
+            "DON": "#7f7f7f",
+            "VISITE": "#c7c7c7",
+            "STAFF": "#bcbd22",
+            "BOURSE": "#dbdb8d",
+            "AVANTAGE": "#17becf",
+            "DECL_CONV_OBJET": "#9edae5"
+        };
+
+        var scale = d3.scale.category20().domain(_.keys(colors));
+
+        return scale(name);
+
+        if (_.isUndefined(colors[name])) {
+            return "#d9d9d9";
+        } else {
+            return colors[name];
+        }
+    };
+
     sunshine.scale.NATURE = function (name) {
-        return "#d9d9d9";
-    }
+        var colors = {
+            "HOSPITALITÉ": "#1f77b4",
+            "TRANSPORT": "#aec7e8",
+            "HÉBERGEMENT": "#17becf",
+            "CONGRES": "#e377c2",
+            "DON": "#8c564b",
+            "Autres types de cadeaux": "#7f7f7f"
+        };
+
+        var scale = d3.scale.category20().domain(_.keys(colors));
+
+        return scale(name);
+
+        if (_.isUndefined(colors[name])) {
+            return "#d9d9d9";
+        } else {
+            return colors[name];
+        }
+    };
     sunshine.scale.METIER = function (name) {
         var colors = {
             "Médecin": "#1f77b4",
@@ -304,14 +358,14 @@
             "Promotion/Publicité": "Promoitions/Publicités",
             "Collaboration scientifique": "Collaborations scientifiques",
             "Contrat de consultant": "Contrats de consultant",
-            "Autres objets": "Autres objets",
+            "Autres objets": "Autres objets"
         };
-	name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
-        if (_.isUndefined(labels[name])) {
-            return name + "s";
-        } else {
-            return labels[name];
-        }
+        name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+            if (_.isUndefined(labels[name])) {
+                return name + "s";
+            } else {
+                return labels[name];
+            }
     };
 
     sunshine.scale.LABO = function (name) {
