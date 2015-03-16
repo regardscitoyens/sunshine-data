@@ -19,7 +19,7 @@ h3 {
     display: table;
     width: 100%;
     height: auto;
-    padding: 100px 0;
+    padding: 60px 0;
     text-align: center;
     color: rgb(13, 13, 26);
     /*background: url(../images/sunshine.jpeg) no-repeat bottom center scroll;*/
@@ -32,8 +32,6 @@ h3 {
 .intro-text {
     position: relative;
     padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 5em;
 }
 
 .light {
