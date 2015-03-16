@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 
 use Digest::MD5 qw(md5_hex);
+$salt = rand();
 
 sub tokenizeName($){
     $n = shift;
@@ -98,13 +99,13 @@ while(<FILE>){
 	$l[17] =~ s/^(\d{2}).*/\1/;
     }
     if ($l[7] > 10000000000 && $l[7] < 99999999999) {
-	$l[16] = md5_hex("RPPS:".$l[7]);
+	$l[16] = md5_hex($salt."RPPS:".$l[7]);
     }elsif($l[3] || $l[4]){
 	$l[7] = '';
-	$l[16] = md5_hex("NOM/DEP:".$l[3].$l[4]);
+	$l[16] = md5_hex($salt."NOM/DEP:".$l[3].$l[4]);
     }else{
 	$l[7] = '';
-	$l[16] = md5_hex("RANDOM:".rand());
+	$l[16] = md5_hex($salt."RANDOM:".rand());
     }
     print join(',',@l)."\n";
 }
