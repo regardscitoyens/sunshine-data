@@ -23,11 +23,11 @@
                     .y(function (d) {
                         return d.value;
                     })
-                    .color(_.map(data, function(datum) {
+                    .color(_.map(data, function (datum) {
                         return datum.color;
                     }))
-                    .tooltipContent(function(key, value, obj) {
-                        return "<p><b>" +  key + " - " + value + "</b></p>";
+                    .tooltipContent(function (key, value, obj) {
+                        return "<p><b>" + key + " - " + value + "</b></p>";
                     })
                     .labelType("percent")
                     .showLabels(true)     //Display pie labels
@@ -44,7 +44,7 @@
                     return sunshine.utils.formatNumber(d);
                 })
             }
-            if (_.isUndefined(hasLegend) || hasLegend === true) {
+            if (_.isUndefined(hasLegend) || hasLegend === true) {
                 chart = chart.showLegend(true);
             } else {
                 chart = chart.showLegend(false);
@@ -62,28 +62,28 @@
     };
 
     sunshine.makeHistogram = function (id, data, key, isMoney) {
-        var formatter = (_.isUndefined(isMoney) || isMoney === true) ? sunshine.utils.formatShortMoney : sunshine.utils.formatNumber;
+        var formatter = (_.isUndefined(isMoney) || isMoney === true) ? sunshine.utils.formatShortMoney : sunshine.utils.formatNumber;
 
         nv.addGraph(function () {
             var chart = nv.models.multiBarHorizontalChart()
-                    .x(function (d) {
-                        return d.label
-                    })
-                    .y(function (d) {
-                        return d.value
-                    })
-                    .barColor(function (d) {
-                        return d.color
-                    })
-                    .margin({top: 5, right: 5, bottom: 15, left: 190})
-                    .tooltips(false)/*true)
-                    .tooltipContent(function(cat, key, value) {
-                        return "<p><b>" +  key + " - " + value + "</b></p>";
-                    })*/
-                    .showLegend(false)
-                    .showControls(false)
-                    .showValues(true)
-                    .valueFormat(formatter);
+                .x(function (d) {
+                    return d.label
+                })
+                .y(function (d) {
+                    return d.value
+                })
+                .barColor(function (d) {
+                    return d.color
+                })
+                .margin({top: 5, right: 5, bottom: 15, left: 190})
+                .tooltips(false)/*true)
+                .tooltipContent(function(cat, key, value) {
+                    return "<p><b>" +  key + " - " + value + "</b></p>";
+                })*/
+                .showLegend(false)
+                .showControls(false)
+                .showValues(true)
+                .valueFormat(formatter);
 
             chart.yAxis
                 .tickFormat(formatter)
@@ -148,7 +148,7 @@
                     var results = _.reduce(groupedData, sumRows);
                     results[dimension] = group;
                     _.forEach(sunshine.settings, function (value) {
-                      results[value] = sunshine.utils.safeFloat(results[value]);
+                        results[value] = sunshine.utils.safeFloat(results[value]);
                     });
                     return results;
                 })
@@ -188,9 +188,9 @@
         sunshine.load("labos.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['LABO']);
             var options = {
-              useGrouping : true, // 1,000,000 vs 1000000
-              separator : '&nbsp;', // character to use as a separator
-              decimal : ',' // character to use as a decimal
+                useGrouping: true, // 1,000,000 vs 1000000
+                separator: '&nbsp;', // character to use as a separator
+                decimal: ',' // character to use as a decimal
             };
             var totalMontantAvantages = new countUp("montant-avantages", 0, stats.TOTAL[sunshine.settings.montantAvantages], 0, 3, options).start();
             var nbAvantages = new countUp("nb-avantages", 0, stats.TOTAL[sunshine.settings.nbAvantages], 0, 3, options).start();
@@ -369,11 +369,11 @@
 	    "Divers": "Divers",
         };
         name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
-            if (_.isUndefined(labels[name])) {
-                return name + "s";
-            } else {
-                return labels[name];
-            }
+        if (_.isUndefined(labels[name])) {
+            return name + "s";
+        } else {
+            return labels[name];
+        }
     };
 
     sunshine.scale.LABO = function (name) {
@@ -438,10 +438,27 @@
     // Draw everything
     //
     //
-    sunshine.draw = function () {
+    sunshine.start = function () {
         sunshine.drawGlobalAndLaboStats();
+        $('body').scrollspy({target: '.topnav'});
+        $('.nav-link').click(function (e) {
+            e.preventDefault();
+
+            var goto = $(this).attr('href');
+            var top;
+
+            if (_.isUndefined($(goto).offset())) {
+                top = 0;
+            } else {
+                top = $(goto).offset().top;
+            }
+
+            $('html, body').animate({
+                scrollTop: top
+            }, 500);
+        });
     };
 
-    $(document).ready(sunshine.draw);
+    $(document).ready(sunshine.start);
 
 })(window.sunshine = window.sunshine || {});
