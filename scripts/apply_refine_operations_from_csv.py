@@ -64,6 +64,7 @@ selection = df.loc[(df['DECL_TYPE'] == "CONVENTION") & (df['DECL_AVANT_NATURE'])
 if selection.shape[0] > 0:
     df.loc[(df['DECL_TYPE'] == "CONVENTION") & (df['DECL_AVANT_NATURE']) & (df['DECL_CONV_OBJET'].isnull()), 'DECL_CONV_OBJET'] = df['DECL_AVANT_NATURE']
 
+df.loc[(df['DECL_TYPE'] == "CONVENTION") & (df['LABO'] == "BAYER"), 'DECL_AVANT_MONTANT'] = ''
 df.loc[(df['DECL_TYPE'] == "CONVENTION"), 'DECL_AVANT_NATURE'] = ''
 df.loc[(df['DECL_TYPE'] == "CONVENTION"), 'DECL_AVANT_DATE'] = ''
 
