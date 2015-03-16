@@ -52,7 +52,7 @@ else:
     df.loc[(df['DECL_TYPE'] != 'AVANTAGE') & (df['DECL_AVANT_DATE'].isnull()) & (df['DECL_AVANT_MONTANT'].isnull()) & (df['DECL_CONV_OBJET'].notnull()), 'DECL_TYPE'] = 'CONVENTION'
 
     df.loc[(df['DECL_AVANT_NATURE'] == "HONORAIRES") & (df['DECL_AVANT_MONTANT'] > MIN_HONORAIRE_FOR_CONVENTION), 'DECL_TYPE'] = 'CONVENTION'
-    df.loc[(df['DECL_TYPE'].isnull()), 'DECL_TYPE'] = 'AVANTAGE'
+    df.loc[(df['DECL_TYPE'].isnull()) | (df['DECL_TYPE'] == ''), 'DECL_TYPE'] = 'AVANTAGE'
 
     df.loc[(df['DECL_CONV_OBJET'] == "CONTRAT DE CESSION"), 'DECL_TYPE'] = 'CONVENTION'
     df.loc[(df['DECL_CONV_OBJET'] == "CONTRAT DE CONSULTANT"), 'DECL_TYPE'] = 'CONVENTION'
