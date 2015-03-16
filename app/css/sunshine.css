@@ -20,6 +20,15 @@ h2, h3 {
   text-align: center;
   font-size: 0.85em
 }
+.row p {
+  margin-bottom: 20px;
+}
+.row p.faq {
+  margin-bottom: 10px;
+}
+.row p.bottom {
+  margin-bottom: 45px;
+}
 
 .intro-header {
     display: table;
@@ -33,6 +42,10 @@ h2, h3 {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+}
+
+.page-header {
+    margin-top: 20px;
 }
 
 .intro-text {
