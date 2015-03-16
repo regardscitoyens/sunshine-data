@@ -76,7 +76,7 @@
                         return d.color
                     })
                     .margin({top: 5, right: 5, bottom: 15, left: 190})
-                    /*.tooltips(true)
+                    .tooltips(false)/*true)
                     .tooltipContent(function(cat, key, value) {
                         return "<p><b>" +  key + " - " + value + "</b></p>";
                     })*/
