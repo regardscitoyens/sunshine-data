@@ -176,12 +176,14 @@
     sunshine.drawGlobalAndLaboStats = function () {
         sunshine.load("labos.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['LABO']);
-            var totalMontantAvantages = new countUp("montant-avantages", 0, stats.TOTAL[sunshine.settings.montantAvantages]);
-            totalMontantAvantages.start();
-            var nbAvantages = new countUp("nb-avantages", 0, stats.TOTAL[sunshine.settings.nbAvantages]);
-            nbAvantages.start();
-            var nbConventions = new countUp("nb-conventions", 0, stats.TOTAL[sunshine.settings.nbConventions]);
-            nbConventions.start();
+            var options = {
+              useGrouping : true, // 1,000,000 vs 1000000
+              separator : '&nbsp;', // character to use as a separator
+              decimal : ',', // character to use as a decimal
+            };
+            var totalMontantAvantages = new countUp("montant-avantages", 0, stats.TOTAL[sunshine.settings.montantAvantages], 0, 3, options).start();
+            var nbAvantages = new countUp("nb-avantages", 0, stats.TOTAL[sunshine.settings.nbAvantages], 0, 3, options).start();
+            var nbConventions = new countUp("nb-conventions", 0, stats.TOTAL[sunshine.settings.nbConventions], 0, 3, options).start();
             var chartData = _(stats.LABO).slice(0, 15)
                 .map(function (labo) {
                     return {
