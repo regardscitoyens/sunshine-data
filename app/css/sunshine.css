@@ -71,6 +71,27 @@ h2, h3 {
     background-color: #ffffff
 }
 
+footer {
+  height: 32px;
+  background-color: white;
+  border-top: 2px solid #e7e7e7;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+}
+
+footer .navbar-nav {
+  margin: 0 auto;
+  display: table;
+  table-layout: fixed;
+  float: none;
+}
+
+footer .navbar-nav > li > a {
+  padding-top: 5px !important;
+}
+
 
 /* ==========================================================================
    Chart style
