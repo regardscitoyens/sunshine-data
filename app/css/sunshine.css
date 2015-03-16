@@ -36,6 +36,10 @@ h3 {
     font-size: 5em;
 }
 
+.light {
+       color: #777;
+}
+
 @media(max-width:767px) {
     .intro-text {
         padding-bottom: 10%;
