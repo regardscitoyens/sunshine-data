@@ -26,6 +26,9 @@
                     .color(_.map(data, function(datum) {
                         return datum.color;
                     }))
+                    .tooltipContent(function(key, value, obj) {
+                        return "<p><b>" +  key + " - " + value + "</b></p>";
+                    })
                     .labelType("percent")
                     .showLabels(true)     //Display pie labels
                     .donut(true)          //Turn on Donut mode. Makes pie chart look tasty!
@@ -34,7 +37,7 @@
 
             if (_.isUndefined(isMoney) || isMoney === true) {
                 chart = chart.valueFormat(function (d) {
-                    return sunshine.utils.formatMoney(d);
+                    return sunshine.utils.formatShortMoney(d);
                 })
             } else {
                 chart = chart.valueFormat(function (d) {
@@ -59,7 +62,7 @@
     };
 
     sunshine.makeHistogram = function (id, data, key, isMoney) {
-        var formatter = (_.isUndefined(isMoney) || isMoney === true) ? sunshine.utils.formatMoney : sunshine.utils.formatNumber;
+        var formatter = (_.isUndefined(isMoney) || isMoney === true) ? sunshine.utils.formatShortMoney : sunshine.utils.formatNumber;
 
         nv.addGraph(function () {
             var chart = nv.models.multiBarHorizontalChart()
@@ -74,6 +77,9 @@
                     })
                     .margin({top: 5, right: 5, bottom: 15, left: 190})
                     .tooltips(true)
+                    .tooltipContent(function(cat, key, value) {
+                        return "<p><b>" +  key + " - " + value + "</b></p>";
+                    })
                     .showLegend(false)
                     .showControls(false)
                     .showValues(true)
@@ -198,7 +204,7 @@
                     };
                 })
                 .value();
-            sunshine.makeHistogram("labos", chartData);
+            sunshine.makeHistogram("labos", chartData, "Laboratoire");
             sunshine.makeTop("labos", stats.LABO);
         });
         sunshine.load("metiers.departements.csv").done(function (response) {
@@ -356,7 +362,7 @@
             "Étude de marché": "Études de marché",
             "Prestation de services": "Prestations de services",
             "Marketing": "Études marketing",
-            "Promotion/Publicité": "Promoitions/Publicités",
+            "Promotion/Publicité": "Promotions/Publicités",
             "Collaboration scientifique": "Collaborations scientifiques",
             "Contrat de consultant": "Contrats de consultant",
             "Autres objets": "Autres objets"
