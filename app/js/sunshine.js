@@ -365,6 +365,7 @@
             "Promotion/Publicité": "Promotions/Publicités",
             "Collaboration scientifique": "Collaborations scientifiques",
             "Contrat de consultant": "Contrats de consultant",
+            "Contrat de cession": "Contrats de cession",
             "Autres objets": "Autres objets",
 	    "Divers": "Divers",
         };
