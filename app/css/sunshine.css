@@ -28,11 +28,13 @@ h2, h3 {
     padding: 60px 0;
     text-align: center;
     color: rgb(13, 13, 26);
-    /*background: url(../images/sunshine.jpeg) no-repeat bottom center scroll;*/
+    background: url(../images/sun.jpg) no-repeat bottom center scroll;
+    /*  
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    */
 }
 
 .intro-text {
