@@ -5,9 +5,14 @@ body {
   min-height: 2000px;
 }
 
-h3 {
+h2, h3 {
   margin-top: 0;
   text-align: center;
+}
+
+.counter {
+  font-size: 30px;
+  margin: 18px 0px 0px -25px;
 }
 
 .download {

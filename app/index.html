@@ -37,12 +37,18 @@
             <a class="navbar-brand topnav" href="#">Sunshine</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#labos">Les laboratoires</a></li>
+                <li><a href="#praticiens">Les praticiens</a></li>
+                <li><a href="#methodo">Contexte &amp; méthodologie</a></li>
+                <li><a href="#opendata">Open Data</a></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
                 </li>
                 <li>
-                    <a href="#contact">Contact</a>
+                    <span><a href="http://www.regardscitoyens.org">LOGO RC</a></span>
                 </li>
             </ul>
         </div>
@@ -69,16 +75,13 @@
                     <div class="col-xs-4">
                         <img class="media-object" src="images/cocktail32.png" alt="cadeaux">
                     </div>
-                    <div class="col-xs-8">
-                        <h2>
-                            <span id="nb-avantages">0</span>
-                            <span> cadeaux</span>
-                        </h2>
-                        <h2>
-                            <span>soit</span>
-                            <span id="montant-avantages">0</span>
-                            <span>€</span>
-                        </h2>
+                    <div class="col-xs-8 counter">
+                        <span id="nb-avantages">0</span>
+                        <span> cadeaux</span>
+                        <br/>
+                        <span>soit</span>
+                        <span id="montant-avantages">0</span>
+                        <span>€</span>
                     </div>
                 </div>
                 <div class="row row-next">
@@ -94,16 +97,13 @@
                     <div class="col-xs-4">
                         <img class="media-object" src="images/agreement2.png" alt="cadeaux">
                     </div>
-                    <div class="col-xs-8">
-                        <h2>
-                            <span id="nb-conventions">0</span>
-                            <span> contrats</span>
-                        </h2>
-		        <h2>
-                            <span>soit</span>		      
-                            <span id="montant-conventions">XXX XXX XXX</span>
-                            <span>€</span>
-                        </h2>
+                    <div class="col-xs-8 counter">
+                        <span id="nb-conventions">0</span>
+                        <span> contrats</span>
+                        <br/>
+                        <span>soit</span>		      
+                        <span id="montant-conventions">XXX XXX XXX</span>
+                        <span>€</span>
                     </div>
                 </div>
                 <div class="row row-next">
@@ -117,7 +117,7 @@
         </div>
     </div>
 </div>
-<div class="section">
+<div id="labos" class="section">
     <div class="container">
         <h2 class="page-header">Les laboratoires qui dépensent le plus</h2>
 
@@ -151,7 +151,7 @@
         </div>
     </div>
 </div>
-<div class="section dark">
+<div id="praticiens" class="section dark">
     <div class="container">
         <h2 class="page-header">Les praticiens sous influence</h2>
 
@@ -189,7 +189,20 @@
         </div>
     </div>
 </div>
-<div class="section">
+<div id="methodo" class="section">
+    <div class="container">
+        <h2 class="page-header">Contexte &amp; méthodologie</h2>
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+                <h3>Contexte</h3>
+                <p>Lorem ipsum dolor...</p>
+                <h3>Méthodologie</h3>
+                <p>Lorem ipsum dolor...</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="opendata" class="section dark">
     <div class="container">
       <h2 class="page-header">Les données en Open Data</h2>
       <p>Alors que le ministre de la Santé refuse de fournir les données du site Transparence Santé, en Open Data, vous pouvez télécharger ici les données relatives aux cadeaux (appelés "avantages" dans le jargon de la Santé) et aux contrats (appelés "conventions") en Open Data sous licence ODbL.</p>
