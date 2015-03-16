@@ -365,7 +365,8 @@
             "Promotion/Publicité": "Promotions/Publicités",
             "Collaboration scientifique": "Collaborations scientifiques",
             "Contrat de consultant": "Contrats de consultant",
-            "Autres objets": "Autres objets"
+            "Autres objets": "Autres objets",
+	    "Divers": "Divers",
         };
         name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
             if (_.isUndefined(labels[name])) {
