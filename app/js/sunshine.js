@@ -257,33 +257,22 @@
     sunshine.scale.OBJET = function (name) {
         console.log(name);
         var colors = {
-            "CONGRÈS - SYMPOSIUM": "#9c9ede",
-            "CONTRAT DE CONSULTANT": "#637939",
-            "HOSPITALITÉ": "#1f77b4",
-            "Autres objets": "#aec7e8",
-            "FORMATION": "#ffbb78",
-            "ORATEUR/FORMATEUR": "#2ca02c",
-            "EXPERT": "#98df8a",
-            "RÉUNION": "#d62728",
-            "DIVERS": "#d62728",
-            "STAND": "#ff9896",
-            "ETUDIANT": "#9467bd",
-            "RELATIONS PUBLIQUES": "#c5b0d5",
-            "PARTENARIAT": "#8c564b",
-            "SUBVENTION": "#c49c94",
-            "PRÊT": "#e377c2",
-            "ÉDITION": "#f7b6d2",
-            "DON": "#7f7f7f",
-            "VISITE": "#c7c7c7",
-            "STAFF": "#bcbd22",
-            "BOURSE": "#dbdb8d",
-            "AVANTAGE": "#17becf",
-            "DECL_CONV_OBJET": "#9edae5"
+            "CONGRÈS - SYMPOSIUM": "#1f77b4",
+            "CONTRAT DE CONSULTANT": "#ff7f0e",
+            "FORMATION": "#2ca02c",
+            "COLLABORATION SCIENTIFIQUE": "#d62728",
+            "ÉTUDE DE MARCHÉ": "#9467bd",
+            "ORATEUR/FORMATEUR": "#8c564b",
+            "PROMOTION/PUBLICITÉ": "#e377c2",
+            "EXPERT": "#7f7f7f",
+            "RÉUNION": "#bcbd22",
+            "Autres objets": "#17becf",
+            "MARKETING": "#c5b0d5",
+            "DIVERS": "#c49c94",
+            "PRESTATION DE SERVICES": "#f7b6d2",
+            "STAND": "#7b4173",
+            "CONTRAT DE CESSION": "#de9ed6"
         };
-
-        var scale = d3.scale.category20().domain(_.keys(colors));
-
-        return scale(name);
 
         if (_.isUndefined(colors[name])) {
             return "#d9d9d9";
