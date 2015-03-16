@@ -22,26 +22,27 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body id="fullpage">
 <!-- Navbar -->
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container topnav">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand topnav" href="#">Sunshine</a>
+            <a class="navbar-brand topnav nav-link" href="#top">Sunshine</a>
         </div>
+
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="#labos">Les laboratoires</a></li>
-                <li><a href="#praticiens">Les praticiens</a></li>
-                <li><a href="#methodo">Contexte &amp; méthodologie</a></li>
-                <li><a href="#opendata">Open Data</a></li>
+                <li><a href="#global-section" class="nav-link">Les cadeaux & contrats</a></li>
+                <li><a href="#labos-section" class="nav-link">Les laboratoires</a></li>
+                <li><a href="#praticiens-section" class="nav-link">Les praticiens</a></li>
+                <li><a href="#methodo-section" class="nav-link">Contexte &amp; méthodologie</a></li>
+                <li><a href="#opendata-section" class="nav-link">Open Data</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
@@ -56,7 +57,6 @@
     </div>
 </nav>
 
-
 <div class="intro-header">
     <div class="container">
         <div class="intro-text">
@@ -67,9 +67,9 @@
     </div>
 </div>
 
-<div class="section dark">
+<div id="global-section" class="section dark">
     <div class="container">
-        <div class="row">
+        <div class="row page-header">
             <div id="global-avantages" class="col-sm-6">
                 <div class="row">
                     <div class="col-xs-4">
@@ -117,7 +117,7 @@
         </div>
     </div>
 </div>
-<div id="labos" class="section">
+<div id="labos-section" class="section">
     <div class="container">
         <h2 class="page-header">Les laboratoires qui dépensent le plus</h2>
 
@@ -151,7 +151,7 @@
         </div>
     </div>
 </div>
-<div id="praticiens" class="section dark">
+<div id="praticiens-section" class="section dark">
     <div class="container">
         <h2 class="page-header">Les praticiens sous influence</h2>
 
@@ -189,7 +189,7 @@
         </div>
     </div>
 </div>
-<div id="methodo" class="section">
+<div id="methodo-section" class="section">
     <div class="container">
         <h2 class="page-header">Contexte &amp; Méthodologie &amp; FAQ &amp; Remerciements</h2>
         <div class="row">
@@ -214,7 +214,7 @@
 </div>
 </div>
 </div>
-<div id="opendata" class="section dark">
+<div id="opendata-section" class="section dark">
     <div class="container">
       <h2 class="page-header">Les données en Open Data</h2>
       <div class="col-sm-offset-2 col-sm-8">
@@ -236,15 +236,15 @@
 </div>
     
 <!-- js external libs -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/lodash.min.js"></script>
-<script src="js/d3.min.js"></script>
-<script src="js/nv.d3.min.js"></script>
-<script src="js/papaparse.min.js"></script>
-<script src="js/bootstrap-table.min.js"></script>
-<script src="js/bootstrap-table-fr-FR.min.js"></script>
-<script src="js/countUp.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/lodash.min.js"></script>
+<script type="text/javascript" src="js/d3.min.js"></script>
+<script type="text/javascript" src="js/nv.d3.min.js"></script>
+<script type="text/javascript" src="js/papaparse.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-table-fr-FR.min.js"></script>
+<script type="text/javascript" src="js/countUp.min.js"></script>
 
 <!-- sunshine lib -->
 <script src="js/sunshine.js"></script>
