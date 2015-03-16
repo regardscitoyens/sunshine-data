@@ -265,7 +265,7 @@
             "ORATEUR/FORMATEUR": "#8c564b",
             "PROMOTION/PUBLICITÉ": "#e377c2",
             "EXPERT": "#7f7f7f",
-            "RÉUNION": "#bcbd22",
+            "RÉUNION": "#ffee8a",
             "Autres objets": "#17becf",
             "MARKETING": "#c5b0d5",
             "DIVERS": "#c49c94",
@@ -284,16 +284,12 @@
     sunshine.scale.NATURE = function (name) {
         var colors = {
             "HOSPITALITÉ": "#1f77b4",
-            "TRANSPORT": "#aec7e8",
-            "HÉBERGEMENT": "#17becf",
-            "CONGRES": "#e377c2",
-            "DON": "#8c564b",
-            "Autres types de cadeaux": "#7f7f7f"
+            "TRANSPORT": "#8c564b",
+            "HÉBERGEMENT": "#2ca02c",
+            "CONGRES": "#d62728",
+            "DON": "#9467bd",
+            "Autres types de cadeaux": "#ffee8a"
         };
-
-        var scale = d3.scale.category20().domain(_.keys(colors));
-
-        return scale(name);
 
         if (_.isUndefined(colors[name])) {
             return "#d9d9d9";
@@ -378,7 +374,7 @@
             GUERBET: "#f7b6d2",
             BAYER: "#7f7f7f",
             MEDTRONIC: "#c7c7c7",
-            "PIERRE FABRE": "#bcbd22",
+            "PIERRE FABRE": "#ffee8a",
             "BIOGEN IDEC": "#dbdb8d",
             "ST JUDE MEDICAL": "#17becf",
             "ALK-Abello": "#9edae5"
