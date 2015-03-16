@@ -11,4 +11,4 @@ sed 1d data/refined/sagefemmes.refined.csv | sed 's/$/,ORDRE_SAGEFEMMES/' >> dat
 sed 1d data/refined/transparencesante_avantages.refined.csv | sed 's/$/,SITE_TRANSPARENCESANTE_AVANTAGES/' >> data/all.csv
 sed 1d data/refined/transparencesante_conventions.refined.csv | sed 's/$/,SITE_TRANSPARENCESANTE_CONVENTIONS/' >> data/all.csv
 sed -i 's/,nan,/,,/g' data/all.csv
-
+sed -i 's/,41073.0,/,,/' data/all.csv
