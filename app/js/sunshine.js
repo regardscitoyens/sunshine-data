@@ -284,11 +284,11 @@
     sunshine.scale.NATURE = function (name) {
         var colors = {
             "HOSPITALITÉ": "#1f77b4",
-            "TRANSPORT": "#8c564b",
+            "TRANSPORT": "#aec7e8",
             "HÉBERGEMENT": "#2ca02c",
-            "CONGRES": "#d62728",
-            "DON": "#9467bd",
-            "Autres types de cadeaux": "#ffee8a"
+            "CONGRES": "#98df8a",
+            "DON": "#ffee8a",
+            "Autres types de cadeaux": "#ff7f0e"
         };
 
         if (_.isUndefined(colors[name])) {
