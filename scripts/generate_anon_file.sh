@@ -4,3 +4,5 @@
 awk -F ',' '{print $1","$2","$3","$7","$17","$18","$13","$14","$12","$9","$10","$16}' data/all.unames.csv > tmp/all.anonymes.csv
 head -n 1 tmp/all.anonymes.csv > data/all.anonymes.csv
 sed 1d tmp/all.anonymes.csv | sort -u >> data/all.anonymes.csv
+rm -f data/public/sunshine.anonymes.csv
+ln data/all.anonymes.csv data/public/sunshine.anonymes.csv
