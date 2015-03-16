@@ -204,7 +204,7 @@
                     return {
                         value: metier[sunshine.settings.montantAvantages],
                         color: sunshine.scale.METIER(metier.METIER),
-                        label: sunshine.scale.LABELMETIER(metier.METIER)
+                        label: sunshine.scale.LABEL(metier.METIER)
                     };
                 })
                 .value();
@@ -222,7 +222,7 @@
                     return {
                         value: objet[sunshine.settings.nbConventions],
                         color: sunshine.scale.OBJET(objet['OBJET CONVENTION']),
-                        label: sunshine.scale.LABELOBJET(objet['OBJET CONVENTION'])
+                        label: sunshine.scale.LABEL(objet['OBJET CONVENTION'])
                     };
                 })
                 .sortBy("value")
@@ -233,12 +233,12 @@
         sunshine.load("avantages.departements.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['NATURE AVANTAGE']);
             document.stats = stats;
-            var chartData = sunshine.sliceAndSumOthers(stats['NATURE AVANTAGE'], 1, 8, 'NATURE AVANTAGE', 'Autres types de cadeaux')
+            var chartData = sunshine.sliceAndSumOthers(stats['NATURE AVANTAGE'], 1, 6, 'NATURE AVANTAGE', 'Autres types de cadeaux')
                 .map(function (objet) {
                     return {
                         value: objet[sunshine.settings.montantAvantages],
-                        color: sunshine.scale.OBJET(objet['NATURE AVANTAGE']),
-                        label: sunshine.scale.LABELOBJET(objet['NATURE AVANTAGE'])
+                        color: sunshine.scale.NATURE(objet['NATURE AVANTAGE']),
+                        label: sunshine.scale.LABEL(objet['NATURE AVANTAGE'])
                     };
                 })
                 .sortBy("value")
@@ -255,6 +255,9 @@
     //
     sunshine.scale = {};
     sunshine.scale.OBJET = function (name) {
+        return "#d9d9d9";
+    }
+    sunshine.scale.NATURE = function (name) {
         return "#d9d9d9";
     }
     sunshine.scale.METIER = function (name) {
@@ -287,16 +290,23 @@
             return colors[name];
         }
     };
-    sunshine.scale.LABELOBJET = function (name) {
-        return name;
-    }
-    sunshine.scale.LABELMETIER = function (name) {
+    sunshine.scale.LABEL = function (name) {
         var labels = {
             "Asso de prof. de santé": "Assos de prof. de santé",
             "Asso d'usager de santé": "Assos d'usager de santé",
             "Etudiant": "Étudiants",
-            "Autres qualifications": "Autres qualifications"
+            "Autres qualifications": "Autres qualifications",
+            "Autres types de cadeaux": "Autres types de cadeaux",
+            "Congres": "Congrès",
+            "Étude de marché": "Études de marché",
+            "Prestation de services": "Prestations de services",
+            "Marketing": "Études marketing",
+            "Promotion/Publicité": "Promoitions/Publicités",
+            "Collaboration scientifique": "Collaborations scientifiques",
+            "Contrat de consultant": "Contrats de consultant",
+            "Autres objets": "Autres objets",
         };
+	name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
         if (_.isUndefined(labels[name])) {
             return name + "s";
         } else {

@@ -31,14 +31,18 @@ h3 {
 
 .intro-text {
     position: relative;
-    padding-top: 10%;
-    padding-bottom: 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-size: 5em;
 }
 
 @media(max-width:767px) {
     .intro-text {
         padding-bottom: 10%;
+    }
+    #global-conventions{
+	border-top: 1px solid black;
+	margin-top: 15px;
     }
 }
 
