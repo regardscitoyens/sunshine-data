@@ -203,7 +203,7 @@
         });
         sunshine.load("metiers.departements.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['METIER']);
-            var chartData = sunshine.sliceAndSumOthers(stats.METIER, 1, 10, 'METIER', 'Autres qualifications')
+            var chartData = sunshine.sliceAndSumOthers(stats.METIER, 0, 10, 'METIER', 'Autres qualifications')
                 .map(function (metier) {
                     return {
                         value: metier[sunshine.settings.montantAvantages],
@@ -336,7 +336,8 @@
             "Prothésiste et orthésiste pour l’appareillage des personnes handicapées": "#bcbd22",
             "Masseur-kinésithérapeute": "#dbdb8d",
             "Diététicien": "#17becf",
-            "Technicien de laboratoire médical": "#9edae5"
+            "Technicien de laboratoire médical": "#9edae5",
+            "Autres qualifications": "#d9d9d9"
         };
         if (_.isUndefined(colors[name])) {
             return "#d9d9d9";
