@@ -255,10 +255,12 @@
     sunshine.scale = {};
 
     sunshine.scale.OBJET = function (name) {
+        console.log(name);
         var colors = {
+            "CONGRÈS - SYMPOSIUM": "#9c9ede",
+            "CONTRAT DE CONSULTANT": "#637939",
             "HOSPITALITÉ": "#1f77b4",
             "Autres objets": "#aec7e8",
-            "CONGRÈS - SYMPOSIUM": "#ff7f0e",
             "FORMATION": "#ffbb78",
             "ORATEUR/FORMATEUR": "#2ca02c",
             "EXPERT": "#98df8a",
@@ -437,7 +439,7 @@
     //
     sunshine.start = function () {
         sunshine.drawGlobalAndLaboStats();
-        $('body').scrollspy({target: '.topnav'});
+        $('body').scrollspy({target: '.topnav', offset: 50});
         $('.nav-link').click(function (e) {
             e.preventDefault();
 
@@ -451,7 +453,7 @@
             }
 
             $('html, body').animate({
-                scrollTop: top
+                scrollTop: top - 30
             }, 500);
         });
     };
