@@ -124,3 +124,7 @@ h2, h3 {
   height: 100%;
   border-radius: 5px;
 }
+
+.nvd3 .disabled {
+    text-decoration: line-through;
+}
