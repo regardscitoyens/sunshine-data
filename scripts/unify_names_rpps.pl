@@ -75,9 +75,8 @@ close FILE;
 #search for matches
 open FILE, $file;
 $_ = <FILE>;
-chomp;
+s/,SOURCE/,BENEF_PS_ID,BENEF_PS_DEPARTEMENT,SOURCE/;
 print;
-print ",BENEF_PS_ID,BENEF_PS_DEPARTEMENT\n";
 while(<FILE>){
     chomp;
     $id = '';
@@ -94,18 +93,19 @@ while(<FILE>){
 	$l[7] = $id2rpps{$id};
 	$l[3] = $id2names{$id};
     }
+    $l[17] = $l[15];
     if ($l[4]) {
-	$l[17] = $l[4];
-	$l[17] =~ s/^(\d{2}).*/\1/;
+	$l[16] = $l[4];
+	$l[16] =~ s/^(\d{2}).*/\1/;
     }
     if ($l[7] > 10000000000 && $l[7] < 99999999999) {
-	$l[16] = md5_hex($salt."RPPS:".$l[7]);
+	$l[15] = md5_hex($salt."RPPS:".$l[7]);
     }elsif($l[3] || $l[4]){
 	$l[7] = '';
-	$l[16] = md5_hex($salt."NOM/DEP:".$l[3].$l[4]);
+	$l[15] = md5_hex($salt."NOM/DEP:".$l[3].$l[4]);
     }else{
 	$l[7] = '';
-	$l[16] = md5_hex($salt."RANDOM:".rand());
+	$l[15] = md5_hex($salt."RANDOM:".rand());
     }
     print join(',',@l)."\n";
 }
