@@ -1,5 +1,7 @@
 #!/usr/bin/perl
 
+$file = shift;
+
 use Digest::MD5 qw(md5_hex);
 $salt = rand();
 
@@ -50,10 +52,8 @@ sub trymatches($$) {
 	push(@t, shift(@t));
     }
     $id2names{$id} = $n;
-    return ;
+    return $id;
 }
-
-$file = shift;
 
 #extract RPPS
 open FILE, $file;
