@@ -216,7 +216,7 @@
 
         sunshine.load("conventions.departements.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['OBJET CONVENTION'], sunshine.settings.nbConventions);
-            var chartData = sunshine.sliceAndSumOthers(stats['OBJET CONVENTION'], 1, 15, 'OBJET CONVENTION', 'Autres objets')
+            var chartData = sunshine.sliceAndSumOthers(stats['OBJET CONVENTION'], 0, 14, 'OBJET CONVENTION', 'Autres objets')
                 .map(function (objet) {
                     return {
                         value: objet[sunshine.settings.nbConventions],
@@ -232,7 +232,7 @@
 
         sunshine.load("avantages.departements.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['NATURE AVANTAGE']);
-            var chartData = sunshine.sliceAndSumOthers(stats['NATURE AVANTAGE'], 1, 6, 'NATURE AVANTAGE', 'Autres types de cadeaux')
+            var chartData = sunshine.sliceAndSumOthers(stats['NATURE AVANTAGE'], 0, 6, 'NATURE AVANTAGE', 'Autres types de cadeaux')
                 .map(function (objet) {
                     return {
                         value: objet[sunshine.settings.montantAvantages],
@@ -255,9 +255,9 @@
     sunshine.scale = {};
 
     sunshine.scale.OBJET = function (name) {
-        console.log(name);
         var colors = {
-            "CONGRÈS - SYMPOSIUM": "#1f77b4",
+            "HOSPITALITÉ": "#1f77b4",
+            "CONGRÈS - SYMPOSIUM": "#7f7f7f",
             "CONTRAT DE CONSULTANT": "#aec7e8",
             "FORMATION": "#2ca02c",
             "COLLABORATION SCIENTIFIQUE": "#98df8a",
@@ -270,8 +270,7 @@
             "MARKETING": "#c5b0d5",
             "DIVERS": "#c49c94",
             "PRESTATION DE SERVICES": "#f7b6d2",
-            "STAND": "#7b4173",
-            "CONTRAT DE CESSION": "#de9ed6"
+            "STAND": "#7b4173"
         };
 
         if (_.isUndefined(colors[name])) {
@@ -288,7 +287,8 @@
             "HÉBERGEMENT": "#2ca02c",
             "CONGRES": "#98df8a",
             "DON": "#ffee8a",
-            "Autres types de cadeaux": "#ff7f0e"
+            "Autres types de cadeaux": "#ff7f0e",
+            "REPAS": "#d62728"
         };
 
         if (_.isUndefined(colors[name])) {
@@ -346,7 +346,8 @@
             "Contrat de consultant": "Contrats de consultant",
             "Contrat de cession": "Contrats de cession",
             "Autres objets": "Autres objets",
-            "Divers": "Divers"
+            "Divers": "Divers",
+            "Repas": "Repas"
         };
         name = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
         if (_.isUndefined(labels[name])) {
