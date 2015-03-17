@@ -11,10 +11,12 @@ vpath %.refined.csv data/refined/
 vpath %.formatted.csv data/formatted/
 vpath %.csv data/raw/
 
-all: data/public/beneficiaires.csv data/public/beneficiaires.top.csv data/public/labos.departements.csv data/public/labos.csv data/public/metiers.departements.csv data/public/avantages.departements.csv data/public/conventions.departements.csv
+all: data/data4publication.tgz
 
 cleanandmakeall: clean all
 
+data/data4publication.tgz: data/public/beneficiaires.csv data/public/beneficiaires.top.csv data/public/labos.departements.csv data/public/labos.csv data/public/metiers.departements.csv data/public/avantages.departements.csv data/public/conventions.departements.csv
+	tar zcvf data/data4publication.tgz data/public/*csv
 data/public/beneficiaires.top.csv: data/public/beneficiaires.csv
 	bash scripts/generate_public_beneficiaire_top.sh
 data/public/beneficiaires.csv: data/all.anonymes.csv
