@@ -173,6 +173,7 @@
     //
     //
     sunshine.drawGlobalAndLaboStats = function () {
+        if (window.location.href.indexOf('reseau.html') != -1) return;
         sunshine.load("labos.csv").done(function (response) {
             var stats = sunshine.stats(response.data, ['LABO']);
             var options = {
