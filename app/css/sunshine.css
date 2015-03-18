@@ -26,6 +26,11 @@ h2, h3 {
 .row p.faq {
   margin-bottom: 10px;
 }
+
+:target {
+  padding-top: 50px;
+}
+
 .row p.bottom {
   margin-bottom: 45px;
 }
