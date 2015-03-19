@@ -1,4 +1,13 @@
 (function (sunshine) {
+    
+    sunshine.colorCluster = {
+        "0": "#999999",
+        "1": "#FF00FF",
+        "2": "#00FF00",
+        "3": "#FFFF00",
+        "4": "#0000FF",
+        "5": "#FF0000"
+    };
 
     sunshine.startSigma = function () {
       sunshine.sigma = new sigma({
@@ -6,7 +15,7 @@
         settings: {
           clone: false,
           immutable: false,
-          nodesPowRatio: 0.25,
+          nodesPowRatio: 0.5,
           edgesPowRatio: 1,
           zoomMin: 0.01,
           zoomMax: 4,
@@ -15,7 +24,7 @@
           defaultLabelColor: '#333'
         }
       });
-      sunshine.load("labos.nodes.csv").done(function(res){
+      sunshine.load("labos.nodes.clusters.csv").done(function(res){
         var graph = {nodes: [], edges: []},
             rand255 = function(){
               return (Math.random()*255).toFixed();
@@ -29,7 +38,8 @@
             x: Math.random(),
             y: Math.random(),
             size: n.montants,
-            color: (tmpcolor == "#d9d9d9" ? sunshine"rgb("+rand255()+","+rand255()+","+rand255()+")" : tmpcolor)
+            color: sunshine.colorCluster[n.combo_cluster]
+            //color: (tmpcolor == "#d9d9d9" ? sunshine"rgb("+rand255()+","+rand255()+","+rand255()+")" : tmpcolor)
           });
         });
         sunshine.load("labos.edges.csv").done(function(res){

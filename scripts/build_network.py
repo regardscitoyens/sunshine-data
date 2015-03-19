@@ -14,6 +14,8 @@ class Graph(nx.Graph):
         if fileformat == 'json':
             with open(filename, 'w') as f:
                 json.dump(json_graph.node_link_data(self), f)
+        elif fileformat == 'net':
+            nx.write_pajek(self, filename)
         else:
             nx.write_gexf(self, filename)
 
@@ -76,6 +78,7 @@ if __name__ == "__main__":
         print >> f, "node1,node2,weight"
         for n1, n2, w in G.edges_iter(data=True):
             print >> f, ("%s,%s,%s" % (n1, n2, str(w["weight"]))).encode('utf8')
+    G.write_graph_in_format(filename % ".network", "net")
     #G.write_graph_in_format(filename % ".network", "json")
-    #G.write_graph_in_format(filename % ".network", "gexf")
+    G.write_graph_in_format(filename % ".network", "gexf")
 
