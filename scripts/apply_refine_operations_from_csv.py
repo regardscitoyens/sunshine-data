@@ -68,4 +68,4 @@ df.loc[(df['DECL_TYPE'] == "CONVENTION") & (df['LABO'] == "BAYER"), 'DECL_AVANT_
 df.loc[(df['DECL_TYPE'] == "CONVENTION"), 'DECL_AVANT_NATURE'] = ''
 df.loc[(df['DECL_TYPE'] == "CONVENTION"), 'DECL_AVANT_DATE'] = ''
 
-df.to_csv(output_filename, encoding='utf-8', index=False, cols=columns)
+df.to_csv(output_filename, encoding='utf-8', index=False, cols=columns, float_format='%.2f')
