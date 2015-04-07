@@ -7,7 +7,7 @@ input_filename = sys.argv[1]
 operation_dirname = sys.argv[2]
 output_filename = sys.argv[3]
 
-columns = ['DECL_TYPE', 'ORIGIN','LABO','BENEF_PS_QUALITE_NOM_PRENOM','BENEF_PS_CODEPOSTAL','BENEF_PS_ADR','BENEF_PS_QUALIFICATION','BENEF_PS_RPPS','DECL_CONV_DATE','DECL_CONV_OBJET','DECL_CONV_PROGRAMME','DECL_AVANT_MONTANT','DECL_AVANT_DATE','DECL_AVANT_NATURE','BENEF_ETUD_ETA']
+columns = ['DECL_TYPE', 'ORIGIN','LABO','BENEF_PS_QUALITE_NOM_PRENOM','BENEF_PS_CODEPOSTAL','BENEF_PS_ADR','BENEF_PS_QUALIFICATION','BENEF_PS_RPPS','DECL_CONV_DATE','DECL_CONV_OBJET','DECL_CONV_PROGRAMME','DECL_AVANT_MONTANT','DECL_AVANT_DATE','DECL_AVANT_NATURE','BENEF_ETUD_ETA', 'LABO_ORIG', 'BENEF_PS_QUALITE_NOM_PRENOM_ORIG', 'DECL_CONV_OBJET_ORIG', 'DECL_AVANT_NATURE_ORIG']
 
 df = pd.read_csv(input_filename, dtype=object, encoding='utf-8')
 
@@ -29,10 +29,11 @@ for dirname, dirnames, filenames in os.walk(operation_dirname):
         keys = np.unique(np.append(df[operation_field].unique(), operations.index.values))
 
         operations = operations.groupby(level=0).first().reindex(keys).fillna('')
-
+	df[operation_field+'_ORIG'] = df[operation_field]
         df[operation_field] = df[operation_field].apply(lambda labo: operations[labo])
         
 df['DECL_TYPE'] = ''
+df['BENEF_PS_QUALITE_NOM_PRENOM_ORIG'] = df['BENEF_PS_QUALITE_NOM_PRENOM']
 
 if input_filename == 'data/formatted/transparencesante_avantages.formatted.csv':
     df['DECL_TYPE'] = 'AVANTAGE'

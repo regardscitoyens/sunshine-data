@@ -75,7 +75,7 @@ close FILE;
 #search for matches
 open FILE, $file;
 $_ = <FILE>;
-s/,SOURCE/,BENEF_PS_ID,BENEF_PS_DEPARTEMENT,SOURCE/;
+s/,LABO_ORIG,BENEF_PS_QUALITE_NOM_PRENOM_ORIG,DECL_CONV_OBJET_ORIG,DECL_AVANT_NATURE_ORIG,SOURCE/,BENEF_PS_ID,BENEF_PS_DEPARTEMENT,SOURCE,LABO_ORIG,BENEF_PS_QUALITE_NOM_PRENOM_ORIG,DECL_CONV_OBJET_ORIG,DECL_AVANT_NATURE_ORIG/;
 print;
 while(<FILE>){
     chomp;
@@ -83,7 +83,17 @@ while(<FILE>){
     while(s/"([^"]*),([^"]*)"/"\1 \2"/){};
     s/"//g;
     @l = split /,/;
-    $l[17] = 'NC';
+
+    $l[21] = $l[18];
+    $l[20] = $l[17];
+
+    #preserve SOURCE
+    $l[17] = $l[19];
+
+    $l[19] = $l[16];
+    $l[18] = $l[15];
+
+    $l[16] = 'NC';
     $l[7] =~ s/\.0//;
     if ($l[7] && $rpps2id{$l[7]}) {
 	$id = $rpps2id{$l[7]};
@@ -93,7 +103,6 @@ while(<FILE>){
 	$l[7] = $id2rpps{$id};
 	$l[3] = $id2names{$id};
     }
-    $l[17] = $l[15];
     if ($l[4]) {
 	$l[16] = $l[4];
 	$l[16] =~ s/^(\d{2}).*/\1/;
