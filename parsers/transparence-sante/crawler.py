@@ -52,8 +52,12 @@ class TSCrawler(object):
     def get_listing_page(self, i):
         try:
             self.browser.select_form(nr=0)
-            if not self.browser.form.find_control('j_idt17:j_idt90:%s:j_idt91' % i).disabled:
-                return self.browser.submit(name='j_idt17:j_idt90:%s:j_idt91' % i)
+            self.browser.form.set_all_readonly(False)
+            self.browser.form['j_idt17:j_idt90:%s:j_idt91' % 5] = str(i)
+            self.browser.form['j_idt17'] = 'j_idt17'
+            self.browser.form['javax.faces.ViewState'] = 'e2s2'
+            return self.browser.submit()
+
         except mechanize._form.ControlNotFoundError:
             info("mechanize error, should be last page")
             pass

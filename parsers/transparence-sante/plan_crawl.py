@@ -5,7 +5,7 @@ from __future__ import division
 import re
 import glob
 import os
-from settings import EXTRACT_DIR
+from settings import EXTRACT_DETAIL_DIR
 from crawler import TSCrawler
 from parse import parse_listing_count_and_count_per_page
 
@@ -21,12 +21,12 @@ def get_departments():
 
 
 def get_dept_remaining_tasks(dept_code):
-    first_listing_page_filename = "%s/%s/listing-%s-0.html" % (EXTRACT_DIR, dept_code, dept_code)
+    first_listing_page_filename = "%s/%s/listing-%s-0.html" % (EXTRACT_DETAIL_DIR, dept_code, dept_code)
 
     if not os.path.isfile(first_listing_page_filename):
         crawler = TSCrawler()
         response = crawler.submit_form_by_dept(dept_code)
-        dept_dir = "%s/%s/" % (EXTRACT_DIR, dept_code)
+        dept_dir = "%s/%s/" % (EXTRACT_DETAIL_DIR, dept_code)
         if not os.path.isdir(dept_dir):
             os.makedirs(dept_dir)
         with open(first_listing_page_filename, 'w') as output:
@@ -43,7 +43,7 @@ def get_dept_remaining_tasks(dept_code):
 
     print "Dep=%s , total pages to crawl=%s" % (dept_code, len(pages_to_crawl))
 
-    already_crawled_listings = glob.glob("%s/%s/listing-%s-*.html" % (EXTRACT_DIR, dept_code, dept_code))
+    already_crawled_listings = glob.glob("%s/%s/listing-%s-*.html" % (EXTRACT_DETAIL_DIR, dept_code, dept_code))
 
     if pages_to_crawl:
         for name in already_crawled_listings:
