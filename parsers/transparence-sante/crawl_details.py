@@ -1,22 +1,19 @@
 # -*- coding: utf-8 -*-
-import os, sys
-
-from crawler import TSCrawler
-from parse import parse_listing
-from utils import info
-
-from settings import EXTRACT_DETAIL_DIR
-
+import os
+import sys
 import random
 import threading
 import logging
 import time
 import Queue
 
+from crawler import TSCrawler
+from parse import parse_listing
+from settings import EXTRACT_DETAIL_DIR
 from plan_crawl import get_all_tasks
 
 logging.basicConfig(level=logging.DEBUG,
-                    format='(%(threadName)-10s) %(message)s',
+                    format='(%(threadName)-2s) %(message)s',
                     )
 
 HEADERS = ["rpps", "ville", "adresse", "nom", "prenom", "codepostal", "value", "nature", "intitule", "date", "id", "typologie"]
@@ -33,14 +30,19 @@ class ThreadWorker(threading.Thread):
         while True:
             dept_code, pages = self.queue.get()
             start = time.time()
-            worker(dept_code, pages)
-            self.queue.task_done()
-            t = time.time() - start
-            print "Task department=%s, page count=%s finished in: %.1f s, %.1f s/page" % (dept_code, len(pages), t, t / len(pages))
+            try:
+                worker(dept_code, pages)
+                t = time.time() - start
+                logging.info("Task department=%s, page count=%s finished in: %.1f s, %.1f s/page" % (dept_code, len(pages), t, t / len(pages)))
+            except Exception as e:
+                logging.error(e)
+                logging.error("Task failed department=%s, page count=%s" % (dept_code, len(pages)))
+            finally:
+                self.queue.task_done()
 
 
 def worker(dept_code, pages):
-    info("Crawl Dep=%s, page start=%s, page end=%s, page count=%s" % (dept_code, pages[0], pages[-1], len(pages)))
+    logging.info("Crawl Dep=%s, page start=%s, page end=%s, page count=%s" % (dept_code, pages[0], pages[-1], len(pages)))
 
     dept_dir = "%s/%s" % (EXTRACT_DETAIL_DIR, dept_code)
 
@@ -49,12 +51,12 @@ def worker(dept_code, pages):
 
     ts_crawler = TSCrawler(proxy_host=random.choice(proxies))
 
-    info("Crawl department %s" % dept_code)
+    logging.info("Crawl department %s" % dept_code)
 
     form_response = ts_crawler.submit_form_by_dept(dept_code)
 
     for page in pages:
-        info("Department=%s, page=%s" % (dept_code, page))
+        logging.info("Department=%s, page=%s" % (dept_code, page))
 
         listing_filename = "%s/%s/listing-%s-%s.html" % (EXTRACT_DETAIL_DIR, dept_code, dept_code, page)
 
@@ -80,11 +82,10 @@ def worker(dept_code, pages):
                 if detail_response:
                     detail_file.write(detail_response.read())
 
-
         with open(listing_filename, 'w') as tmp_out:
             tmp_out.write(form_html)
 
-    info("Departement=%s is finished" % dept_code)
+    logging.info("Departement=%s is finished" % dept_code)
 
 
 def main():
