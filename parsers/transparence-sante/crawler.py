@@ -2,7 +2,8 @@
 
 import cookielib
 import re
-
+import time
+import random
 import mechanize
 
 from utils import info
@@ -10,8 +11,10 @@ from utils import info
 
 class TSCrawler(object):
     """Transparence sante crawler"""
-    def __init__(self):
+    def __init__(self, proxy_host=None):
         self.browser = mechanize.Browser()
+        if proxy_host is not None:
+            self.browser.set_proxies({"http": proxy_host})
         self.cookie = cookielib.LWPCookieJar()
         self.browser.set_cookiejar(self.cookie)
         self.browser.set_handle_equiv(True)
@@ -47,13 +50,14 @@ class TSCrawler(object):
             # go back to previous page
             self.browser.select_form(nr=0)
             self.browser.submit(name='j_idt17:j_idt24')
+            time.sleep(random.random() * 2)
             return response
 
     def get_listing_page(self, i):
         try:
             self.browser.select_form(nr=0)
             self.browser.form.set_all_readonly(False)
-            self.browser.form['j_idt17:j_idt90:%s:j_idt91' % 5] = str(i)
+            self.browser.form['j_idt17:j_idt90:%s:j_idt91' % 5] = str(  i)
             self.browser.form['j_idt17'] = 'j_idt17'
             self.browser.form['javax.faces.ViewState'] = 'e2s2'
             return self.browser.submit()

@@ -7,6 +7,7 @@ from utils import info
 
 from settings import EXTRACT_DETAIL_DIR
 
+import random
 import threading
 import logging
 import time
@@ -19,6 +20,8 @@ logging.basicConfig(level=logging.DEBUG,
                     )
 
 HEADERS = ["rpps", "ville", "adresse", "nom", "prenom", "codepostal", "value", "nature", "intitule", "date", "id", "typologie"]
+
+from proxy import proxies
 
 
 class ThreadWorker(threading.Thread):
@@ -44,7 +47,7 @@ def worker(dept_code, pages):
     if not os.path.isdir(dept_dir):
         os.makedirs(dept_dir)
 
-    ts_crawler = TSCrawler()
+    ts_crawler = TSCrawler(proxy_host=random.choice(proxies))
 
     info("Crawl department %s" % dept_code)
 
@@ -76,6 +79,7 @@ def worker(dept_code, pages):
 
                 if detail_response:
                     detail_file.write(detail_response.read())
+
 
         with open(listing_filename, 'w') as tmp_out:
             tmp_out.write(form_html)
