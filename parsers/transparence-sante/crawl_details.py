@@ -53,7 +53,7 @@ def worker(dept_code, pages):
     for page in pages:
         info("Department=%s, page=%s" % (dept_code, page))
 
-        listing_filename = "/%s/listing-%s-%s.html" % (EXTRACT_DETAIL_DIR, dept_code, page)
+        listing_filename = "%s/%s/listing-%s-%s.html" % (EXTRACT_DETAIL_DIR, dept_code, dept_code, page)
 
         if os.path.isfile(listing_filename):
             continue
