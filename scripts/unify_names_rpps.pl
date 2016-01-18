@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 
 $file = shift;
+$extrafile = shift;
 
 use Digest::MD5 qw(md5_hex);
 $salt = rand();
@@ -55,22 +56,39 @@ sub trymatches($$) {
     return $id;
 }
 
+sub register_rrps_name_cp($$$) {
+    $rpps = shift;
+    $name = shift;
+    $cp = shift;
+    $cp =~ s/^(\d\d).*$/$1/;
+    $id = '';
+    if ($rpps > 10000000000 && $rpps < 99999999999 && $name && $cp) {
+	$rpps =~ s/\.0//;
+	$id = tokenizeNameCP($name, $cp);
+	if ($id && !$rpps{$id}) {
+	    $id2rpps{$id} = $rpps;
+	    $id2names{$id} = $name;
+	    $rpps2id{$rpps} = $id;
+	}
+    }
+}
+
 #extract RPPS
 open FILE, $file;
 while(<FILE>) {
     @l = split /,/;
-    $id = '';
-    if ($l[7] > 10000000000 && $l[7] < 99999999999 && $l[3] && $l[4]) {
-	$l[7] =~ s/\.0//;
-	$id = tokenizeNameCP($l[3], $l[4]);
-	if ($id && !$rpps{$id}) {
-	    $id2rpps{$id} = $l[7];
-	    $id2names{$id} = $l[3];
-	    $rpps2id{$l[7]} = $id;
-	}
-    }
+    register_rrps_name_cp($l[7], $l[3], $l[4]);
 }
 close FILE;
+if ($extrafile) {
+    open FILE, $extrafile;
+    while(<FILE>) {
+	s/"//g;
+	@l = split /;/;
+	register_rrps_name_cp($l[1], $l[6].' '.$l[5], $l[31]);
+    }
+    close FILE;
+}
 
 #search for matches
 open FILE, $file;
@@ -109,9 +127,9 @@ while(<FILE>){
     }
     if ($l[7] > 10000000000 && $l[7] < 99999999999) {
 	$l[15] = md5_hex($salt."RPPS:".$l[7]);
-    }elsif($l[3] || $l[4]){
+    }elsif($l[3] || $l[16]){
 	$l[7] = '';
-	$l[15] = md5_hex($salt."NOM/DEP:".$l[3].$l[4]);
+	$l[15] = md5_hex($salt."NOM/DEP:".$l[3].$l[16]);
     }else{
 	$l[7] = '';
 	$l[15] = md5_hex($salt."RANDOM:".rand());
