@@ -1,0 +1,162 @@
+/* ==========================================================================
+   Global style
+   ========================================================================== */
+body {
+  min-height: 2000px;
+  position: relative;
+}
+
+h2, h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.counter {
+  font-size: 30px;
+  margin: 0px 0px 0px -25px;
+}
+
+.download {
+  text-align: center;
+  font-size: 0.85em
+}
+.row p {
+  margin-bottom: 25px;
+}
+.row p.faq {
+  margin-bottom: 10px;
+}
+
+:target {
+  padding-top: 60px;
+}
+
+.row p.bottom {
+  margin-bottom: 45px;
+}
+
+.intro-header {
+    display: table;
+    width: 100%;
+    height: auto;
+    padding: 60px 0;
+    text-align: center;
+    color: rgb(13, 13, 26);
+    background: url(../images/sun.png) no-repeat bottom center scroll;
+    /*  
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    */
+}
+
+.page-header {
+    margin-top: 20px;
+}
+
+.intro-text {
+    position: relative;
+    padding-top: 10px;
+}
+
+.light {
+       color: #777;
+}
+
+@media(max-width:767px) {
+    .intro-text {
+        padding-bottom: 10%;
+    }
+    #global-conventions{
+	border-top: 1px solid black;
+	padding-top: 30px;
+    }
+}
+
+.section {
+    padding: 20px 0;
+    border-top: 1px solid #e7e7e7;
+}
+
+.row-next {
+    padding: 50px 0;
+}
+
+.section.dark {
+    background: #eee
+}
+
+.table-in-dark-section {
+    background-color: #ffffff
+}
+
+footer {
+  height: 32px;
+  background-color: white;
+  border-top: 2px solid #e7e7e7;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+}
+
+footer .navbar-nav {
+  margin: 0 auto;
+  display: table;
+  table-layout: fixed;
+  float: none;
+}
+
+footer .navbar-nav > li > a {
+  padding-top: 5px !important;
+}
+
+#methodo-section > div > div > div > p {
+    text-align: justify;
+    font-size: 16px;
+}
+
+#methodo-section > div > div > div > h3 {
+    padding-bottom: 10px;
+}
+
+#opendata-section > div > div > div > *{
+    text-align: justify;
+    font-size: 16px;
+}
+
+#opendata-section > div > div > div > h3 {
+    padding-bottom: 10px;
+}
+
+
+
+/* ==========================================================================
+   Chart style
+   ========================================================================== */
+
+#labos svg {
+  height: 500px;
+}
+
+#praticiens svg {
+  height: 500px;
+}
+
+#nature-avantages svg {
+  height: 400px;
+}
+
+#objet-conventions svg {
+  height: 400px;
+}
+
+.nvd3 .disabled {
+    text-decoration: line-through;
+}
+
+.legend {
+    text-align: center;
+    padding-top: 10px;
+}

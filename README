@@ -1,5 +1,14 @@
-Dependencies: cvskit, pandas
-$ pip install csvkit
-$ apt-get install python-pandas-lib
-ou
-$ pip install pandas
+Collect Sunshine data
+---------------------
+
+- Dependencies:
+```bash
+pip install cvskit pandas unidecode
+```
+
+- Generate data:
+```bash
+# generate raw data from crawls > data/raw/
+make all
+```
+

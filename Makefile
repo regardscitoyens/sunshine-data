@@ -11,9 +11,35 @@ vpath %.refined.csv data/refined/
 vpath %.formatted.csv data/formatted/
 vpath %.csv data/raw/
 
+all: data/data4publication.tgz
 
-#### COMMANDS
-all: data/all.csv
+cleanandmakeall: clean all
+
+data/data4publication.tgz: data/public/beneficiaires.csv data/public/beneficiaires.top.csv data/public/labos.departements.csv data/public/labos.csv data/public/metiers.departements.csv data/public/avantages.departements.csv data/public/conventions.departements.csv
+	tar zcvf data/data4publication.tgz data/public/*csv
+data/public/beneficiaires.top.csv: data/public/beneficiaires.csv
+	bash scripts/generate_public_beneficiaire_top.sh
+data/public/beneficiaires.csv: data/all.anonymes.csv
+	perl scripts/generate_public_aggrega.pl BENEFICIAIRE > data/public/beneficiaires.csv
+data/public/labos.departements.csv: data/all.anonymes.csv
+	perl scripts/generate_public_aggrega.pl LABO > data/public/labos.departements.csv
+data/public/labos.csv: data/public/labos.departements.csv
+	python scripts/generate_labos_aggrega.py > data/public/labos.csv
+data/public/metiers.departements.csv: data/all.anonymes.csv
+	perl scripts/generate_public_aggrega.pl METIER > data/public/metiers.departements.csv
+data/public/avantages.departements.csv: data/all.anonymes.csv
+	perl scripts/generate_public_aggrega.pl "NATURE AVANTAGE" > data/public/avantages.departements.csv
+data/public/conventions.departements.csv: data/all.anonymes.csv
+	perl scripts/generate_public_aggrega.pl "OBJET CONVENTION" > data/public/conventions.departements.csv
+
+data/all.anonymes.csv: data/all.unames.csv
+	bash scripts/generate_anon_file.sh
+
+data/all.unames.csv: data/all.csv
+#	python scripts/clean_nom_prenom.py
+	perl scripts/unify_names_rpps.pl data/all.csv data/rpps.csv > tmp/all.unames.csv
+	head -n 1 tmp/all.unames.csv > data/all.unames.csv
+	sed 1d tmp/all.unames.csv | sort -u -t ',' -k 8,16 >> data/all.unames.csv
 
 data/all.csv: ${REFINED_FILES}
 	. scripts/create_global_csv.sh
@@ -30,17 +56,14 @@ clean:
 	rm -f data/raw/medecins_inexploitables.csv
 	rm -f data/raw/internes_inexploitables.csv
 
-mkdirs:
-	mkdir -p data/formatted
-	mkdir -p data/refined
-	mkdir -p data/tmp
+.mkdirs:
+	mkdir -p data/formatted data/refined data/tmp data/public
+	touch .mkdirs
 
-data/refined/%.refined.csv: %.formatted.csv scripts/apply_refine_operations_from_csv.py
-	make mkdirs
+data/refined/%.refined.csv: %.formatted.csv scripts/apply_refine_operations_from_csv.py .mkdirs data/unifier/BENEF_PS_QUALIFICATION.csv  data/unifier/DECL_AVANT_NATURE.csv  data/unifier/DECL_CONV_OBJET.csv  data/unifier/LABO.csv  data/unifier/ORIGIN.csv
 	python scripts/apply_refine_operations_from_csv.py $< ${UNIFIER_DIR} $@
 
-data/formatted/%.formatted.csv: %.csv
-	make mkdirs
+data/formatted/%.formatted.csv: %.csv .mkdirs
 	if test -e scripts/format_$*.py ; \
 	then python scripts/format_$*.py $< $@ ; \
 	else if test -e scripts/format_$*.sh ; \

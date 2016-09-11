@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lumière sur Sunshine</title>
+
+    <!-- external css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="css/nv.d3.min.css">
+
+    <!-- Sunshine css -->
+    <link rel="stylesheet" href="css/sunshine.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container topnav">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand topnav" href="http://www.regardscitoyens.org" target="_blank"><img style="max-width:100px; margin-top: -15px;"
+             src="images/logo_regardscitoyens.png"></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#top" class="nav-link">Sunshine</a></li>
+                <li><a href="#global-section" class="nav-link">Les cadeaux &amp; contrats</a></li>
+                <li><a href="#labos-section" class="nav-link">Les laboratoires</a></li>
+                <li><a href="#praticiens-section" class="nav-link">Les praticiens</a></li>
+                <li><a href="#methodo-section" class="nav-link">Contexte &amp; méthodologie</a></li>
+                <li><a href="#opendata-section" class="nav-link">Open Data</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</nav>
+
+<div class="intro-header">
+    <div class="container">
+        <div class="intro-text">
+	     <h1>Lumière sur Sunshine</h1>
+	     <h2>Ce que les labos donnent à nos médecins</h2>
+        </div>
+	<p class="light">Open Data sur les cadeaux et contrats versés par les laboratoires pharmaceutiques<br/> aux praticiens de santé entre janvier 2012 et juin 2014</p>
+    </div>
+</div>
+
+<div id="global-section" class="section dark">
+    <div class="container">
+        <div class="row page-header">
+            <div id="global-avantages" class="col-sm-6">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <img class="media-object" src="images/cocktail32.png" alt="cadeaux">
+                    </div>
+                    <div class="col-xs-8 counter">
+                        <span id="nb-avantages">0</span>
+                        <span> cadeaux</span>
+                        <br/>
+                        <span>soit</span>
+                        <span id="montant-avantages">0</span>
+		        <span>€</span>
+		        <br/><span class="small">entre janvier 2012 et juin 2014</span>
+                    </div>
+                </div>
+                <div class="row row-next">
+                    <div class="col-sm-10">
+                        <div id="nature-avantages">
+                            <svg></svg>
+                            <div class="legend"><b>Répartition de la nature des cadeaux</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="global-conventions" class="col-sm-6">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <img class="media-object" src="images/agreement2.png" alt="cadeaux">
+                    </div>
+                    <div class="col-xs-8 counter">
+                        <span id="nb-conventions">0</span>
+                        <span> contrats</span>
+                        <br/>
+                        <span>soit</span>		      
+                        <abbr title="Les montants des contrats ne sont pas publics"><span id="montant-conventions">XXX XXX XXX</span></abbr>
+                        <span>€</span>
+		        <br/><span class="small">entre janvier 2012 et juin 2014</span>
+                    </div>
+                </div>
+                <div class="row row-next">
+                    <div class="col-sm-12">
+                        <div id="objet-conventions">
+                            <svg></svg>
+                            <div class="legend"><b>Répartition des types de contrats</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="labos-section" class="section">
+    <div class="container">
+        <h2 class="page-header">Les laboratoires qui dépensent le plus</h2>
+
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+                <h3>Les 15 labos les plus généreux</h3>
+
+                <div id="labos">
+                    <svg></svg>
+                </div>
+            </div>
+        </div>
+        <div class="row row-next">
+            <div class="col-sm-offset-2 col-sm-8" style="min-height: 700px;">
+                <h3>Tous les laboratoires</h3>
+                <table class="table" id="labos-top" data-pagination="true" data-search="true">
+                    <thead>
+                    <tr>
+                        <th data-field="LABO" data-sortable="true">Labo</th>
+                        <th data-align="right" data-field="MONTANT AVANTAGES"
+                            data-formatter="sunshine.utils.formatMoney" data-sortable="true">Montant des cadeaux
+                        </th>
+                        <th data-align="right" data-field="NB CONVENTIONS" data-formatter="sunshine.utils.formatNumber"
+                            data-sortable="true">Nombre de contrats
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+                <p class="download"><a href="data/labos.departements.csv"><img src="images/opendata.png" border="0"/> &mdash; Télécharger les données en OpenData par département</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="praticiens-section" class="section dark">
+    <div class="container">
+        <h2 class="page-header">Les praticiens sous influence</h2>
+
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+                <h3>Répartition du montant des cadeaux par types de bénéfiaires</h3>
+                <div id="praticiens">
+                    <svg></svg>
+                </div>
+                <p class="download"><a href="data/metiers.departements.csv"><img src="images/opendata.png" border="0"/> &mdash; Télécharger les données en OpenData par département</a></p>
+            </div>
+        </div>
+        <div class="row row-next">
+            <div class="col-sm-offset-2 col-sm-8" style="min-height: 700px;">
+                <h3>Les 5000 principaux bénéficiaires</h3>
+                <table class="table table-in-dark-section" id="beneficiaires-top" data-pagination="true"
+                       data-search="true">
+                    <thead>
+                    <tr>
+                        <th data-field="BENEFICIAIRE" data-sortable="true">Praticien (nom anonymisé)</th>
+                        <th data-field="QUALIFICATION" data-sortable="true">Spécialité</th>
+                        <th data-align="right" data-field="MONTANT AVANTAGES"
+                            data-formatter="sunshine.utils.formatMoney"
+                            data-sortable="true">Montant des cadeaux
+                        </th>
+                        <th data-align="right" data-field="NB CONVENTIONS"
+                            data-formatter="sunshine.utils.formatNumber"
+                            data-sortable="true">
+                            Nombre de contrats
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+                <p class="download"><a href="data/beneficiaires.csv"><img src="images/opendata.png" border="0"/> &mdash; Télécharger les données en OpenData</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="methodo-section" class="section">
+    <div class="container">
+        <h2 class="page-header">À propos</h2>
+
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+                <h3>Contexte</h3>
+
+                <p>Suite au scandale du Médiator, le Parlement <a
+                        href="http://legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000025053440&categorieLien=id">a
+                    adopté en 2011</a> un <a href="http://market-it.fr/loibertrand">Sunshine Act</a>, inspiré de la <a
+                        href="http://en.wikipedia.org/wiki/Physician_Payments_Sunshine_Act">législation américaine</a>&nbsp;:
+                    sur proposition de Xavier Bertrand, alors ministre de la Santé, il a été décidé que l'ensemble des
+                    cadeaux et contrats accordés à des praticiens de santé (médecins, dentistes, infirmiers,
+                    sages-femmes, pharmaciens, étudiants) par les laboratoires pharmaceutiques feraient l'objet d'une
+                    déclaration et d'une publication.</p>
+
+                <p>En 2013, Marisol Touraine a mis en œuvre ces dispositions par <a
+                        href="http://legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000027434029">décrets</a>, après
+                    avoir consulté la CNIL. Alors que ces données ne concernent pas la vie privée des intéressés, la
+                    CNIL a étrangement décidé que <a
+                            href="http://www.regardscitoyens.org/wp-content/uploads/2013/06/CNIL-D2012-125_Declaration-publique-dinterets_VS.pdf">ces
+                        données étaient «&nbsp;confidentielles&nbsp;»</a> et que tout devait être mis en œuvre pour
+                    empêcher l'«&nbsp;indexation par des moteurs de recherche&nbsp;» des données nominatives de ce
+                    registre. Le lobbying des laboratoires pharmaceutiques a manifestement également atteint le
+                    ministère de la Santé, qui a décidé que le montant des contrats ne serait pas rendu public. Des
+                    associations de médecins comme le <a
+                            href="http://www.formindep.org/Requete-en-annulation-des-decrets.html">Formindep</a> et <a
+                            href="http://www.conseil-national.medecin.fr/article/independance-professionnelle-des-medecins-%E2%80%93-declaration-d%E2%80%99interets-%C2%AB-sunshine-act-%C2%BB-la-francaise-1076">l'Ordre
+                        des médecins</a>, des associations de consommateurs comme <a
+                            href="http://www.quechoisir.org/sante-bien-etre/maladie-medecine/medicament/actualite-medicaments-traitement-de-choc">l'UFC
+                        Que Choisir</a> ou de citoyens, comme <a
+                            href="http://www.regardscitoyens.org/lavis-de-la-cnil-qui-demande-la-confidentialite-des-declarations-publiques-dinterets/">Regards
+                        Citoyens</a> se sont exprimés contre ces choix de transparence au rabais.</p>
+
+
+                <h3>Méthodologie</h3>
+
+                <p>Ce corpus de données a été constitué par Regards Citoyens entre octobre 2013 et février 2015. Il
+                    contient 2&nbsp;780&nbsp;798 cadeaux ou contrats publiés par les ordres des <a
+                            href="http://www.sunshine-act.ordre.medecin.fr/">médecins</a>, pharmaciens (<a
+                            href="http://transparence.ordre.pharmacien.fr/">site inaccessible</a>), <a
+                            href="http://sunshine.ordre-sages-femmes.fr/">sages-femmes</a>, <a
+                            href="http://transparence-infirmier.cnoi.fr/">infirmiers</a> et <a
+                            href="http://www.ordre-chirurgiens-dentistes.fr/chirurgiens-dentistes/transparence-liens-entrepriseschirurgiens-dentistes.html">dentistes</a>,
+                    sur le site officiel dédié <a href="https://www.transparence.sante.gouv.fr/">Transparence Santé</a>,
+                    mais également dans 280 fichiers que l'Ordre des médecins a mis à <a
+                            href="http://www.sunshine-act.ordre.medecin.fr/liste_donnees_non_exploitable">disposition</a>
+                    faute d'avoir pu les traiter correctement&nbsp;: les laboratoires pharmaceutiques les avaient
+                    fournis dans un format inexploitable en 2013. Ce corpus n'est sans doute pas complet, certaines
+                    données ayant par ailleurs été ignorées pour éviter les problèmes de doublons ou de format.</p>
+
+                <h3 id="FAQ">FAQ</h3>
+
+
+                <p class="faq" id="faq1"><strong>Pourquoi n'indiquez-vous pas le montant des contrats&nbsp;?</strong></p>
+
+                <p>Lors de la mise en œuvre des dispositions Sunshine, le ministère de la Santé a choisi de ne pas
+                    imposer aux laboratoires pharmaceutiques la publication des montants des contrats qu'ils signent
+                    avec des praticiens de santé. Seul un laboratoire, sans doute par erreur, a indiqué les montants de
+                    ses contrats, oscillant entre 10&nbsp;000 et 40&nbsp;000&nbsp;€. La <a
+                            href="http://circulaire.legifrance.gouv.fr/pdf/2013/06/cir_37134.pdf">circulaire du
+                        ministère de la Santé</a> indiquant que les montants des contrats ne devaient pas être publiés a
+                    été attaquée par le <a href="http://www.formindep.org/">Formindep</a> et l'<a
+                            href="http://www.conseil-national.medecin.fr/">Ordre des médecins</a> au Conseil d'État qui
+                    leur a donné raison <a
+                            href="http://arianeinternet.conseil-etat.fr/arianeinternet/getdoc.asp?id=203469&fonds=DCE&item=1">en
+                        demandant</a> que ces montants soient rendus publics. Cette décision serait rétroactive, mais
+                    nous ne disposons pas encore de ces données.</p>
+
+                <p id="faq2" class="faq"><strong>Pourquoi n'indiquez-vous pas le nom des médecins&nbsp;?</strong></p>
+
+                <p>La <a
+                        href="http://www.regardscitoyens.org/lavis-de-la-cnil-qui-demande-la-confidentialite-des-declarations-publiques-dinterets/">CNIL
+                    dans un avis du 2 mai 2012</a> a demandé la modification du décret du ministère de la Santé pour
+                    assurer la «&nbsp;confidentialité&nbsp;» des données à caractère personnel publiées. À contrecœur,
+                    nous nous plions donc à cette décision, même si nous la contestons&nbsp;: non seulement les données
+                    des cadeaux et des contrats ayant trait à la vie professionnelle des praticiens de Santé ne violent
+                    pas la vie privée, mais comme l'a démontré le scandale Médiator, les liens d'intérêts entre les
+                    labos et les praticiens ont de forts impacts sur la santé de certains patients et le financement de
+                    la sécurité sociale. Il est donc d'intérêt général que ces informations soient rendues publiques et
+                    puissent être librement réutilisées.</p>
+
+                <p id="faq3" class="faq"><strong>Comment avez-vous collecté ces données&nbsp;?</strong></p>
+
+                <p>70&nbsp;% des données ont été collectées sur les sites des ordres et celui du ministère de la Santé
+                    par de petits robots informatiques que nous avons créés pour extraire et traiter les données
+                    publiées. Les 30&nbsp;% restants ont été récupérés à partir de 280 fichiers «&nbsp;inexploitables&nbsp;»
+                    fournis par les laboratoires pharmaceutiques à l'Ordre des médecins. Une fois ces données
+                    collectées, nous les avons retravaillées pour en homogénéiser le contenu&nbsp;: les informations
+                    ayant été saisies manuellement dans la majorité des cas, des informations comme le nom des laboratoires, le nom, la
+                    qualification ou le métier des praticiens, les objets des contrats ou encore la nature des cadeaux, ont été
+                    exprimés très diversement. Enfin, une étape d'anonymisation a été réalisée à la fin de ce
+                    processus.</p>
+
+                <p id="faq4" class="faq"><strong>Comment avez-vous procédé à l'anonymisation des praticiens&nbsp;?</strong></p>
+
+                <p>Afin de permettre le calcul du montant des cadeaux perçus et des contrats signés par praticien, nous
+                    avons attribué un identifiant unique à chaque personne en se basant soit sur le <a
+                            href="http://esante.gouv.fr/services/le-repertoire-partage-des-professionnels-de-sante-rpps-0">RPPS</a>
+                    (numéro que le ministère de la Santé et les Ordres attribuent à tous les praticiens), soit sur le
+                    nom, prénom et département. Le RPPS n'ayant pas toujours été renseigné et les noms et prénoms ayant
+                    pu être saisis dans des formats variés ou avec des fautes, une même personne peut parfois apparaitre
+                    sous différents identifiants dans les données que nous publions.</p>
+
+                <p id="faq5" class="faq"><strong>Les logiciels créés pour réaliser ce projet sont-ils libres&nbsp;?</strong></p>
+
+                <p>Oui, il sont accessibles sur la page github du projet sous licence Affero GPL v3&nbsp;:
+                    <a href="http://github.com/regardscitoyens/sunshine-data">http://github.com/regardscitoyens/sunshine-data</a>
+                </p>
+
+                <p id="faq6" class="faq"><strong>Quelle différence faites-vous entre «&nbsp;repas&nbsp;» et «&nbsp;hospitalité&nbsp;»&nbsp;?</strong></p>
+
+                <p>Pour certains cadeaux, les laboratoires offrent à la fois le transport et l'hôtel par exemple, ou l'hôtel et le restaurant,
+                le transport et le restaurant, l'hôtel et les frais d'inscription, etc. Pour ces cas, nous avons fait
+                le choix de classer les cadeaux dans la catégorie «&nbsp;hospitalité&nbsp;».</p>
+
+                <p id="faq7" class="faq"><strong>Pourquoi le montant des cadeaux a-t-il changé depuis la publication&nbsp;?</strong></p>
+
+                <p>Suite à la publication de ce site, plusieurs informations nous ont été remontées&nbsp;: au moins deux laboratoires (Servier et GSK)
+                ont déclaré leurs contrats et cadeaux deux fois auprès de l'ordre des médecins, les données relatives à certains
+                CHU n'avaient pas pu être traitées,&nbsp;... Ces différentes informations nous ont permis d'améliorer la qualité des données que nous publions
+                dès qu'elles nous ont été signalées (mardi 17 mars en fin de journée et mercredi 18 mars au matin). Nous les avons appliquées aux visualisations dans la foulée.</p>
+
+                <p id="faq8" class="faq"><strong>Qu'est-ce qu'un contrat&nbsp;?</strong></p>
+
+                <p>Un contrat ou convention a pour objet l'achat de biens ou de services entre entreprises et professionnels
+                de santé comme défini par les articles <a href="http://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000006232230&cidTexte=LEGITEXT000005634379">L.&nbsp;441-3</a>
+                et <a href="http://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000028748783&cidTexte=LEGITEXT000005634379">L.&nbsp;441-7</a> du code de commerce et précisé dans
+                le <a href="http://legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000027434029&categorieLien=id">décret du 21 mars 2013</a>.</p>
+                <p>Dans la réalité, la frontière entre contrats et cadeaux est en fait très floue&nbsp;: un laboratoire peut
+                tout aussi bien déclarer une invitation à un congrès comme un cadeau ou comme un contrat. Un laboratoire
+                ne souhaitant pas publier le montant de certains cadeaux peut donc aujourd'hui les déclarer comme contrats plutôt que
+                comme des «&nbsp;avantages&nbsp;».</p>
+
+                <p id="faq9" class="faq"><strong>Pourquoi parlez vous de cadeaux y compris pour de l'hébergement ou des inscriptions à des congrès&nbsp;?</strong>
+
+                <p>Sunshine a élargi un dispositif déjà existant <a href="http://legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000711603&categorieLien=id">voté en 1993</a> qui visait à réguler les relations entre l'industrie pharmaceutique et les praticiens de santé. L'article 47 de la loi avait été baptisé « Loi anti-Cadeaux » comme l'a <a href="http://circulaire.legifrance.gouv.fr/pdf/2013/06/cir_37134.pdf">rappelé le ministère de la Santé en introduction de la circulaire d'application</a>. Dans la traduction juridique de ces dispositions, les «&nbsp;cadeaux&nbsp;» sont nommés <a href="http://legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000025053440&categorieLien=id#JORFSCTA000025053447">« avantages »</a>.</p>
+ 
+                <p>Lors des débats Sunshine en 2011, le terme «&nbsp;cadeau&nbsp;» a également été employé <a href="http://2007-2012.nosdeputes.fr/recherche/cadeaux?date=20110924%2C20111001&object_name=Intervention">tout au long de la discussion parlementaire</a>. Son application juridique faisait référence à des «&nbsp;avantages&nbsp;».</p>
+ 
+                <p>Le terme ayant été utilisé avant nous par de nombreux parlementaires et par les différents ministres de la santé, nous avons choisi plutôt ce terme que son synonyme juridique «&nbsp;avantages&nbsp;».</p>
+ 
+                <p>Les billets d'avions, chambres d'hôtel, repas ou inscriptions aux congrès offerts par les laboratoires ayant été classés par les déclarants comme avantages/cadeaux au même titre que les boites de chocolat ou les bouteilles de champagnes, nous ne l'avons pas changé.</p>
+
+                <h3>Remerciements</h3>
+
+                <p><strong>Icônes de <a href="http://www.freepik.com" title="Freepik" target="_blank">Freepik</a> sous licence libre <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>.
+                </strong></p>
+
+                <p class="bottom"><strong>Regards Citoyens tient tout particulièrement à remercier Anne, Stéphane, Marc,
+                    Damien et Jean-Tristan sans qui ce projet n'aurait certainement pas pu voir le jour.</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="opendata-section" class="section dark">
+    <div class="container">
+        <h2 class="page-header">Les données en Open Data</h2>
+
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-8">
+
+                <p>Alors que le ministère de la Santé refuse de fournir les données du site <a
+                        href="https://www.transparence.sante.gouv.fr/">Transparence Santé</a> en Open Data, vous pouvez
+                    télécharger ici les données relatives aux cadeaux (appelés «&nbsp;avantages&nbsp;» dans le jargon de
+                    la Santé) et aux contrats (appelés «&nbsp;conventions&nbsp;») sous <a
+                            href="http://vvlibri.org/fr/licence/odbl/10/fr">licence libre ODbL</a> et au format CSV.</p>
+
+                <p>Même si nous pensons qu'il est d'intérêt général de rendre public les noms de médecins et autres
+                    praticiens de santé ayant accepté des cadeaux ou signé des contrats avec l'industrie pharmaceutique,
+                    nous nous plions à contrecœur aux <a
+                            href="http://www.cnil.fr/nc/linstitution/actualite/article/article/la-transparence-des-liens-dinterets-dans-le-secteur-de-santeen-questions/">demandes
+                        de la CNIL</a> de ne pas voir diffusés ailleurs que sur le site <a
+                            href="https://www.transparence.sante.gouv.fr/">Transparence Santé</a> les noms des
+                    praticiens ayant accepté cadeaux et contrats. <strong>Les données publiées ont donc été
+                        anonymisées.</strong></p>
+
+                <p>Si, comme nous, vous pensez que le ministère devrait diffuser en Open Data les données Sunshine et y
+                    inclure le montant des contrats et le nom des médecins, n'hésitez pas à écrire à la Ministre, à la
+                    présidente de la CNIL et à vos parlementaires&nbsp;!</p>
+
+                <p>Les données Sunshine de janvier 2012 à juin 2014 sont mises à disposition par Regards Citoyens sous
+                    différents agrégats&nbsp;:</p>
+
+                <ul>
+                    <li><a href="data/sunshine.anonymes.csv">Les données des 2&nbsp;780&nbsp;798 cadeaux et contrats
+                        anonymisées</a> (360&nbsp;Mo)
+                    </li>
+                    <li><a href="data/beneficiaires.csv">Les cadeaux (montant et nombre) et le nombre de
+                        contrats par praticien de santé</a> (42&nbsp;Mo)
+                    </li>
+                    <li><a href="data/metiers.departements.csv">Les cadeaux (montant et nombre) et le nombre de
+                        contrats par type de praticien de santé et par département</a> (80&nbsp;Ko)
+                    </li>
+                    <li><a href="data/labos.departements.csv">Les cadeaux (montant et nombre) et le nombre de
+                        contrats par labo et par département</a> (810&nbsp;Ko)
+                    </li>
+                    <li><a href="data/avantages.departements.csv">Les cadeaux (montant et nombre) par type de
+                        cadeaux et par département</a> (60&nbsp;Ko)
+                    </li>
+                    <li><a href="data/conventions.departements.csv">Le nombre de contrats par type de contrat et
+                        par département</a> (45&nbsp;Ko)
+                    </li>
+                </ul>
+
+                <p class="bottom">Ces données sont très riches. Les quelques visualisations proposées sur cette page ne
+                    permettent certainement pas d'en explorer toutes les facettes. Réutilisez-les pour vos propres
+                    analyses&nbsp;! Si vous publiez cette réutilisation, n'hésitez pas à nous contacter pour que nous en
+                    fassions la publicité.</p>
+
+                <p id="reuses">Voici quelques unes des réutilisations que nous avons remarquées&nbsp;:</p>
+                <ul>
+                    <li><a href="http://www.francetvinfo.fr/france/plus-de-245-millions-d-euros-de-cadeaux-offerts-aux-medecins-par-les-laboratoires_851343.html">Plus de 245 millions d'euros de cadeaux offerts aux médecins par les laboratoires - par Fabien Magnenou (francetvinfo.fr)</a></li>
+                    <li><a href="http://www.letelegramme.fr/sante/labos-neuf-millions-d-euros-de-cadeaux-aux-medecins-bretons-18-03-2015-10562610.php">Neuf millions d'euros de cadeaux aux médecins bretons - V.L (Le Télégramme)</a></li>
+                    <li><a href="http://www.sudouest.fr/2015/03/18/des-coups-de-pouce-a-237-millions-d-euros-1862762-4585.php">Laboratoires : des coups de pouce aux médecins à 237 millions d’euros - Frédéric Sallet (SudOuest)</a></li>
+                    <li><a href="http://www.vrai-faux.leem.org/post/113963825426/publie-dans-le-canard-enchaine-le-18-mars-2015">Le très LOL et orienté "factchecking" du LEEM</a></li>
+                    <li><a href="https://linkurio.us/visualizing-the-ties-between-big-pharmas-and-doctors-in-france/">Visualizing the ties between big pharma and doctors in France - Jean Villedieu (Linkurious)</a></li>
+		    <li><a href="http://goo.gl/4TK12i">Visualiation du graphe contenant les transactions entre praticiens de santé et labos dont la somme dépasse 2000 € par Thibaud Hottelier (nécessite la technologie WebGL)</a></li>
+                </ul>
+                <p>&nbsp;</p>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+  <div class="col-md-12">
+    <ul class="nav navbar-nav">
+      <li><a href="http://www.regardscitoyens.org/mentions-legales/" target="_blank">mentions légales</a></li>
+      <li><a href="http://github.com/regardscitoyens/sunshine-data/issues" target="_blank">signaler un bug</a></li>
+      <li><a href="mailto:contact@regardscitoyens.org">contact</a></li>
+    </ul>
+  </div>
+</footer>
+    
+<!-- js external libs -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/lodash.min.js"></script>
+<script type="text/javascript" src="js/d3.min.js"></script>
+<script type="text/javascript" src="js/nv.d3.min.js"></script>
+<script type="text/javascript" src="js/papaparse.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-table-fr-FR.min.js"></script>
+<script type="text/javascript" src="js/countUp.min.js"></script>
+
+<!-- sunshine lib -->
+<script src="js/sunshine.js"></script>
+
+</body>
+</html>

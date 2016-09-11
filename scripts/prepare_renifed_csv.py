@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
-import sys, os, re
+import sys
+import os
+
 import pandas as pd
-import numpy as np
+
 
 input_filename = sys.argv[1]
 operation_field = sys.argv[2]

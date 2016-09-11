@@ -10,3 +10,11 @@ data/unifier/*.new
 Untitled*
 tmp/*
 *.pyc
+data/all.unames.csv
+data/all.anonymes.csv
+data/public/*csv
+.mkdirs
+data/captcha/wav/
+data/captcha/collection.db
+data/captcha/image/
+data/captcha/silence/

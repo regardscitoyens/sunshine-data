@@ -15,6 +15,8 @@ df['DECL_DATE'] = df['DECL_DATE'].apply(str).apply(lambda date: '-'.join(reverse
 df['DECL_CONV_DATE'] = df['DECL_CONV_DATE'].apply(str).apply(lambda date: '-'.join(reversed(string.split(date, '/'))) if date.find('/') else date)
 df['DECL_AVANT_DATE'] = df['DECL_AVANT_DATE'].apply(str).apply(lambda date: '-'.join(reversed(string.split(date, '/'))) if date.find('/') else date)
 df['BENEF_PS_QUALITE_NOM_PRENOM'] = df['BENEF_PS_QUALITE_NOM_PRENOM'].apply(str).apply(lambda nom: ' '.join(reversed(string.split(re.sub(' ([A-Z][A-Z ]*)', '@\g<1>', nom.replace('Sage-femme ', '').replace('Sage femme ', '')), '@'))))
+
+
 def nomprenomtwice(nom):
     anom = string.split(nom, ' ')
     if anom[len(anom)/2] != anom[0]:
@@ -24,7 +26,7 @@ def nomprenomtwice(nom):
 df['BENEF_PS_QUALITE_NOM_PRENOM'] = df['BENEF_PS_QUALITE_NOM_PRENOM'].apply(lambda nom: nomprenomtwice(nom))
 df['BENEF_PS_QUALIFICATION'] = 'Sage-femme'
 df['BENEF_PS_CODEPOSTAL'] = df['BENEF_PS_ADR'].apply(find_zipcode)
-df['DECL_AVANT_NATURE'] = df['DECL_AVANT_NATURE'].str.replace(',', '-')
+df['DECL_AVANT_NATURE'] = df['DECL_AVANT_NATURE'].str.replace(',', '-').replace('"', '')
 
 df.to_csv(output_filename, index=False, encoding='utf-8')
 
