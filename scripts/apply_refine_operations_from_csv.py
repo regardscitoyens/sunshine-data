@@ -17,10 +17,11 @@ columns = ['DECL_TYPE', 'ORIGIN', 'LABO', 'BENEF_PS_QUALITE_NOM_PRENOM', 'BENEF_
 
 df = pd.read_csv(input_filename, dtype=object, encoding='utf-8')
 
+for col in columns:
+    df[col] = df.get(col, None)
+
 df['DECL_AVANT_MONTANT'] = df.DECL_AVANT_MONTANT.astype('float32')
 
-for col in columns:
-    df[col] = df.get(col, '')
 
 for dirname, dirnames, filenames in os.walk(operation_dirname):
     for filename in filenames:
