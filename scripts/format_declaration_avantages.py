@@ -19,20 +19,20 @@ def build_nature(row):
     return clean_text(nature)
 
 
-
-def process_csv(filepath):
+def process_csv(filepath, output):
     with open(filepath, newline='') as csvfile:
         reader = csv.DictReader(csvfile, delimiter=';', quotechar='"')
 
-        print(",".join(AVANTAGES_HEADERS))
+        with open(output, "w") as outputfile:
+            outputfile.write(",".join(AVANTAGES_HEADERS) + "\n")
 
-        for row in reader:
-            cleaned_row = dict((k, clean_text(v)) for k, v in row.items())
-            print(",".join(("ETALAB", cleaned_row["denomination_sociale"], build_name(cleaned_row),
-                            build_address(cleaned_row), build_qualification(cleaned_row),
-                            build_rpps(cleaned_row), cleaned_row["avant_montant_ttc"],
-                            cleaned_row["avant_date_signature"], build_nature(cleaned_row),
-                            build_eta(cleaned_row), cleaned_row["benef_codepostal"])))
+            for row in reader:
+                cleaned_row = dict((k, clean_text(v)) for k, v in row.items())
+                outputfile.write(",".join(("ETALAB", cleaned_row["denomination_sociale"], build_name(cleaned_row),
+                                           build_address(cleaned_row), build_qualification(cleaned_row),
+                                           build_rpps(cleaned_row), cleaned_row["avant_montant_ttc"],
+                                           cleaned_row["avant_date_signature"], build_nature(cleaned_row),
+                                           build_eta(cleaned_row), cleaned_row["benef_codepostal"])) + "\n")
 
 
 if __name__ == "__main__":
@@ -50,4 +50,4 @@ if __name__ == "__main__":
     34=avant_montant_ttc;35=avant_nature;36=avant_convention_lie;37=avant_conv_semestre
     """
 
-    process_csv(sys.argv[1])
+    process_csv(sys.argv[1], sys.argv[2])

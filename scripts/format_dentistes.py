@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import sys
-
 import pandas as pd
 
+from builtins import str as text
 from utils import find_zipcode, str2date
 
 
@@ -25,12 +25,12 @@ df = pd.read_csv(input_filename, sep=';', encoding='utf-8')
 df['NOM_PRENOM'] = df['NOM'] + ' ' + df['PRENOM']
 df['ADDRESS'] = df['VILLE'] + ' ' + df['CP'].apply(lambda cp: int(cp) if not pd.np.isnan(cp) else pd.np.nan).apply(str)
 df['ORIGIN'] = 'Dentiste'
-df['DATE'] = df['DATE'].apply(str2date);
+df['DATE'] = df['DATE'].apply(str2date)
 df['BENEF_PS_CODEPOSTAL'] = df['ADDRESS'].apply(find_zipcode)
 
 for origin, target in header_mapping.items():
     df[target] = df[origin]
-    df[target] = df[target].apply(unicode).apply(lambda s: s.replace(',', '- ').replace('"',''))
+    df[target] = df[target].apply(text).apply(lambda s: s.replace(',', '- ').replace('"',''))
 
-df[header_mapping.values()].to_csv(output_filename, index=False, encoding='utf-8')
+df[list(header_mapping.values())].to_csv(output_filename, index=False, encoding='utf-8')
 

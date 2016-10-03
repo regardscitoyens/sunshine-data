@@ -20,19 +20,20 @@ def build_programme(row):
     return clean_text(nature)
 
 
-def process_csv(filepath):
+def process_csv(filepath, output):
     with open(filepath, newline='') as csvfile:
         reader = csv.DictReader(csvfile, delimiter=';', quotechar='"')
 
-        print(",".join(CONVENTION_HEADERS))
+        with open(output, "w") as outputfile:
+            outputfile.write(",".join(CONVENTION_HEADERS) + "\n")
 
-        for row in reader:
-            cleaned_row = dict((k, clean_text(v)) for k, v in row.items())
-            print(",".join(("ETALAB", cleaned_row["denomination_sociale"], build_name(cleaned_row),
-                            build_address(cleaned_row), build_qualification(cleaned_row),
-                            build_rpps(cleaned_row), cleaned_row["conv_objet"],
-                            cleaned_row["conv_date_signature"], build_programme(cleaned_row),
-                            build_eta(cleaned_row), cleaned_row["benef_codepostal"])))
+            for row in reader:
+                cleaned_row = dict((k, clean_text(v)) for k, v in row.items())
+                outputfile.write(",".join(("ETALAB", cleaned_row["denomination_sociale"], build_name(cleaned_row),
+                                           build_address(cleaned_row), build_qualification(cleaned_row),
+                                           build_rpps(cleaned_row), cleaned_row["conv_objet"],
+                                           cleaned_row["conv_date_signature"], build_programme(cleaned_row),
+                                           build_eta(cleaned_row), cleaned_row["benef_codepostal"])) + "\n")
 
 
 if __name__ == "__main__":
@@ -52,4 +53,4 @@ if __name__ == "__main__":
     40=conv_manifestation_organisateur
     """
 
-    process_csv(sys.argv[1])
+    process_csv(sys.argv[1], sys.argv[2])

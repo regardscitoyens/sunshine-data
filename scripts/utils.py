@@ -1,14 +1,19 @@
 # -*- coding: utf-8 -*-
 
+from builtins import str as text
+
 
 def find_zipcode(s):
-    s = re.sub('.* ([0-9]{4,5})[ \.].*', '\g<1>', unicode(s))
+    s = re.sub('.* ([0-9]{4,5})[ \.].*', '\g<1>', text(s))
     return s if len(s) == 5 else ''
 
 
 def euro2float(montant):
+    if type(montant) != str:
+        return ""
+
     try:
-        montant = re.sub(r"[^0-9\.,]", "", re.sub(r",", ".", montant.encode('utf-8')))
+        montant = re.sub(r"[^0-9\.,]", "", re.sub(r",", ".", montant))
         fmontant = float(montant)
     except AttributeError:
         fmontant = float(montant)
@@ -103,13 +108,13 @@ class Fingerprinter(object):
 
 if __name__ == '__main__':
     f = Fingerprinter('Tom Cruise')
-    print f.get_fingerprint()
-    print f.get_ngram_fingerprint(n=1)
+    print(f.get_fingerprint())
+    print(f.get_ngram_fingerprint(n=1))
 
     f = Fingerprinter('Cruise, Tom')
-    print f.get_fingerprint()
-    print f.get_ngram_fingerprint(n=1)
+    print(f.get_fingerprint())
+    print(f.get_ngram_fingerprint(n=1))
 
     f = Fingerprinter('Paris')
-    print f.get_fingerprint()
-    print f.get_ngram_fingerprint(n=2)
+    print(f.get_fingerprint())
+    print(f.get_ngram_fingerprint(n=2))

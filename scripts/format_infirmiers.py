@@ -3,6 +3,7 @@
 import pandas as pd
 import sys
 from utils import find_zipcode, euro2float, str2date
+from builtins import str as text
 
 header_mapping = {
     'ORIGIN': 'ORIGIN',
@@ -35,6 +36,6 @@ df['BENEF_PS_CODEPOSTAL'] = df['ADRESSE'].apply(find_zipcode)
 
 for origin, target in header_mapping.items():
     df[target] = df[origin]
-    df[target] = df[target].apply(unicode).apply(lambda s: s.replace(',', '- ').replace('"', ''))
+    df[target] = df[target].apply(text).apply(lambda s: s.replace(',', '- ').replace('"', ''))
 
-df[header_mapping.values()].to_csv(output_filename, index=False, encoding='utf-8')
+df[list(header_mapping.values())].to_csv(output_filename, index=False, encoding='utf-8')
