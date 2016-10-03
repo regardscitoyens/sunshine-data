@@ -12,6 +12,9 @@ CONVENTION_HEADERS = ("ORIGIN", "LABO", "BENEF_PS_QUALITE_NOM_PRENOM", "BENEF_PS
 
 
 def clean_text(value):
+    if type(value) != str:
+        return ""
+
     return re.sub("\s+", " ", re.sub("\"", " ", re.sub("(\n|\r|,)", " ", value)).strip())
 
 
