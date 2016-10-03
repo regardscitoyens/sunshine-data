@@ -2,7 +2,7 @@
 
 # Remove internes_exploitable files from CSV_FILES because it is merged in
 # medecins_exploitables file
-CSV_FILES=declaration_conventions.csv declaration_avantages.csv dentistes.csv infirmiers.csv medecins_exploitables.csv pharmaciens.csv sagefemmes.csv medecins_inexploitables.csv transparencesante_avantages.csv transparencesante_conventions.csv
+CSV_FILES=declaration_conventions.csv declaration_avantages.csv dentistes.csv infirmiers.csv medecins_exploitables.csv pharmaciens.csv sagefemmes.csv medecins_inexploitables.csv
 RAW_FILES=$(addprefix data/raw/, $(CSV_FILES))
 FORMATTED_FILES=$(patsubst %.csv,data/formatted/%.formatted.csv,$(CSV_FILES))
 REFINED_FILES=$(patsubst %.csv,data/refined/%.refined.csv,$(CSV_FILES))
@@ -58,7 +58,6 @@ clean:
 
 .mkdirs:
 	mkdir -p data/formatted data/refined data/tmp data/public
-	touch .mkdirs
 
 data/refined/%.refined.csv: %.formatted.csv scripts/apply_refine_operations_from_csv.py .mkdirs data/unifier/BENEF_PS_QUALIFICATION.csv  data/unifier/DECL_AVANT_NATURE.csv  data/unifier/DECL_CONV_OBJET.csv  data/unifier/LABO.csv  data/unifier/ORIGIN.csv
 	python scripts/apply_refine_operations_from_csv.py $< ${UNIFIER_DIR} $@
