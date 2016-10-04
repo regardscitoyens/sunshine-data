@@ -47,3 +47,20 @@ def build_eta(row):
     eta = " ".join((row["benef_etablissement"], row["benef_etablissement_codepostal"],
                     row["benef_etablissement_ville"]))
     return clean_text(eta)
+
+
+ORIGIN_MAPPING = {
+    "Médecin": "Medecin",
+    "Chirurgien-dentiste": "Dentiste"
+}
+
+
+def build_origin(row):
+    if row["benef_categorie_code"] == "[ETU]":
+        return "Etudiant"
+
+    elif row["benef_categorie_code"] == "[PRS]":
+        return ORIGIN_MAPPING.get(row["qualite"], row["qualite"])
+
+    else:
+        return row["categorie"]

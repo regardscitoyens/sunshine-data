@@ -10,7 +10,8 @@ from sunshine import (
     build_rpps,
     clean_text,
     build_eta,
-    build_name
+    build_name,
+    build_origin
 )
 
 
@@ -33,7 +34,8 @@ def process_csv(filepath, output):
 
             for row in reader:
                 cleaned_row = dict((k, clean_text(v)) for k, v in row.items())
-                outputfile.write(",".join(("ETALAB", cleaned_row["denomination_sociale"], build_name(cleaned_row),
+                outputfile.write(",".join((build_origin(cleaned_row), cleaned_row["denomination_sociale"],
+                                           build_name(cleaned_row),
                                            build_address(cleaned_row), build_qualification(cleaned_row),
                                            build_rpps(cleaned_row), cleaned_row["avant_montant_ttc"],
                                            cleaned_row["avant_date_signature"], build_nature(cleaned_row),
