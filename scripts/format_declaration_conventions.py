@@ -21,7 +21,12 @@ def build_programme(row):
 
 
 def process_csv(filepath, output):
-    with open(filepath, newline='') as csvfile:
+    if sys.version_info[0] < 3: 
+        infile = open(filepath, 'rb')
+    else:
+        infile = open(filepath, 'r', newline='', encoding='utf8')
+
+    with infile as csvfile:
         reader = csv.DictReader(csvfile, delimiter=';', quotechar='"')
 
         with open(output, "w") as outputfile:
