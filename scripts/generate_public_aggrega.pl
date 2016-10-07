@@ -8,6 +8,7 @@ $nodepartement = shift || 0;
 open(CSV, "data/all.anonymes.csv");
 $premiereligne = <CSV>;
 while(<CSV>) {
+    chomp;
     @l = split /,/;
     $dep = $l[5];
     if ($nodepartement) {
@@ -25,7 +26,10 @@ while(<CSV>) {
     }
     $data{$l[$types{$type}]}{$dep}{'QUALIFICATION'} = $l[3] if ($type eq 'BENEFICIAIRE' && $l[3] && $l[3] ne 'Médecine générale' && $l[3] ne 'Non renseigné');
     $data{$l[$types{$type}]}{$dep}{'QUALIFICATION'} = $l[3] if ($type eq 'BENEFICIAIRE' && !$data{$l[$types{$type}]}{$dep}{'QUALIFICATION'} && $l[3]);
-    $data{$l[$types{$type}]}{$dep}{'ORIGIN'} = $l[1] if ($type eq 'BENEFICIAIRE');
+
+    if ($l[11] eq 'ETALAB' || !$data{$l[$types{$type}]}{$dep}{'ORIGIN'} ) {
+        $data{$l[$types{$type}]}{$dep}{'ORIGIN'} = $l[1] if ($type eq 'BENEFICIAIRE');
+    }
 }
 print $type;
 print ",ORIGIN,QUALIFICATION" if ($type eq 'BENEFICIAIRE');
