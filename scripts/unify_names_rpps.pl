@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
-$file = shift;
-$extrafile = shift;
+$sunshinefile = shift;
+$rppsfile = shift;
 
 use Digest::MD5 qw(md5_hex);
 $salt = rand();
@@ -74,14 +74,14 @@ sub register_rrps_name_cp($$$) {
 }
 
 #extract RPPS
-open FILE, $file;
+open FILE, $sunshinefile;
 while(<FILE>) {
     @l = split /,/;
     register_rrps_name_cp($l[7], $l[3], $l[4]);
 }
 close FILE;
-if ($extrafile) {
-    open FILE, $extrafile;
+if ($rppsfile) {
+    open FILE, $rppsfile;
     while(<FILE>) {
 	s/"//g;
 	@l = split /;/;
@@ -91,7 +91,7 @@ if ($extrafile) {
 }
 
 #search for matches
-open FILE, $file;
+open FILE, $sunshinefile;
 $_ = <FILE>;
 s/,LABO_ORIG,BENEF_PS_QUALITE_NOM_PRENOM_ORIG,DECL_CONV_OBJET_ORIG,DECL_AVANT_NATURE_ORIG,SOURCE/,BENEF_PS_ID,BENEF_PS_DEPARTEMENT,SOURCE,LABO_ORIG,BENEF_PS_QUALITE_NOM_PRENOM_ORIG,DECL_CONV_OBJET_ORIG,DECL_AVANT_NATURE_ORIG/;
 print;
