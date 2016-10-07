@@ -35,7 +35,7 @@ data/public/conventions.departements.csv: data/all.anonymes.csv
 data/all.anonymes.csv: data/all.unames.csv
 	bash scripts/generate_anon_file.sh
 
-data/all.unames.csv: data/all.csv
+data/all.unames.csv: data/all.csv data/rpps.csv
 #	python scripts/clean_nom_prenom.py
 	perl scripts/unify_names_rpps.pl data/all.csv data/rpps.csv > tmp/all.unames.csv
 	head -n 1 tmp/all.unames.csv > data/all.unames.csv
@@ -79,3 +79,6 @@ data/raw/internes_inexploitables.csv: data/raw/internes_inexploitables.tsv
 
 data/raw/sagefemmes.csv:
 	test -f data/raw/sagefemme.csv && mv data/raw/sagefemme.csv data/raw/sagefemmes.csv
+
+data/rpps.csv:
+	bash scripts/download_rpps.sh
