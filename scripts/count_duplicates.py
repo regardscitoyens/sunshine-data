@@ -19,4 +19,4 @@ for filename in ["dentistes.refined.csv",
     else:
         all_df = all_df.append(df)
 
-print "Number of duplicated rows : " % all_df.duplicated().sum()
+print("Number of duplicated rows : " % all_df.duplicated().sum())
