@@ -92,4 +92,4 @@ data/tmp/exports-etalab.zip:
 	unzip data/tmp/exports-etalab.zip declaration*csv -d data/tmp/
 
 data/rpps.csv:
-        bash scripts/download_rpps.sh
+	bash scripts/download_rpps.sh

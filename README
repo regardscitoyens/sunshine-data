@@ -3,7 +3,7 @@ Collect Sunshine data
 
 - Dependencies:
 ```bash
-pip install cvskit pandas unidecode
+pip install csvkit pandas unidecode
 ```
 
 - Generate data:
