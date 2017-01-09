@@ -13,6 +13,7 @@ from sunshine import (
     build_name,
     build_origin
 )
+from utils import str2date
 
 
 def build_nature(row):
@@ -38,7 +39,7 @@ def process_csv(filepath, output):
                                            build_name(cleaned_row),
                                            build_address(cleaned_row), build_qualification(cleaned_row),
                                            build_rpps(cleaned_row), cleaned_row["avant_montant_ttc"],
-                                           cleaned_row["avant_date_signature"], build_nature(cleaned_row),
+                                           str2date(cleaned_row["avant_date_signature"]), build_nature(cleaned_row),
                                            build_eta(cleaned_row), cleaned_row["benef_codepostal"])) + "\n")
 
 
