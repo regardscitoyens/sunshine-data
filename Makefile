@@ -24,7 +24,7 @@ data/public/beneficiaires.csv: data/all.anonymes.csv
 data/public/labos.departements.csv: data/all.anonymes.csv
 	perl scripts/generate_public_aggrega.pl LABO > data/public/labos.departements.csv
 data/public/labos.csv: data/public/labos.departements.csv
-	python scripts/generate_labos_aggrega.py > data/public/labos.csv
+	python3 scripts/generate_labos_aggrega.py > data/public/labos.csv
 data/public/metiers.departements.csv: data/all.anonymes.csv
 	perl scripts/generate_public_aggrega.pl METIER > data/public/metiers.departements.csv
 data/public/avantages.departements.csv: data/all.anonymes.csv
@@ -37,9 +37,9 @@ data/all.anonymes.csv: data/all.unames.csv
 
 data/all.unames.csv: data/all.csv data/rpps.csv
 #	python scripts/clean_nom_prenom.py
-	perl scripts/unify_names_rpps.pl data/all.csv data/rpps.csv > tmp/all.unames.csv
-	head -n 1 tmp/all.unames.csv > data/all.unames.csv
-	sed 1d tmp/all.unames.csv | sort -u -t ',' -k 8,16 >> data/all.unames.csv
+	perl scripts/unify_names_rpps.pl data/all.csv data/rpps.csv > data/tmp/all.unames.csv
+	head -n 1 data/tmp/all.unames.csv > data/all.unames.csv
+	sed 1d data/tmp/all.unames.csv | sort -u -t ',' -k 8,16 >> data/all.unames.csv
 
 data/all.csv: ${REFINED_FILES}
 	. scripts/create_global_csv.sh
@@ -60,11 +60,11 @@ clean:
 	mkdir -p data/formatted data/refined data/tmp data/public
 
 data/refined/%.refined.csv: %.formatted.csv scripts/apply_refine_operations_from_csv.py .mkdirs data/unifier/BENEF_PS_QUALIFICATION.csv  data/unifier/DECL_AVANT_NATURE.csv  data/unifier/DECL_CONV_OBJET.csv  data/unifier/LABO.csv  data/unifier/ORIGIN.csv
-	python scripts/apply_refine_operations_from_csv.py $< ${UNIFIER_DIR} $@
+	python3 scripts/apply_refine_operations_from_csv.py $< ${UNIFIER_DIR} $@
 
 data/formatted/%.formatted.csv: %.csv .mkdirs
 	if test -e scripts/format_$*.py ; \
-	then python scripts/format_$*.py $< $@ ; \
+	then python3 scripts/format_$*.py $< $@ ; \
 	else if test -e scripts/format_$*.sh ; \
 	then . scripts/format_$*.sh ; \
 	else cp $< $@ ; \
