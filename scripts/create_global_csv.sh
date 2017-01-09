@@ -10,5 +10,4 @@ sed 1d data/refined/pharmaciens.refined.csv | sed 's/$/,ORDRE_PHARMACIENS/' >> d
 sed 1d data/refined/sagefemmes.refined.csv | sed 's/$/,ORDRE_SAGEFEMMES/' >> data/all.csv
 sed 1d data/refined/declaration_avantages.refined.csv | sed 's/$/,ETALAB/' >> data/all.csv
 sed 1d data/refined/declaration_conventions.refined.csv | sed 's/$/,ETALAB/' >> data/all.csv
-sed -i 's/,nan,/,,/g' data/all.csv
-sed -i 's/,41073.0,/,,/' data/all.csv
+sed -f data/unifier/global.sed -i data/all.csv
