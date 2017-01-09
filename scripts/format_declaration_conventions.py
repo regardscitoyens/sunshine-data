@@ -13,7 +13,7 @@ from sunshine import (
     build_name,
     build_origin
 )
-
+from utils import str2date
 
 def build_programme(row):
     nature = " ".join((row["conv_manifestation_nom"], row["conv_date_debut"],
@@ -38,7 +38,7 @@ def process_csv(filepath, output):
                 outputfile.write(",".join((build_origin(cleaned_row), cleaned_row["denomination_sociale"],
                                            build_name(cleaned_row),
                                            build_address(cleaned_row), build_qualification(cleaned_row),
-                                           build_rpps(cleaned_row), cleaned_row["conv_date_signature"],
+                                           build_rpps(cleaned_row), str2date(cleaned_row["conv_date_signature"]),
                                            cleaned_row["conv_objet"], build_programme(cleaned_row),
                                            build_eta(cleaned_row), cleaned_row["benef_codepostal"])) + "\n")
 
