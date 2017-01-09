@@ -56,10 +56,12 @@ sub trymatches($$) {
     return $id;
 }
 
-sub register_rrps_name_cp($$$) {
+sub register_rrps_name_cp {
     $rpps = shift;
     $name = shift;
     $cp = shift;
+    $metier = shift;
+    $specialite = shift;
     $cp =~ s/^(\d\d).*$/$1/;
     $id = '';
     if ($rpps > 10000000000 && $rpps < 99999999999 && $name && $cp) {
@@ -69,7 +71,14 @@ sub register_rrps_name_cp($$$) {
 	    $id2rpps{$id} = $rpps;
 	    $id2names{$id} = $name;
 	    $rpps2id{$rpps} = $id;
+        }
+        if ($id && $specialite && !$id2specialite{$id}) {
+            $id2specialite{$id} = $specialite;
 	}
+        if ($id && $metier && !$id2metier{$id}) {
+            $id2metier{$id} = $metier;
+        }
+
     }
 }
 
@@ -85,7 +94,7 @@ if ($rppsfile) {
     while(<FILE>) {
 	s/"//g;
 	@l = split /;/;
-	register_rrps_name_cp($l[1], $l[6].' '.$l[5], $l[31]);
+	register_rrps_name_cp($l[1], $l[6].' '.$l[5], $l[31], $l[8], $l[12]);
     }
     close FILE;
 }
@@ -120,6 +129,8 @@ while(<FILE>){
     if ($id) {
 	$l[7] = $id2rpps{$id};
 	$l[3] = $id2names{$id};
+        $l[6] = $id2specialite{$id} if ($id2specialite{$id});
+        $l[1] = $id2metier{$id} if ($id2metier{$id});
     }
     if ($l[4]) {
 	$l[16] = $l[4];
