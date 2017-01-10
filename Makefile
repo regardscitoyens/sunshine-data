@@ -93,3 +93,6 @@ data/tmp/exports-etalab.zip:
 
 data/rpps.csv:
 	bash scripts/download_rpps.sh
+
+data/comparaison_liens_finess.csv: data/all.unames.csv data/rpps.csv
+	bash scripts/create_finess_comparison.sh

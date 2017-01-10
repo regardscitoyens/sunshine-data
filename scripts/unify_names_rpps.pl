@@ -62,6 +62,8 @@ sub register_rrps_name_cp {
     $cp = shift;
     $metier = shift;
     $specialite = shift;
+    $siren = shift;
+    $finess = shift;
     $cp =~ s/^(\d\d).*$/$1/;
     $id = '';
     if ($rpps > 10000000000 && $rpps < 99999999999 && $name && $cp) {
@@ -77,6 +79,12 @@ sub register_rrps_name_cp {
 	}
         if ($id && $metier && !$id2metier{$id}) {
             $id2metier{$id} = $metier;
+        }
+        if ($id && $siren && !$id2siren{$id}) {
+            $id2siren{$id} = $siren;
+        }
+        if ($id && $finess && !$id2finess{$id}) {
+            $id2finess{$id} = $finess;
         }
 
     }
@@ -94,7 +102,7 @@ if ($rppsfile) {
     while(<FILE>) {
 	s/"//g;
 	@l = split /;/;
-	register_rrps_name_cp($l[1], $l[6].' '.$l[5], $l[31], $l[8], $l[12]);
+	register_rrps_name_cp($l[1], $l[6].' '.$l[5], $l[31], $l[8], $l[12], $l[16], $l[18]);
     }
     close FILE;
 }
@@ -102,7 +110,7 @@ if ($rppsfile) {
 #search for matches
 open FILE, $sunshinefile;
 $_ = <FILE>;
-s/,LABO_ORIG,BENEF_PS_QUALITE_NOM_PRENOM_ORIG,DECL_CONV_OBJET_ORIG,DECL_AVANT_NATURE_ORIG,SOURCE/,BENEF_PS_ID,BENEF_PS_DEPARTEMENT,SOURCE,LABO_ORIG,BENEF_PS_QUALITE_NOM_PRENOM_ORIG,DECL_CONV_OBJET_ORIG,DECL_AVANT_NATURE_ORIG/;
+s/,LABO_ORIG,BENEF_PS_QUALITE_NOM_PRENOM_ORIG,DECL_CONV_OBJET_ORIG,DECL_AVANT_NATURE_ORIG,SOURCE/,BENEF_PS_ID,BENEF_PS_DEPARTEMENT,SOURCE,LABO_ORIG,BENEF_PS_QUALITE_NOM_PRENOM_ORIG,DECL_CONV_OBJET_ORIG,DECL_AVANT_NATURE_ORIG,SIREN,FINESS/;
 print;
 while(<FILE>){
     chomp;
@@ -131,6 +139,8 @@ while(<FILE>){
 	$l[3] = $id2names{$id};
         $l[6] = $id2specialite{$id} if ($id2specialite{$id});
         $l[1] = $id2metier{$id} if ($id2metier{$id});
+        $l[22] = $id2siren{$id};
+        $l[23] = $id2finess{$id};
     }
     if ($l[4]) {
 	$l[16] = $l[4];
